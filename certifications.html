@@ -3,236 +3,73 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Certifications</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 
-<style>
-
-/* GLOBAL PREMIUM DARK */
-body{
-    margin:0;
-    font-family:'Inter',sans-serif;
-    background: radial-gradient(circle at top right, #0a0a15, #000);
-    color:#f5f5f5;
-    overflow-x:hidden;
-}
-
-/* NAVBAR GLASS */
-.nav{
-    position:fixed;
-    width:100%;
-    top:0;
-    display:flex;
-    justify-content:space-between;
-    padding:20px 60px;
-    backdrop-filter:blur(12px);
-    background:rgba(0,0,0,0.4);
-    border-bottom:1px solid rgba(255,255,255,0.05);
-    z-index:1000;
-}
-
-.nav a{
-    margin-left:20px;
-    color:#aaa;
-    text-decoration:none;
-    transition:0.3s;
-}
-
-.nav a:hover{
-    color:#fff;
-}
-
-/* TITLE */
-h1{
-    padding-top:120px;
-    text-align:center;
-    font-size:40px;
-}
-
-/* GRID */
-.grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-    gap:25px;
-    padding:60px;
-}
-
-/* PREMIUM CARD */
-.card{
-    position:relative;
-    padding:25px;
-    border-radius:18px;
-    background:rgba(255,255,255,0.03);
-    border:1px solid rgba(255,255,255,0.08);
-    backdrop-filter:blur(8px);
-    transition:0.4s;
-    cursor:pointer;
-}
-
-/* glow */
-.card::before{
-    content:"";
-    position:absolute;
-    inset:0;
-    border-radius:18px;
-    background:linear-gradient(120deg, transparent, rgba(120,120,255,0.15), transparent);
-    opacity:0;
-    transition:0.4s;
-}
-
-.card:hover::before{
-    opacity:1;
-}
-
-/* hover effect */
-.card:hover{
-    transform:translateY(-8px) scale(1.02);
-    border-color:rgba(255,255,255,0.2);
-}
-
-/* TEXT */
-.card span{
-    font-weight:500;
-    letter-spacing:0.5px;
-}
-
-/* MODAL */
-.modal{
-    position:fixed;
-    inset:0;
-    background:rgba(0,0,0,0.9);
-    display:none;
-    justify-content:center;
-    align-items:center;
-    z-index:2000;
-}
-
-.modal iframe{
-    width:90%;
-    height:90%;
-    border:none;
-    border-radius:10px;
-}
-
-/* CLOSE */
-.close{
-    position:absolute;
-    top:20px;
-    right:40px;
-    font-size:30px;
-    cursor:pointer;
-}
-
-/* SCROLL ANIMATION */
-.reveal{
-    opacity:0;
-    transform:translateY(40px);
-    transition:1s;
-}
-
-.reveal.active{
-    opacity:1;
-    transform:translateY(0);
-}
-
-</style>
 </head>
 
 <body>
 
-<!-- NAV -->
-<div class="nav">
-  <div>Lohith Sanju</div>
-  <div>
+<nav class="nav">
+  <h2>Lohith Sanju</h2>
+  <div class="nav-links">
     <a href="index.html">Home</a>
-    <a href="#">Projects</a>
-    <a href="#">Skills</a>
   </div>
-</div>
+</nav>
 
+<section class="section">
 <h1>My Certifications</h1>
 
-<div class="grid">
+<div class="cert-grid">
 
-<!-- ALL CERTIFICATES -->
+<!-- EXACT FILE NAMES -->
 
-<div class="card reveal" onclick="openPDF('certificates/AI FOR EVERYONE.pdf')"><span>AI FOR EVERYONE</span></div>
+<a href="certificates/EXCELR-116102-Lohith%20Sanju%20P.pdf" target="_blank" class="cert-card">EXCELR Certification</a>
 
-<div class="card reveal" onclick="openPDF('certificates/Amazon DynamoDB.pdf')"><span>Amazon DynamoDB</span></div>
+<a href="certificates/Lohith%20Sanju%20P%20Certificate.pdf" target="_blank" class="cert-card">Personal Certificate</a>
 
-<div class="card reveal" onclick="openPDF('certificates/Big Data Foundations.pdf')"><span>Big Data Foundations</span></div>
+<a href="certificates/LUEGGSSEPT12539.pdf" target="_blank" class="cert-card">LUEGGS Certification</a>
 
-<div class="card reveal" onclick="openPDF('certificates/Completed certification on core Operating Systems concepts.pdf')"><span>Operating Systems</span></div>
+<a href="certificates/Industrial-Design.pdf" target="_blank" class="cert-card">Industrial Design</a>
 
-<div class="card reveal" onclick="openPDF('certificates/Critical Thinking in the AI Era.pdf')"><span>Critical Thinking AI</span></div>
+<a href="certificates/SAI-Taranga.pdf" target="_blank" class="cert-card">SAI Taranga</a>
 
-<div class="card reveal" onclick="openPDF('certificates/Data Science & Analytics – HP LIFE.pdf')"><span>Data Analytics</span></div>
+<a href="certificates/OfferLetter_LOHITH_SANJU_P%20(1).pdf" target="_blank" class="cert-card">Offer Letter</a>
 
-<div class="card reveal" onclick="openPDF('certificates/Data Science Tools.pdf')"><span>Data Science Tools</span></div>
+<a href="certificates/Critical%20Thinking%20in%20the%20AI%20Era.pdf" target="_blank" class="cert-card">Critical Thinking AI</a>
 
-<div class="card reveal" onclick="openPDF('certificates/DSA.pdf')"><span>DSA</span></div>
+<a href="certificates/Getting%20Started%20with%20Artificial%20Intelligence.pdf" target="_blank" class="cert-card">AI Basics</a>
 
-<div class="card reveal" onclick="openPDF('certificates/Ethical Hacking & Cybersecurity organized by VaultofCodes.pdf')"><span>Cybersecurity</span></div>
+<a href="certificates/Data%20Science%20Tools.pdf" target="_blank" class="cert-card">Data Science Tools</a>
 
-<div class="card reveal" onclick="openPDF('certificates/EXCELR-116102-Lohith Sanju P.pdf')"><span>ExcelR</span></div>
+<a href="certificates/Big-Data-Foundations.pdf" target="_blank" class="cert-card">Big Data</a>
 
-<div class="card reveal" onclick="openPDF('certificates/Getting Started with Artificial Intelligence.pdf')"><span>AI Basics</span></div>
+<a href="certificates/Python%20for%20Data%20Science.pdf" target="_blank" class="cert-card">Python Data Science</a>
 
-<div class="card reveal" onclick="openPDF('certificates/Google Developer Groups .pdf')"><span>Google Dev</span></div>
+<a href="certificates/Data%20Science%20&%20Analytics%20-%20HP%20LIFE.pdf" target="_blank" class="cert-card">Data Analytics</a>
 
-<div class="card reveal" onclick="openPDF('certificates/Industrial-Design.pdf')"><span>Industrial Design</span></div>
+<a href="certificates/Ethical%20Hacking%20&%20Cybersecurity%20organized%20by%20VaultofCodes.pdf" target="_blank" class="cert-card">Cybersecurity</a>
 
-<div class="card reveal" onclick="openPDF('certificates/JavaScript Bootcamp.pdf')"><span>JavaScript</span></div>
+<a href="certificates/DSA.pdf" target="_blank" class="cert-card">DSA</a>
 
-<div class="card reveal" onclick="openPDF('certificates/Lohith Sanju P Certificate.pdf')"><span>Certificate</span></div>
+<a href="certificates/Google%20Developer%20Groups.pdf" target="_blank" class="cert-card">Google Dev</a>
 
-<div class="card reveal" onclick="openPDF('certificates/LUEGGSEPT12539.pdf')"><span>LUEGGSEPT</span></div>
+<a href="certificates/Completed%20certification%20on%20core%20Operating%20Systems%20concepts.pdf" target="_blank" class="cert-card">Operating Systems</a>
 
-<div class="card reveal" onclick="openPDF('certificates/OfferLetter_LOHITH_SANJU_P (1).pdf')"><span>Offer Letter</span></div>
+<a href="certificates/JavaScript%20Bootcamp.pdf" target="_blank" class="cert-card">JavaScript</a>
 
-<div class="card reveal" onclick="openPDF('certificates/Open Source Connect Global .pdf')"><span>Open Source</span></div>
+<a href="certificates/AI-FOR-EVERYONE.pdf" target="_blank" class="cert-card">AI for Everyone</a>
 
-<div class="card reveal" onclick="openPDF('certificates/Python for Data Science.pdf')"><span>Python</span></div>
+<a href="certificates/Open%20Source%20Connect%20Global.pdf" target="_blank" class="cert-card">Open Source</a>
 
-<div class="card reveal" onclick="openPDF('certificates/SAI-Taranga.pdf')"><span>SAI Taranga</span></div>
+<a href="certificates/Amazon-DynamoDB.pdf" target="_blank" class="cert-card">Amazon DynamoDB</a>
 
-<div class="card reveal" onclick="openPDF('certificates/skyforgerintern completion.pdf')"><span>Internship</span></div>
+<a href="certificates/skyforgerintern%20completion.pdf" target="_blank" class="cert-card">Internship</a>
 
 </div>
-
-<!-- MODAL -->
-<div class="modal" id="modal">
-  <span class="close" onclick="closePDF()">✕</span>
-  <iframe id="pdfViewer"></iframe>
-</div>
-
-<script>
-
-/* OPEN PDF */
-function openPDF(file){
-  document.getElementById("modal").style.display="flex";
-  document.getElementById("pdfViewer").src=file;
-}
-
-/* CLOSE */
-function closePDF(){
-  document.getElementById("modal").style.display="none";
-}
-
-/* SCROLL ANIMATION */
-const reveals=document.querySelectorAll(".reveal");
-
-window.addEventListener("scroll",()=>{
-  reveals.forEach(el=>{
-    const top=el.getBoundingClientRect().top;
-    if(top<window.innerHeight-100){
-      el.classList.add("active");
-    }
-  });
-});
-
-</script>
+</section>
 
 </body>
 </html>
