@@ -24,6 +24,7 @@ body{
   animation: gradientMove 12s ease-in-out infinite alternate;
 }
 
+/* FIXED KEYFRAMES */
 @keyframes gradientMove{
   from{
     background-position:30% 30%,70% 60%;
@@ -33,6 +34,7 @@ body{
   }
 }
 
+/* moving glow blob */
 .bg-blob{
   position:fixed;
   width:500px;
@@ -47,16 +49,20 @@ body{
   animation: blobMove 18s ease-in-out infinite;
 }
 
+/* FIXED KEYFRAMES (REMOVED DUPLICATE BLOCK) */
 @keyframes blobMove{
   0%{ transform:translate(-50%, -50%) scale(1); }
   50%{ transform:translate(-40%, -60%) scale(1.2); }
   100%{ transform:translate(-60%, -40%) scale(1); }
 }
 
+/* subtle noise layer */
 .bg-noise{
   position:fixed;
   width:100%;
   height:100%;
+  top:0;
+  left:0;
   z-index:-1;
   background-image:url("https://grainy-gradients.vercel.app/noise.svg");
   opacity:0.04;
@@ -79,6 +85,7 @@ body{
 .nav a{
   margin:0 20px;
   color:#aaa;
+  text-decoration:none;
 }
 
 .nav a:hover{
