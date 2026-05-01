@@ -9,20 +9,12 @@
 <link rel="stylesheet" href="style.css">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 </head>
 
 <body>
 
-<canvas id="bg"></canvas>
-
-<div class="cursor"></div>
-<div class="trail"></div>
-
+<!-- NAV -->
 <header class="nav">
-  <h2>Lohith Sanju</h2>
   <nav>
     <a href="#about">About</a>
     <a href="#projects">Work</a>
@@ -31,19 +23,33 @@
   </nav>
 </header>
 
+<!-- HERO -->
 <section class="hero">
   <h1>Lohith Sanju</h1>
   <p>Full Stack Developer | AI Developer | Data Engineer</p>
-  <button class="btn magnetic" onclick="scrollToSection('projects')">View Work</button>
+
+  <div class="hero-buttons">
+    <button onclick="scrollToSection('projects')">View Work</button>
+    <button class="outline">Download CV</button>
+  </div>
 </section>
 
+<!-- ABOUT -->
 <section id="about" class="section">
-  <h2>About</h2>
+  <h2>About Me</h2>
   <p>
-    I build scalable web systems, AI-powered solutions, and modern applications.
+    I am a results-driven Full Stack Developer specializing in building scalable web applications,
+    AI-powered systems, and data-driven solutions. With hands-on experience in React, Firebase,
+    Python, and MongoDB, I focus on creating real-world impactful products.
+  </p>
+
+  <p>
+    My approach combines clean UI/UX design, efficient backend architecture, and intelligent automation
+    to deliver high-performance applications.
   </p>
 </section>
 
+<!-- PROJECTS -->
 <section id="projects" class="section">
   <h2>Selected Work</h2>
 
@@ -51,38 +57,61 @@
 
     <div class="card" onclick="openProject('https://github.com/')">
       <h3>Smart Dashboard</h3>
-      <p>Real-time monitoring</p>
+      <p>Real-time student monitoring system</p>
     </div>
 
     <div class="card" onclick="openProject('https://github.com/')">
       <h3>FraudShield AI</h3>
-      <p>Fraud detection system</p>
+      <p>AI-based fraud detection system</p>
     </div>
 
     <div class="card" onclick="openProject('https://github.com/')">
       <h3>Vision Bridge</h3>
-      <p>Innovation platform</p>
+      <p>Innovation collaboration platform</p>
     </div>
 
   </div>
 </section>
 
+<!-- SKILLS -->
 <section id="skills" class="section">
   <h2>Skills</h2>
 
   <div class="skills">
+
     <span>JavaScript</span>
     <span>React</span>
+    <span>React Native</span>
     <span>Python</span>
     <span>Firebase</span>
     <span>MongoDB</span>
+    <span>Node.js</span>
+
     <span>AI / ML</span>
     <span>Data Science</span>
     <span>Backend</span>
     <span>UI/UX</span>
+
+    <span>Problem Solving</span>
+    <span>Prompt Engineering</span>
+    <span>Android Studio</span>
+    <span>C Programming</span>
+    <span>Communication</span>
+
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section contact">
+  <h2>Contact</h2>
+  <p>Open to collaborations and opportunities.</p>
+
+  <div class="contact-box">
+    📧 ssanju200610@gmail.com
   </div>
 </section>
 
 <script src="script.js"></script>
+
 </body>
 </html>
