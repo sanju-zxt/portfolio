@@ -1,45 +1,37 @@
-// ===== PROJECTS FIX =====
-const container = document.getElementById("projects-container");
-
-const projects = [
-  {
-    name: "Smart Dashboard",
-    desc: "Student monitoring system",
-    link: "https://github.com/sanju-zxt/smart-dashboard"
-  },
-  {
-    name: "FraudShield AI",
-    desc: "AI fraud detection",
-    link: "https://github.com/sanju-zxt/FraudShieldAI"
-  },
-  {
-    name: "Vision Bridge",
-    desc: "Innovation platform",
-    link: "https://github.com/sanju-zxt/vision-bridge"
-  }
+// PROJECTS
+const projects=[
+  {name:"Smart Dashboard",desc:"Monitoring system",link:"#"},
+  {name:"FraudShield AI",desc:"AI fraud detection",link:"#"},
+  {name:"Vision Bridge",desc:"Innovation platform",link:"#"}
 ];
+
+const container=document.getElementById("projects-container");
 
 projects.forEach(p=>{
   const div=document.createElement("div");
   div.className="project";
-
   div.innerHTML=`
     <h3>${p.name}</h3>
     <p>${p.desc}</p>
-    <a href="${p.link}" target="_blank">View →</a>
+    <a href="${p.link}">View →</a>
   `;
-
   container.appendChild(div);
 });
 
-// ===== CURSOR GLOW =====
-const cursor=document.querySelector(".cursor");
-const blur=document.querySelector(".cursor-blur");
-
+// CURSOR
 document.addEventListener("mousemove",(e)=>{
-  cursor.style.left=e.clientX+"px";
-  cursor.style.top=e.clientY+"px";
+  document.querySelector(".cursor").style.left=e.clientX+"px";
+  document.querySelector(".cursor").style.top=e.clientY+"px";
+});
 
-  blur.style.left=e.clientX-50+"px";
-  blur.style.top=e.clientY-50+"px";
+// SCROLL
+const sections=document.querySelectorAll(".section");
+
+window.addEventListener("scroll",()=>{
+  sections.forEach(sec=>{
+    if(sec.getBoundingClientRect().top<window.innerHeight-100){
+      sec.style.opacity=1;
+      sec.style.transform="translateY(0)";
+    }
+  });
 });
