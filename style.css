@@ -3,11 +3,10 @@ body{
   font-family:'Inter';
   background:#050507;
   color:white;
-  overflow-x:hidden;
   cursor:none;
 }
 
-/* WEBGL CANVAS */
+/* BACKGROUND */
 #bg{
   position:fixed;
   top:0;
@@ -31,34 +30,39 @@ body{
   padding:0 60px;
 }
 
-.hero-title{
+.hero h1{
   font-size:70px;
 }
 
 /* BUTTON */
 .btn{
-  padding:12px 20px;
-  background:#7c5cff;
+  margin-top:20px;
+  padding:12px 28px;
+  border-radius:12px;
+  background:linear-gradient(90deg,#7c5cff,#9a7cff);
   border:none;
-  border-radius:10px;
 }
 
-/* CARDS */
+/* PROJECTS */
 .projects{
   display:flex;
-  gap:20px;
+  gap:30px;
+  margin-top:40px;
 }
 
 .card{
-  background:#0b0b10;
+  width:260px;
   padding:20px;
-  border-radius:12px;
+  background:#0b0b10;
+  border-radius:16px;
   transition:0.4s;
+  text-decoration:none;
+  color:white;
 }
 
 .card:hover{
-  transform:translateY(-10px);
-  box-shadow:0 0 40px #7c5cff44;
+  transform:rotateX(8deg) rotateY(8deg) translateY(-10px);
+  box-shadow:0 0 40px #7c5cff33;
 }
 
 /* SKILLS */
@@ -77,17 +81,18 @@ body{
   background:white;
   position:fixed;
   border-radius:50%;
-  pointer-events:none;
-  z-index:1000;
 }
 
-/* TRAIL */
 .trail{
-  width:40px;
-  height:40px;
-  border-radius:50%;
+  width:25px;
+  height:25px;
   background:radial-gradient(circle,#7c5cff55,transparent);
   position:fixed;
-  pointer-events:none;
-  filter:blur(20px);
+  border-radius:50%;
+  filter:blur(15px);
+}
+
+/* SECTION SPACING */
+.section{
+  padding:120px 60px;
 }
