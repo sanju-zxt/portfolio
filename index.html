@@ -12,10 +12,11 @@
 
 <body>
 
-<!-- NAV -->
+<!-- NAVBAR -->
 <nav class="nav">
-  <h2>Lohith Sanju <span></span></h2>
-  <div>
+  <h2>Lohith Sanju <span class="dot"></span></h2>
+
+  <div class="nav-links">
     <a href="#">Home</a>
     <a href="#projects">Projects</a>
     <a href="#skills">Skills</a>
@@ -25,49 +26,67 @@
 
 <!-- HERO -->
 <section class="hero">
-  <div>
+
+  <div class="hero-left reveal">
     <p class="intro">Hi, I'm</p>
     <h1>Lohith Sanju P</h1>
+
     <h3>FULL STACK DEVELOPER | DATA ENGINEER</h3>
 
     <p class="desc">
       Building scalable web applications and intelligent solutions with modern technologies.
     </p>
 
-    <div>
+    <div class="btn-group">
       <button class="btn primary">View My Work</button>
       <button class="btn outline">Download CV</button>
     </div>
+
+    <div class="status">
+      <span>500+ Connections</span>
+      <span class="green-dot"></span>
+      <span class="green-text">Open to Work</span>
+    </div>
   </div>
+
+  <!-- GLOW CIRCLE -->
+  <div class="hero-right">
+    <div class="glow"></div>
+  </div>
+
 </section>
 
 <!-- ABOUT + PROJECT -->
-<section class="grid">
+<section class="grid-section">
 
-  <div class="card">
-    <h3>ABOUT ME</h3>
+  <div class="about-card reveal">
+    <h4>ABOUT ME</h4>
+    <h2>Passionate about turning ideas into real-world solutions.</h2>
+
     <p>
-      Passionate about building AI-powered systems and scalable applications.
+      Full Stack Developer with strong focus on AI, scalable systems and real-world applications.
     </p>
+
+    <button class="btn outline">Learn More →</button>
   </div>
 
-  <div>
-    <h3>FEATURED PROJECTS</h3>
+  <div id="projects">
+    <h4 class="section-title">FEATURED PROJECTS</h4>
 
     <div class="project-grid">
 
-      <div class="card">
-        <h4>Smart Dashboard</h4>
-        <p>Student monitoring system</p>
+      <div class="project-card tilt">
+        <h3>Smart Dashboard</h3>
+        <p>Real-time student monitoring</p>
       </div>
 
-      <div class="card">
-        <h4>FraudShield AI</h4>
-        <p>Fraud detection system</p>
+      <div class="project-card tilt">
+        <h3>FraudShield AI</h3>
+        <p>AI fraud detection system</p>
       </div>
 
-      <div class="card">
-        <h4>Vision Bridge</h4>
+      <div class="project-card tilt">
+        <h3>Vision Bridge</h3>
         <p>Innovation platform</p>
       </div>
 
@@ -86,7 +105,8 @@
 
 <!-- SKILLS -->
 <section id="skills" class="skills">
-<h3>TECHNICAL SKILLS</h3>
+
+<h4 class="section-title">TECHNICAL SKILLS</h4>
 
 <div class="skills-grid">
 <span>JavaScript</span>
@@ -107,6 +127,8 @@
 </div>
 
 </section>
+
+<script src="script.js"></script>
 
 </body>
 </html>
