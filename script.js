@@ -1,126 +1,59 @@
-// ===== SAFE INIT =====
-document.addEventListener("DOMContentLoaded", () => {
 
-  /* ===============================
-     1. TYPING ANIMATION (SAFE)
-  =============================== */
-  const roles = ["Full Stack Developer", "AI Developer", "Data Engineer"];
-  let i = 0, j = 0, current = "", deleting = false;
+// ===== PROJECTS (ROBUST FINAL) =====
+const container = document.getElementById("projects-container");
 
-  const typedEl = document.getElementById("typed");
-
-  function type() {
-    if (!typedEl) return;
-
-    if (i < roles.length) {
-
-      if (!deleting && j <= roles[i].length) {
-        current = roles[i].substring(0, j++);
-      } else if (deleting && j >= 0) {
-        current = roles[i].substring(0, j--);
-      }
-
-      typedEl.innerHTML = current;
-
-      if (j === roles[i].length) {
-        deleting = true;
-        setTimeout(type, 1000);
-        return;
-      }
-
-      if (j === 0) {
-        deleting = false;
-        i++;
-      }
-
-    } else {
-      i = 0;
-    }
-
-    setTimeout(type, deleting ? 50 : 100);
+const manualProjects = [
+  {
+    name: "Smart Dashboard",
+    desc: "Real-time student monitoring system",
+    link: "https://github.com/sanju-zxt/smart-dashboard"
+  },
+  {
+    name: "FraudShield AI",
+    desc: "AI-based fraud detection system",
+    link: "https://github.com/sanju-zxt/FraudShieldAI"
+  },
+  {
+    name: "Vision Bridge",
+    desc: "Innovation platform for real-world solutions",
+    link: "https://github.com/sanju-zxt/vision-bridge"
   }
+];
 
-  type();
+function renderProjects(projects) {
+  if (!container) return;
 
+  container.innerHTML = "";
 
-  /* ===============================
-     2. PROJECTS (API + FALLBACK)
-  =============================== */
-  const container = document.getElementById("projects-container");
+  projects.forEach(p => {
+    const card = document.createElement("div");
+    card.className = "project";
 
-  const fallbackProjects = [
-    {
-      name: "Smart Dashboard",
-      desc: "Student monitoring system",
-      link: "https://github.com/sanju-zxt/smart-dashboard"
-    },
-    {
-      name: "FraudShield AI",
-      desc: "AI fraud detection",
-      link: "https://github.com/sanju-zxt/FraudShieldAI"
-    },
-    {
-      name: "Vision Bridge",
-      desc: "Innovation platform",
-      link: "https://github.com/sanju-zxt/vision-bridge"
-    }
-  ];
+    card.innerHTML = `
+      <h3>${p.name}</h3>
+      <p>${p.desc || p.description || "Project"}</p>
+      <a href="${p.link || p.html_url}" target="_blank">View Project →</a>
+    `;
 
-  function renderProjects(projects) {
-    if (!container) return;
+    container.appendChild(card);
+  });
+}
 
-    container.innerHTML = "";
+// Try GitHub API first
+fetch("https://api.github.com/users/sanju-zxt/repos")
+  .then(res => res.json())
+  .then(data => {
 
-    projects.forEach(p => {
-      const div = document.createElement("div");
-      div.className = "project";
+    const filtered = data
+      .filter(repo => !repo.fork)
+      .slice(0, 3);
 
-      div.innerHTML = `
-        <h3>${p.name}</h3>
-        <p>${p.description || p.desc || "Project"}</p>
-        <a href="${p.html_url || p.link}" target="_blank">View →</a>
-      `;
+    if (filtered.length === 0) throw "No repos";
 
-      container.appendChild(div);
-    });
-  }
+    renderProjects(filtered);
 
-  // FETCH GITHUB (SAFE)
-  fetch("https://api.github.com/users/sanju-zxt/repos")
-    .then(res => {
-      if (!res.ok) throw new Error("API error");
-      return res.json();
-    })
-    .then(data => {
-      if (!Array.isArray(data) || data.length === 0) {
-        throw new Error("No repos");
-      }
-
-      renderProjects(data.slice(0, 3));
-    })
-    .catch(err => {
-      console.warn("GitHub fetch failed → using fallback", err);
-      renderProjects(fallbackProjects);
-    });
-
-
-  /* ===============================
-     3. SCROLL REVEAL (SAFE)
-  =============================== */
-  const sections = document.querySelectorAll(".section");
-
-  function revealOnScroll() {
-    sections.forEach(sec => {
-      const top = sec.getBoundingClientRect().top;
-
-      if (top < window.innerHeight - 100) {
-        sec.style.opacity = 1;
-        sec.style.transform = "translateY(0)";
-      }
-    });
-  }
-
-  window.addEventListener("scroll", revealOnScroll);
-  revealOnScroll();
-
-});
+  })
+  .catch(() => {
+    // fallback always works
+    renderProjects(manualProjects);
+  });
