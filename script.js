@@ -1,48 +1,56 @@
-// GITHUB API
-fetch("https://api.github.com/users/sanju-zxt/repos")
-.then(res=>res.json())
-.then(data=>{
-  const container=document.getElementById("projects-container");
 
-  data.slice(0,3).forEach(repo=>{
-    const div=document.createElement("div");
-    div.className="project";
+/* ===== TYPING ANIMATION ===== */
+const roles = [
+  "Full Stack Developer",
+  "AI Developer",
+  "Data Engineer"
+];
 
-    div.innerHTML=`
-      <h3>${repo.name}</h3>
-      <p>${repo.description || "No description"}</p>
-      <a href="${repo.html_url}" target="_blank">View →</a>
-    `;
+let i = 0;
+let j = 0;
+let current = "";
+let isDeleting = false;
 
-    container.appendChild(div);
-  });
-});
+function type(){
+  const el = document.getElementById("typed");
 
-// CURSOR
-document.addEventListener("mousemove",(e)=>{
-  document.querySelector(".cursor").style.left=e.clientX+"px";
-});
+  if(!el) return;
 
-// MAGNETIC BUTTON
-document.querySelectorAll(".magnetic").forEach(btn=>{
-  btn.addEventListener("mousemove",(e)=>{
-    const rect=btn.getBoundingClientRect();
-    const x=e.clientX-rect.left-rect.width/2;
-    const y=e.clientY-rect.top-rect.height/2;
-    btn.style.transform=`translate(${x*0.2}px,${y*0.2}px)`;
-  });
+  if(i < roles.length){
+    if(!isDeleting && j <= roles[i].length){
+      current = roles[i].substring(0,j++);
+    }else if(isDeleting && j >= 0){
+      current = roles[i].substring(0,j--);
+    }
 
-  btn.addEventListener("mouseleave",()=>{
-    btn.style.transform="translate(0,0)";
-  });
-});
+    el.innerHTML = current;
 
-// POPUP
-function openPopup(file){
-  document.getElementById("popup").style.display="block";
-  document.getElementById("pdfViewer").src=file;
+    if(j === roles[i].length){
+      isDeleting = true;
+      setTimeout(type,1000);
+      return;
+    }
+
+    if(j === 0){
+      isDeleting = false;
+      i++;
+    }
+  }else{
+    i = 0;
+  }
+
+  setTimeout(type, isDeleting ? 50 : 100);
 }
 
-function closePopup(){
-  document.getElementById("popup").style.display="none";
-}
+type();
+
+
+/* ===== PARALLAX EFFECT ===== */
+window.addEventListener("scroll",()=>{
+  const scrollY = window.scrollY;
+  const hero = document.querySelector(".hero");
+
+  if(hero){
+    hero.style.transform = `translateY(${scrollY * 0.1}px)`;
+  }
+});
