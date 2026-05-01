@@ -35,7 +35,7 @@ body{
   font-size:64px;
 }
 
-.hero h2{
+.hero h3{
   color:#9ca3af;
 }
 
@@ -44,10 +44,13 @@ body{
   color:#6b7280;
 }
 
+/* BUTTON */
 .btn{
   padding:12px 20px;
   border:1px solid #333;
   border-radius:8px;
+  background:#0b0b0f;
+  color:white;
   margin-right:10px;
 }
 
@@ -60,17 +63,24 @@ body{
   padding:100px 80px;
 }
 
+.about{
+  max-width:700px;
+  color:#9ca3af;
+  line-height:1.7;
+}
+
 /* PROJECTS */
 .projects{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-  gap:25px;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:20px;
+  margin-top:40px;
 }
 
 .project{
   padding:20px;
-  border-radius:12px;
   background:#0b0b0f;
+  border-radius:12px;
   transition:0.3s;
 }
 
@@ -83,18 +93,30 @@ body{
   display:flex;
   flex-wrap:wrap;
   gap:12px;
+  margin-top:20px;
 }
 
 .skill{
-  padding:10px 16px;
-  border-radius:999px;
+  padding:10px 14px;
   border:1px solid #222;
+  border-radius:999px;
+  display:flex;
+  align-items:center;
+}
+
+.skill i{
+  margin-right:8px;
 }
 
 /* CONTACT */
 .contact-box{
   margin-top:20px;
-  padding:10px;
+  padding:10px 15px;
   border:1px solid #222;
   display:inline-flex;
+  align-items:center;
+}
+
+.contact-box i{
+  margin-right:8px;
 }
