@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lohith Sanju Portfolio</title>
+
+<title>Lohith Sanju</title>
 
 <link rel="stylesheet" href="style.css">
 
@@ -11,7 +12,12 @@
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
+<!-- GSAP -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
 </head>
+
 <body>
 
 <!-- CURSOR -->
@@ -36,59 +42,61 @@
 </header>
 
 <!-- HERO -->
-<section class="hero">
+<section class="hero pin">
+
   <div class="parallax-layer"></div>
 
   <div class="hero-content">
-    <span class="intro">Hi, I'm</span>
+    <span class="reveal-text">Hi, I'm</span>
 
-    <h1>Lohith Sanju</h1>
+    <h1 class="hero-title">
+      <span class="reveal-text">Lohith Sanju</span>
+    </h1>
 
-    <h3>Full Stack Developer | AI Developer | Data Engineer</h3>
+    <h3 class="reveal-text">
+      Full Stack Developer | AI Developer | Data Engineer
+    </h3>
 
-    <p>
-      Building scalable web applications and intelligent systems with modern technologies.
+    <p class="reveal-text">
+      Building scalable web applications and intelligent systems.
     </p>
 
-    <div class="hero-buttons">
+    <div>
       <a href="#projects" class="btn primary magnetic">View Work</a>
       <button class="btn outline magnetic">Download CV</button>
     </div>
   </div>
+
 </section>
 
 <!-- ABOUT -->
-<section id="about" class="section reveal">
-  <h2>About</h2>
-  <p>
-    I am a results-driven Full Stack Developer with strong focus on AI systems,
-    scalable backend architecture, and real-world applications. I build impactful
-    solutions using React, Firebase, Python, and modern stacks.
+<section id="about" class="section zoom">
+  <h2 class="reveal-text">About</h2>
+  <p class="reveal-text">
+    Full Stack Developer focused on AI systems, scalable backend architecture,
+    and real-world applications.
   </p>
 </section>
 
 <!-- PROJECTS -->
-<section id="projects" class="section reveal">
-  <h2>Selected Work</h2>
+<section id="projects" class="section zoom">
+  <h2 class="reveal-text">Selected Work</h2>
 
   <div class="projects">
 
     <div class="project-card">
-      <img src="project1.png">
       <h3>Smart Dashboard</h3>
       <p>Student monitoring system</p>
       <a href="#">View →</a>
     </div>
 
     <div class="project-card">
-      <img src="project2.png">
       <h3>FraudShield AI</h3>
       <p>Fraud detection system</p>
       <a href="#">View →</a>
     </div>
 
     <div class="project-card">
-      <img src="project3.png">
       <h3>Vision Bridge</h3>
       <p>Innovation platform</p>
       <a href="#">View →</a>
@@ -98,38 +106,23 @@
 </section>
 
 <!-- SKILLS -->
-<section id="skills" class="section reveal">
-  <h2>Skills</h2>
+<section id="skills" class="section zoom">
+  <h2 class="reveal-text">Skills</h2>
 
   <div class="skills-grid">
 
-    <div class="skill"><i class="fab fa-js"></i> JavaScript</div>
-    <div class="skill"><i class="fab fa-react"></i> React</div>
-    <div class="skill"><i class="fab fa-python"></i> Python</div>
-    <div class="skill"><i class="fas fa-fire"></i> Firebase</div>
-    <div class="skill"><i class="fas fa-database"></i> MongoDB</div>
+    <div class="skill">JavaScript</div>
+    <div class="skill">React</div>
+    <div class="skill">Python</div>
+    <div class="skill">Firebase</div>
+    <div class="skill">MongoDB</div>
 
-    <div class="skill"><i class="fas fa-brain"></i> AI / ML</div>
-    <div class="skill"><i class="fas fa-chart-line"></i> Data Science</div>
-    <div class="skill"><i class="fas fa-server"></i> Backend</div>
-    <div class="skill"><i class="fas fa-code"></i> C</div>
+    <div class="skill">AI / ML</div>
+    <div class="skill">Data Science</div>
+    <div class="skill">Backend</div>
+    <div class="skill">UI/UX</div>
+    <div class="skill">GitHub</div>
 
-    <div class="skill"><i class="fas fa-mobile-alt"></i> React Native</div>
-    <div class="skill"><i class="fas fa-paint-brush"></i> UI/UX</div>
-    <div class="skill"><i class="fas fa-lightbulb"></i> Problem Solving</div>
-    <div class="skill"><i class="fas fa-terminal"></i> GitHub</div>
-    <div class="skill"><i class="fas fa-brain"></i> Prompt Engineering</div>
-
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section class="section reveal">
-  <h2>Contact</h2>
-
-  <div class="contact-box">
-    <i class="fas fa-envelope"></i>
-    <span>ssanju200610@gmail.com</span>
   </div>
 </section>
 
