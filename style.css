@@ -5,43 +5,72 @@ body{
   color:#e5e7eb;
 }
 
+/* NAV */
 .nav{
   display:flex;
   justify-content:space-between;
   padding:20px 60px;
-  backdrop-filter:blur(12px);
-  background:rgba(0,0,0,0.5);
+  background:rgba(0,0,0,0.6);
+  backdrop-filter:blur(10px);
 }
 
+.nav a{
+  margin:0 15px;
+  color:#9ca3af;
+}
+
+.nav a:hover{
+  color:white;
+}
+
+/* HERO */
 .hero{
-  padding:120px 60px;
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  padding:0 80px;
 }
 
-.section{
-  padding:80px 60px;
+.hero h1{
+  font-size:64px;
 }
 
-/* BUTTON */
+.hero h2{
+  color:#9ca3af;
+}
+
+.hero p{
+  max-width:500px;
+  color:#6b7280;
+}
+
 .btn{
   padding:12px 20px;
-  border-radius:10px;
   border:1px solid #333;
-  background:#0b0b0f;
-  color:white;
-  margin:10px;
+  border-radius:8px;
+  margin-right:10px;
+}
+
+.outline{
+  background:none;
+}
+
+/* SECTION */
+.section{
+  padding:100px 80px;
 }
 
 /* PROJECTS */
 .projects{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:20px;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:25px;
 }
 
 .project{
   padding:20px;
-  background:#0b0b0f;
   border-radius:12px;
+  background:#0b0b0f;
   transition:0.3s;
 }
 
@@ -50,45 +79,22 @@ body{
 }
 
 /* SKILLS */
+.skills-grid{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+}
+
 .skill{
-  padding:10px;
+  padding:10px 16px;
+  border-radius:999px;
   border:1px solid #222;
-  border-radius:8px;
 }
 
 /* CONTACT */
 .contact-box{
-  padding:12px;
+  margin-top:20px;
+  padding:10px;
   border:1px solid #222;
   display:inline-flex;
-}
-
-/* CURSOR */
-.cursor{
-  width:8px;
-  height:8px;
-  background:white;
-  position:fixed;
-  border-radius:50%;
-}
-
-.cursor-blur{
-  width:100px;
-  height:100px;
-  background:rgba(255,255,255,0.05);
-  position:fixed;
-  filter:blur(40px);
-}
-
-/* POPUP */
-.popup{
-  position:fixed;
-  inset:0;
-  background:black;
-  display:none;
-}
-
-.popup iframe{
-  width:100%;
-  height:100%;
 }
