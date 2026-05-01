@@ -3,15 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Lohith Sanju Portfolio</title>
 
 <link rel="stylesheet" href="style.css">
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-<style>
-html{scroll-behavior:smooth;}
-</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 </head>
 
@@ -22,22 +21,14 @@ html{scroll-behavior:smooth;}
 
 <!-- NAV -->
 <nav class="nav">
-  <h2>Lohith Sanju <span class="dot"></span></h2>
+  <h2>Lohith Sanju</h2>
 
   <div class="nav-links">
     <a href="#">Home</a>
+    <a href="#about">About</a>
     <a href="#projects">Projects</a>
     <a href="#skills">Skills</a>
     <a href="certifications.html">Certifications</a>
-  </div>
-
-  <div class="nav-icons">
-    <a href="https://github.com/sanju-zxt" target="_blank">
-      <i class="fab fa-github"></i>
-    </a>
-    <a href="#">
-      <i class="fab fa-linkedin"></i>
-    </a>
   </div>
 </nav>
 
@@ -45,18 +36,33 @@ html{scroll-behavior:smooth;}
 <section class="hero section">
   <div>
     <h1>Lohith Sanju P</h1>
-    <h3>Full Stack Developer | Data Engineer</h3>
-    <p>Building scalable systems and AI-powered solutions.</p>
+    <h3>Full Stack Developer | AI Developer | Data Engineer</h3>
 
-    <button class="btn">View My Work</button>
-    <button class="btn outline">Download CV</button>
+    <p>
+      I build scalable web apps, AI-powered systems, and real-world solutions using modern technologies.
+    </p>
+
+    <button class="btn magnetic">View Projects</button>
+    <button class="btn magnetic">Download CV</button>
   </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="section">
+<h2>About Me</h2>
+
+<p class="about-text">
+I am a passionate Full Stack Developer with strong interest in AI and Data Engineering. 
+I specialize in building real-world applications using React, Firebase, and Machine Learning.
+My goal is to create scalable systems that solve real problems and deliver meaningful impact.
+</p>
+
 </section>
 
 <!-- PROJECTS -->
 <section id="projects" class="section">
 <h2>Projects</h2>
-<div class="projects" id="projects-container"></div>
+<div id="projects-container" class="projects"></div>
 </section>
 
 <!-- SKILLS -->
@@ -65,33 +71,35 @@ html{scroll-behavior:smooth;}
 
 <div class="skills-grid">
 
-<div class="skill"><i class="fab fa-js"></i> JavaScript</div>
-<div class="skill"><i class="fab fa-react"></i> React</div>
-<div class="skill"><i class="fab fa-python"></i> Python</div>
-<div class="skill"><i class="fas fa-fire"></i> Firebase</div>
-<div class="skill"><i class="fas fa-database"></i> MongoDB</div>
-<div class="skill"><i class="fas fa-brain"></i> AI / ML</div>
-<div class="skill"><i class="fas fa-chart-line"></i> Data Science</div>
-<div class="skill"><i class="fas fa-code"></i> C</div>
-<div class="skill"><i class="fas fa-mobile"></i> React Native</div>
-<div class="skill"><i class="fas fa-tools"></i> Backend</div>
-<div class="skill"><i class="fas fa-paint-brush"></i> UI/UX</div>
-<div class="skill"><i class="fas fa-lightbulb"></i> Problem Solving</div>
-<div class="skill"><i class="fas fa-terminal"></i> Git & GitHub</div>
+<div class="skill">JavaScript</div>
+<div class="skill">React</div>
+<div class="skill">Python</div>
+<div class="skill">Firebase</div>
+<div class="skill">MongoDB</div>
+<div class="skill">AI / ML</div>
+<div class="skill">Data Science</div>
+<div class="skill">Backend</div>
 
 </div>
+
 </section>
 
 <!-- CONTACT -->
 <section class="section contact">
 <h2>Contact</h2>
-<p>Let's build something impactful together</p>
 
 <div class="contact-box">
 <i class="fas fa-envelope"></i>
 <span>ssanju200610@gmail.com</span>
 </div>
+
 </section>
+
+<!-- CERTIFICATE POPUP -->
+<div id="popup" class="popup">
+  <span onclick="closePopup()">✕</span>
+  <iframe id="pdfViewer"></iframe>
+</div>
 
 <script src="script.js"></script>
 
