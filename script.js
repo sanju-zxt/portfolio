@@ -1,69 +1,172 @@
-// SCROLL
-function scrollToSection(id){
-  document.getElementById(id).scrollIntoView({
-    behavior:"smooth"
-  });
+body{
+  margin:0;
+  font-family:'Inter';
+  background:#050507;
+  color:white;
+  cursor:none;
 }
 
-// PROJECT LINKS
-function openProject(url){
-  window.open(url,"_blank");
+/* ===== LIVE BACKGROUND ===== */
+
+.bg-gradient{
+  position:fixed;
+  width:100%;
+  height:100%;
+  top:0;
+  left:0;
+  z-index:-3;
+
+  background:
+    radial-gradient(circle at 30% 30%, #7c5cff33, transparent 40%),
+    radial-gradient(circle at 70% 60%, #9a7cff33, transparent 40%),
+    #050507;
+
+  animation: gradientMove 12s ease-in-out infinite alternate;
 }
 
-// CURSOR
-const cursor = document.querySelector(".cursor");
-const blur = document.querySelector(".cursor-blur");
-
-document.addEventListener("mousemove",(e)=>{
-  cursor.style.left=e.clientX+"px";
-  cursor.style.top=e.clientY+"px";
-
-  blur.style.left=e.clientX-20+"px";
-  blur.style.top=e.clientY-20+"px";
-});
-
-// TYPE ANIMATION
-const text = "Lohith Sanju";
-let i = 0;
-
-function type(){
-  if(i < text.length){
-    document.getElementById("typeText").innerHTML += text.charAt(i);
-    i++;
-    setTimeout(type,80);
+@keyframes gradientMove{
+  from{
+    background-position:30% 30%,70% 60%;
+  }
+  to{
+    background-position:40% 40%,60% 50%;
   }
 }
-type();
 
-// MAGNETIC
-document.querySelectorAll(".magnetic").forEach(btn=>{
-  btn.addEventListener("mousemove",(e)=>{
-    const rect = btn.getBoundingClientRect();
-    const x = e.clientX - rect.left - rect.width/2;
-    const y = e.clientY - rect.top - rect.height/2;
+.bg-blob{
+  position:fixed;
+  width:500px;
+  height:500px;
+  background: radial-gradient(circle, #7c5cff55, transparent 70%);
+  top:20%;
+  left:50%;
+  transform:translate(-50%, -50%);
+  filter:blur(120px);
+  z-index:-2;
 
-    btn.style.transform=`translate(${x*0.2}px, ${y*0.2}px)`;
-  });
+  animation: blobMove 18s ease-in-out infinite;
+}
 
-  btn.addEventListener("mouseleave",()=>{
-    btn.style.transform="translate(0,0)";
-  });
-});
+@keyframes blobMove{
+  0%{ transform:translate(-50%, -50%) scale(1); }
+  50%{ transform:translate(-40%, -60%) scale(1.2); }
+  100%{ transform:translate(-60%, -40%) scale(1); }
+}
 
-// 3D TILT
-document.querySelectorAll(".tilt").forEach(card=>{
-  card.addEventListener("mousemove",(e)=>{
-    const rect = card.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
+.bg-noise{
+  position:fixed;
+  width:100%;
+  height:100%;
+  z-index:-1;
+  background-image:url("https://grainy-gradients.vercel.app/noise.svg");
+  opacity:0.04;
+}
 
-    const rotateX = (y / rect.height - 0.5) * 10;
-    const rotateY = (x / rect.width - 0.5) * -10;
+/* GLASS */
+.glass{
+  backdrop-filter:blur(12px);
+  background:rgba(255,255,255,0.05);
+  border-bottom:1px solid rgba(255,255,255,0.1);
+}
 
-    card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-  });
+/* NAV */
+.nav{
+  display:flex;
+  justify-content:center;
+  padding:20px;
+}
 
-  card.addEventListener("mouseleave",()=>{
-    card.style.transform = "rotateX(0) rotateY(0)";
-  });
-});
+.nav a{
+  margin:0 20px;
+  color:#aaa;
+}
+
+.nav a:hover{
+  color:white;
+}
+
+/* HERO */
+.hero{
+  padding:100px 60px 60px;
+}
+
+.hero h1{
+  font-size:60px;
+}
+
+/* BUTTONS */
+.btn{
+  padding:10px 20px;
+  background:linear-gradient(90deg,#7c5cff,#9a7cff);
+  border:none;
+  border-radius:10px;
+  color:white;
+}
+
+.btn-outline{
+  padding:10px 20px;
+  background:transparent;
+  border:1px solid #333;
+  border-radius:10px;
+  color:white;
+}
+
+/* SECTION */
+.section{
+  padding:60px;
+  max-width:900px;
+}
+
+/* PROJECTS */
+.projects{
+  display:flex;
+  gap:20px;
+}
+
+.card{
+  padding:20px;
+  background:rgba(255,255,255,0.05);
+  border-radius:14px;
+  backdrop-filter:blur(10px);
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.card:hover{
+  box-shadow:0 0 40px #7c5cff33;
+}
+
+/* SKILLS */
+.skills span{
+  border:1px solid #333;
+  padding:8px 14px;
+  border-radius:20px;
+  margin:5px;
+  display:inline-block;
+}
+
+/* CONTACT */
+.contact-box{
+  margin-top:20px;
+  padding:12px;
+  border:1px solid #333;
+  border-radius:8px;
+}
+
+/* CURSOR */
+.cursor{
+  width:6px;
+  height:6px;
+  background:white;
+  position:fixed;
+  border-radius:50%;
+}
+
+.cursor-blur{
+  width:40px;
+  height:40px;
+  background:rgba(124,92,255,0.3);
+  position:fixed;
+  border-radius:50%;
+  filter:blur(20px);
+}
