@@ -1,11 +1,17 @@
 gsap.registerPlugin(ScrollTrigger);
 
 
-// ===== SCROLL FIX =====
+// ===== NAV FIX =====
 function scrollToSection(id){
   document.getElementById(id).scrollIntoView({
     behavior:"smooth"
   });
+}
+
+
+// ===== PROJECT LINKS FIX =====
+function openProject(url){
+  window.open(url,"_blank");
 }
 
 
@@ -51,7 +57,7 @@ gsap.from(".section",{
 });
 
 
-// ===== THREE.JS (LIQUID STYLE) =====
+// ===== GLSL-LIKE LIQUID BACKGROUND =====
 const scene = new THREE.Scene();
 
 const camera = new THREE.PerspectiveCamera(
@@ -69,26 +75,39 @@ const renderer = new THREE.WebGLRenderer({
 renderer.setSize(window.innerWidth,window.innerHeight);
 camera.position.z=30;
 
-const geometry = new THREE.IcosahedronGeometry(10,4);
+const geometry = new THREE.SphereGeometry(10,64,64);
 const material = new THREE.MeshStandardMaterial({
   color:0x7c5cff,
-  wireframe:true
+  wireframe:false
 });
 
 const mesh = new THREE.Mesh(geometry,material);
 scene.add(mesh);
 
-const light = new THREE.PointLight(0xffffff);
+const light = new THREE.PointLight(0xffffff,1);
 light.position.set(20,20,20);
 scene.add(light);
 
 
-// ===== ANIMATION =====
+// ===== REAL MORPH EFFECT =====
 function animate(){
   requestAnimationFrame(animate);
 
-  mesh.rotation.x +=0.002;
-  mesh.rotation.y +=0.003;
+  const time = Date.now()*0.001;
+
+  geometry.verticesNeedUpdate = true;
+
+  for(let i=0;i<geometry.attributes.position.count;i++){
+    let x = geometry.attributes.position.getX(i);
+    let y = geometry.attributes.position.getY(i);
+    let z = geometry.attributes.position.getZ(i);
+
+    let scale = 1 + 0.2*Math.sin(time + x*0.5 + y*0.5);
+
+    geometry.attributes.position.setXYZ(i,x*scale,y*scale,z*scale);
+  }
+
+  mesh.rotation.y +=0.002;
 
   renderer.render(scene,camera);
 }
