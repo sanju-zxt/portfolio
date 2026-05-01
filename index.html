@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Portfolio - Lohith Sanju</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lohith Sanju Portfolio</title>
+<link rel="stylesheet" href="style.css">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
 </head>
+
 <body>
 
 <!-- NAVBAR -->
-<header class="navbar">
-  <h2>LOHITH SANJU <span class="dot"></span></h2>
-
+<header class="nav">
+  <h2>Lohith Sanju <span>●</span></h2>
   <nav>
     <a href="#">Home</a>
     <a href="#about">About</a>
@@ -19,9 +21,10 @@
     <a href="certifications.html">Certifications</a>
   </nav>
 
-  <div class="nav-btns">
-    <a href="https://github.com/sanju-zxt" target="_blank">GitHub</a>
-    <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+  <div class="icons">
+    <i class="ri-github-fill"></i>
+    <i class="ri-linkedin-box-fill"></i>
+    <button>Let's Connect →</button>
   </div>
 </header>
 
@@ -37,64 +40,65 @@
     </p>
 
     <div class="buttons">
-      <a class="btn primary" href="#projects">View My Work →</a>
-      <a class="btn" href="#">Download CV</a>
+      <a class="btn primary">View My Work →</a>
+      <a class="btn outline">Download CV</a>
     </div>
 
-    <div class="meta">
+    <div class="status">
       <span>500+ Connections</span>
       <span class="green">● Open to Work</span>
     </div>
   </div>
 
+  <!-- RIGHT SIDE GLOW (NO IMAGE) -->
   <div class="hero-right">
-    <div class="circle"></div>
+    <div class="glow-circle"></div>
   </div>
 </section>
 
 <!-- ABOUT + PROJECTS -->
-<section class="grid-section">
+<section class="grid">
 
-  <div class="about-card" id="about">
-    <h4>ABOUT ME</h4>
+  <div class="about-card">
+    <p class="tag">ABOUT ME</p>
     <h2>Passionate about turning ideas into real-world solutions.</h2>
     <p>
-      Full Stack Developer with strong focus on AI, scalable systems and real-world applications.
+      I'm a Full Stack Developer, AI Developer and Data Engineer with hands-on experience in building real-world applications and scalable solutions.
     </p>
+    <button class="btn outline">Learn More About Me →</button>
   </div>
 
   <div class="projects" id="projects">
     <div class="projects-header">
-      <h4>FEATURED PROJECTS</h4>
-      <a href="#">View All →</a>
+      <p>FEATURED PROJECTS</p>
+      <a>View All →</a>
     </div>
 
     <div class="project-grid">
 
       <div class="card">
         <h3>Smart Student Monitoring</h3>
-        <p>Real-time dashboard with alerts</p>
-        <span>Firebase • JS • Chart.js</span>
-        <a href="https://github.com/sanju-zxt/smart-dashboard" target="_blank">Live Demo →</a>
+        <p>Real-time dashboard to track student data</p>
+        <div class="tags">Firebase · JS · Chart.js</div>
+        <a href="https://github.com/sanju-zxt/smart-dashboard">Live Demo →</a>
       </div>
 
       <div class="card">
         <h3>FraudShield AI</h3>
-        <p>AI fraud detection system</p>
-        <span>Python • ML • Flask</span>
-        <a href="https://github.com/sanju-zxt/FraudShieldAI" target="_blank">Live Demo →</a>
+        <p>AI-powered fraud detection system</p>
+        <div class="tags">Python · ML · Flask</div>
+        <a href="https://github.com/sanju-zxt/FraudShieldAI">Live Demo →</a>
       </div>
 
       <div class="card">
         <h3>Vision Bridge</h3>
-        <p>Innovation platform</p>
-        <span>React • Firebase</span>
-        <a href="https://github.com/sanju-zxt/vision-bridge" target="_blank">Live Demo →</a>
+        <p>Innovation collaboration platform</p>
+        <div class="tags">React · Firebase</div>
+        <a href="https://github.com/sanju-zxt/vision-bridge">Live Demo →</a>
       </div>
 
     </div>
   </div>
-
 </section>
 
 <!-- STATS -->
@@ -106,20 +110,18 @@
 </section>
 
 <!-- SKILLS -->
-<section id="skills" class="skills">
-  <h4>TECHNICAL SKILLS</h4>
+<section class="skills" id="skills">
+  <h3>TECHNICAL SKILLS</h3>
 
   <div class="skills-grid">
-    <div>💻 HTML5</div>
-    <div>🎨 CSS3</div>
-    <div>⚡ JavaScript</div>
-    <div>⚛ React</div>
-    <div>🔥 Firebase</div>
-    <div>🐍 Python</div>
-    <div>📊 Data Science</div>
-    <div>🤖 AI / ML</div>
-    <div>📱 React Native</div>
-    <div>🗄 MongoDB</div>
+    <span><i class="ri-html5-fill"></i> HTML5</span>
+    <span><i class="ri-css3-fill"></i> CSS3</span>
+    <span><i class="ri-javascript-fill"></i> JavaScript</span>
+    <span><i class="ri-reactjs-fill"></i> React</span>
+    <span><i class="ri-database-2-fill"></i> MongoDB</span>
+    <span><i class="ri-fire-fill"></i> Firebase</span>
+    <span><i class="ri-python-fill"></i> Python</span>
+    <span><i class="ri-github-fill"></i> GitHub</span>
   </div>
 </section>
 
