@@ -1,112 +1,218 @@
-body{
+/* ===== GLOBAL ===== */
+*{
   margin:0;
-  font-family:Arial;
-  background:#050507;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:'Inter',sans-serif;
+  background: radial-gradient(circle at top right, #0f172a 0%, #020204 60%);
+  color:#e5e7eb;
+  overflow-x:hidden;
+}
+
+/* ===== LINKS ===== */
+a{
+  text-decoration:none;
+  color:#d1d5db;
+  transition:0.3s;
+}
+
+a:hover{
   color:white;
 }
 
-a{
-  color:inherit;
-  text-decoration:none;
-}
-
-/* NAV */
+/* ===== NAVBAR (GLASS) ===== */
 .nav{
+  position:fixed;
+  width:100%;
+  top:0;
+  z-index:1000;
+
   display:flex;
   justify-content:space-between;
-  padding:15px 60px;
-  background:rgba(0,0,0,0.6);
-  backdrop-filter:blur(10px);
+  align-items:center;
+
+  padding:18px 60px;
+
+  background:rgba(10,10,15,0.5);
+  backdrop-filter:blur(16px);
+  border-bottom:1px solid rgba(255,255,255,0.05);
+}
+
+.nav h2{
+  font-weight:600;
+  letter-spacing:1px;
 }
 
 .nav-links a{
-  margin:0 15px;
-  color:#aaa;
+  margin:0 18px;
+  font-size:14px;
+  color:#9ca3af;
 }
 
 .nav-links a:hover{
   color:white;
 }
 
-/* HERO */
-.hero{
-  padding:120px 60px;
-}
-
-.hero h1{
-  font-size:60px;
-}
-
-/* BUTTON */
-.btn{
-  padding:10px 20px;
-  border:1px solid #333;
-  background:#111;
-  color:white;
-  border-radius:8px;
-  margin-right:10px;
-}
-
-/* PROJECTS */
-.projects{
-  display:flex;
-  gap:20px;
-}
-
-.project{
-  padding:20px;
-  background:#0b0b0f;
-  border-radius:10px;
+.nav-icons i{
+  margin-left:18px;
+  font-size:18px;
+  cursor:pointer;
   transition:0.3s;
 }
 
-.project:hover{
-  transform:translateY(-10px);
+.nav-icons i:hover{
+  color:white;
+  transform:scale(1.1);
 }
 
-/* SKILLS */
+/* ===== HERO ===== */
+.hero{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  padding:0 80px;
+}
+
+.hero h1{
+  font-size:64px;
+  font-weight:700;
+  background:linear-gradient(to right,#ffffff,#9ca3af);
+  -webkit-background-clip:text;
+  color:transparent;
+}
+
+.hero h3{
+  margin-top:10px;
+  font-weight:400;
+  color:#9ca3af;
+}
+
+.hero p{
+  margin-top:15px;
+  color:#6b7280;
+  max-width:500px;
+}
+
+/* ===== BUTTONS (MAGNETIC STYLE BASE) ===== */
+.btn{
+  margin-top:20px;
+  padding:12px 22px;
+  border-radius:10px;
+
+  border:1px solid rgba(255,255,255,0.1);
+  background:rgba(255,255,255,0.05);
+
+  color:white;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.btn:hover{
+  background:rgba(255,255,255,0.1);
+  transform:translateY(-2px);
+}
+
+/* ===== SECTIONS ===== */
+.section{
+  padding:100px 80px;
+}
+
+/* ===== PROJECTS ===== */
+.projects{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:25px;
+}
+
+.project{
+  padding:25px;
+  border-radius:16px;
+
+  background:linear-gradient(145deg,#0a0a0f,#050507);
+  border:1px solid rgba(255,255,255,0.05);
+
+  transition:0.4s;
+}
+
+.project:hover{
+  transform:translateY(-10px) scale(1.02);
+  box-shadow:0 20px 40px rgba(0,0,0,0.6);
+}
+
+.project h3{
+  margin-bottom:10px;
+}
+
+/* ===== SKILLS ===== */
 .skills-grid{
   display:flex;
   flex-wrap:wrap;
-  gap:10px;
+  gap:14px;
 }
 
 .skill{
-  padding:10px;
-  border:1px solid #222;
-  border-radius:8px;
+  padding:10px 16px;
+  border-radius:999px;
+
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.08);
+
+  font-size:14px;
+  transition:0.3s;
 }
 
-/* CONTACT */
+.skill:hover{
+  background:rgba(255,255,255,0.1);
+  transform:translateY(-3px);
+}
+
+/* ===== CONTACT ===== */
 .contact-box{
   margin-top:20px;
-  padding:10px;
-  border:1px solid #222;
+  padding:12px 18px;
+
+  border-radius:12px;
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.08);
+
   display:inline-flex;
   gap:10px;
+  align-items:center;
 }
 
-/* CURSOR */
+/* ===== CURSOR ===== */
 .cursor{
-  width:10px;
-  height:10px;
+  width:8px;
+  height:8px;
   background:white;
   position:fixed;
   border-radius:50%;
+  pointer-events:none;
+  z-index:9999;
 }
 
 .cursor-blur{
-  width:100px;
-  height:100px;
-  background:rgba(255,255,255,0.05);
+  width:120px;
+  height:120px;
+  background:rgba(255,255,255,0.06);
   position:fixed;
   border-radius:50%;
-  filter:blur(40px);
+  filter:blur(50px);
+  pointer-events:none;
+  z-index:9998;
 }
 
-/* SCROLL */
+/* ===== SCROLL ANIMATION ===== */
 .section{
   opacity:0;
-  transform:translateY(40px);
-  transition:0.7s;
+  transform:translateY(60px);
+  transition:all 0.8s ease;
+}
+
+.section.visible{
+  opacity:1;
+  transform:translateY(0);
 }
