@@ -10,9 +10,7 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-<!-- GSAP -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
@@ -20,113 +18,56 @@
 
 <body>
 
-<!-- CURSOR -->
+<canvas id="bg"></canvas>
+
 <div class="cursor"></div>
-<div class="cursor-blur"></div>
+<div class="trail"></div>
 
-<!-- NAV -->
 <header class="nav">
-  <h2 class="logo">LS<span>.</span></h2>
-
-  <nav class="nav-links">
+  <h2>LS<span>.</span></h2>
+  <nav>
     <a href="#about">About</a>
     <a href="#projects">Work</a>
     <a href="#skills">Skills</a>
     <a href="certifications.html">Certifications</a>
   </nav>
-
-  <div class="nav-icons">
-    <a href="https://github.com/sanju-zxt" target="_blank"><i class="fab fa-github"></i></a>
-    <a href="#"><i class="fab fa-linkedin"></i></a>
-  </div>
 </header>
 
-<!-- HERO -->
-<section class="hero pin">
+<section class="hero">
+  <h1 class="hero-title">Lohith Sanju</h1>
+  <p>Full Stack Developer | AI Developer | Data Engineer</p>
 
-  <div class="parallax-layer"></div>
-
-  <div class="hero-content">
-    <span class="reveal-text">Hi, I'm</span>
-
-    <h1 class="hero-title">
-      <span class="reveal-text">Lohith Sanju</span>
-    </h1>
-
-    <h3 class="reveal-text">
-      Full Stack Developer | AI Developer | Data Engineer
-    </h3>
-
-    <p class="reveal-text">
-      Building scalable web applications and intelligent systems.
-    </p>
-
-    <div>
-      <a href="#projects" class="btn primary magnetic">View Work</a>
-      <button class="btn outline magnetic">Download CV</button>
-    </div>
-  </div>
-
+  <button class="btn magnetic">View Work</button>
 </section>
 
-<!-- ABOUT -->
-<section id="about" class="section zoom">
-  <h2 class="reveal-text">About</h2>
-  <p class="reveal-text">
-    Full Stack Developer focused on AI systems, scalable backend architecture,
-    and real-world applications.
-  </p>
+<section id="about" class="section">
+  <h2>About</h2>
+  <p>Building scalable systems, AI tools and real-world applications.</p>
 </section>
 
-<!-- PROJECTS -->
-<section id="projects" class="section zoom">
-  <h2 class="reveal-text">Selected Work</h2>
+<section id="projects" class="section">
+  <h2>Projects</h2>
 
   <div class="projects">
-
-    <div class="project-card">
-      <h3>Smart Dashboard</h3>
-      <p>Student monitoring system</p>
-      <a href="#">View →</a>
-    </div>
-
-    <div class="project-card">
-      <h3>FraudShield AI</h3>
-      <p>Fraud detection system</p>
-      <a href="#">View →</a>
-    </div>
-
-    <div class="project-card">
-      <h3>Vision Bridge</h3>
-      <p>Innovation platform</p>
-      <a href="#">View →</a>
-    </div>
-
+    <div class="card">Smart Dashboard</div>
+    <div class="card">FraudShield AI</div>
+    <div class="card">Vision Bridge</div>
   </div>
 </section>
 
-<!-- SKILLS -->
-<section id="skills" class="section zoom">
-  <h2 class="reveal-text">Skills</h2>
-
-  <div class="skills-grid">
-
-    <div class="skill">JavaScript</div>
-    <div class="skill">React</div>
-    <div class="skill">Python</div>
-    <div class="skill">Firebase</div>
-    <div class="skill">MongoDB</div>
-
-    <div class="skill">AI / ML</div>
-    <div class="skill">Data Science</div>
-    <div class="skill">Backend</div>
-    <div class="skill">UI/UX</div>
-    <div class="skill">GitHub</div>
-
+<section id="skills" class="section">
+  <h2>Skills</h2>
+  <div class="skills">
+    <span>JavaScript</span>
+    <span>React</span>
+    <span>Python</span>
+    <span>Firebase</span>
+    <span>MongoDB</span>
+    <span>AI / ML</span>
+    <span>Data Science</span>
   </div>
 </section>
 
 <script src="script.js"></script>
-
 </body>
 </html>
