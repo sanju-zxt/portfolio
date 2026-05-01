@@ -1,37 +1,48 @@
-// PROJECTS
-const projects=[
-  {name:"Smart Dashboard",desc:"Monitoring system",link:"#"},
-  {name:"FraudShield AI",desc:"AI fraud detection",link:"#"},
-  {name:"Vision Bridge",desc:"Innovation platform",link:"#"}
-];
+// GITHUB API
+fetch("https://api.github.com/users/sanju-zxt/repos")
+.then(res=>res.json())
+.then(data=>{
+  const container=document.getElementById("projects-container");
 
-const container=document.getElementById("projects-container");
+  data.slice(0,3).forEach(repo=>{
+    const div=document.createElement("div");
+    div.className="project";
 
-projects.forEach(p=>{
-  const div=document.createElement("div");
-  div.className="project";
-  div.innerHTML=`
-    <h3>${p.name}</h3>
-    <p>${p.desc}</p>
-    <a href="${p.link}">View →</a>
-  `;
-  container.appendChild(div);
+    div.innerHTML=`
+      <h3>${repo.name}</h3>
+      <p>${repo.description || "No description"}</p>
+      <a href="${repo.html_url}" target="_blank">View →</a>
+    `;
+
+    container.appendChild(div);
+  });
 });
 
 // CURSOR
 document.addEventListener("mousemove",(e)=>{
   document.querySelector(".cursor").style.left=e.clientX+"px";
-  document.querySelector(".cursor").style.top=e.clientY+"px";
 });
 
-// SCROLL
-const sections=document.querySelectorAll(".section");
+// MAGNETIC BUTTON
+document.querySelectorAll(".magnetic").forEach(btn=>{
+  btn.addEventListener("mousemove",(e)=>{
+    const rect=btn.getBoundingClientRect();
+    const x=e.clientX-rect.left-rect.width/2;
+    const y=e.clientY-rect.top-rect.height/2;
+    btn.style.transform=`translate(${x*0.2}px,${y*0.2}px)`;
+  });
 
-window.addEventListener("scroll",()=>{
-  sections.forEach(sec=>{
-    if(sec.getBoundingClientRect().top<window.innerHeight-100){
-      sec.style.opacity=1;
-      sec.style.transform="translateY(0)";
-    }
+  btn.addEventListener("mouseleave",()=>{
+    btn.style.transform="translate(0,0)";
   });
 });
+
+// POPUP
+function openPopup(file){
+  document.getElementById("popup").style.display="block";
+  document.getElementById("pdfViewer").src=file;
+}
+
+function closePopup(){
+  document.getElementById("popup").style.display="none";
+}
