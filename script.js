@@ -1,36 +1,43 @@
-document.addEventListener("DOMContentLoaded", function(){
+// CURSOR GLOW
+const glow = document.createElement("div");
+glow.classList.add("cursor-glow");
+document.body.appendChild(glow);
 
-  const container = document.getElementById("projects-container");
+document.addEventListener("mousemove", (e) => {
+  glow.style.left = e.clientX + "px";
+  glow.style.top = e.clientY + "px";
+});
 
-  const projects = [
-    {
-      name: "Smart Dashboard",
-      desc: "Real-time student monitoring system",
-      link: "https://github.com/sanju-zxt"
-    },
-    {
-      name: "FraudShield AI",
-      desc: "AI-based fraud detection system",
-      link: "https://github.com/sanju-zxt"
-    },
-    {
-      name: "Vision Bridge",
-      desc: "Innovation platform",
-      link: "https://github.com/sanju-zxt"
+
+// SCROLL REVEAL
+const reveals = document.querySelectorAll(".section, .project-card, .skill");
+
+window.addEventListener("scroll", () => {
+  reveals.forEach(el => {
+    const top = el.getBoundingClientRect().top;
+    if (top < window.innerHeight - 100) {
+      el.classList.add("active");
     }
-  ];
+  });
+});
 
-  projects.forEach(p=>{
-    const div = document.createElement("div");
-    div.className="project";
 
-    div.innerHTML=`
-      <h3>${p.name}</h3>
-      <p>${p.desc}</p>
-      <a href="${p.link}" target="_blank">View Project →</a>
-    `;
+// 3D TILT EFFECT
+const cards = document.querySelectorAll(".project-card");
 
-    container.appendChild(div);
+cards.forEach(card => {
+  card.addEventListener("mousemove", (e) => {
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    const rotateX = -(y - rect.height / 2) / 10;
+    const rotateY = (x - rect.width / 2) / 10;
+
+    card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
   });
 
+  card.addEventListener("mouseleave", () => {
+    card.style.transform = "rotateX(0) rotateY(0)";
+  });
 });
