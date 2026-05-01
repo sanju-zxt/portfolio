@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Lohith Sanju</title>
 
 <link rel="stylesheet" href="style.css">
@@ -33,16 +34,13 @@
 <section class="hero">
   <h1>Lohith Sanju</h1>
   <p>Full Stack Developer | AI Developer | Data Engineer</p>
-
-  <button class="btn magnetic" onclick="scrollToSection('projects')">
-    View Work
-  </button>
+  <button class="btn magnetic" onclick="scrollToSection('projects')">View Work</button>
 </section>
 
 <section id="about" class="section">
   <h2>About</h2>
   <p>
-    I build scalable systems, AI tools, Frontend , Backend , Application-Development, Web-Devlopment  and real-world applications with modern technologies.
+    I build scalable web systems, AI-powered solutions, and modern applications.
   </p>
 </section>
 
@@ -51,20 +49,20 @@
 
   <div class="projects">
 
-    <a href="https://github.com/" target="_blank" class="card">
+    <div class="card" onclick="openProject('https://github.com/')">
       <h3>Smart Dashboard</h3>
-      <p>Real-time student monitoring</p>
-    </a>
+      <p>Real-time monitoring</p>
+    </div>
 
-    <a href="https://github.com/" target="_blank" class="card">
+    <div class="card" onclick="openProject('https://github.com/')">
       <h3>FraudShield AI</h3>
-      <p>AI fraud detection</p>
-    </a>
+      <p>Fraud detection system</p>
+    </div>
 
-    <a href="https://github.com/" target="_blank" class="card">
+    <div class="card" onclick="openProject('https://github.com/')">
       <h3>Vision Bridge</h3>
       <p>Innovation platform</p>
-    </a>
+    </div>
 
   </div>
 </section>
@@ -82,7 +80,6 @@
     <span>Data Science</span>
     <span>Backend</span>
     <span>UI/UX</span>
-    <span>Problem Solving</span>
   </div>
 </section>
 
