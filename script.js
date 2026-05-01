@@ -1,172 +1,45 @@
-body{
-  margin:0;
-  font-family:'Inter';
-  background:#050507;
-  color:white;
-  cursor:none;
-}
+// ===== PROJECTS FIX =====
+const container = document.getElementById("projects-container");
 
-/* ===== LIVE BACKGROUND ===== */
-
-.bg-gradient{
-  position:fixed;
-  width:100%;
-  height:100%;
-  top:0;
-  left:0;
-  z-index:-3;
-
-  background:
-    radial-gradient(circle at 30% 30%, #7c5cff33, transparent 40%),
-    radial-gradient(circle at 70% 60%, #9a7cff33, transparent 40%),
-    #050507;
-
-  animation: gradientMove 12s ease-in-out infinite alternate;
-}
-
-@keyframes gradientMove{
-  from{
-    background-position:30% 30%,70% 60%;
+const projects = [
+  {
+    name: "Smart Dashboard",
+    desc: "Student monitoring system",
+    link: "https://github.com/sanju-zxt/smart-dashboard"
+  },
+  {
+    name: "FraudShield AI",
+    desc: "AI fraud detection",
+    link: "https://github.com/sanju-zxt/FraudShieldAI"
+  },
+  {
+    name: "Vision Bridge",
+    desc: "Innovation platform",
+    link: "https://github.com/sanju-zxt/vision-bridge"
   }
-  to{
-    background-position:40% 40%,60% 50%;
-  }
-}
+];
 
-.bg-blob{
-  position:fixed;
-  width:500px;
-  height:500px;
-  background: radial-gradient(circle, #7c5cff55, transparent 70%);
-  top:20%;
-  left:50%;
-  transform:translate(-50%, -50%);
-  filter:blur(120px);
-  z-index:-2;
+projects.forEach(p=>{
+  const div=document.createElement("div");
+  div.className="project";
 
-  animation: blobMove 18s ease-in-out infinite;
-}
+  div.innerHTML=`
+    <h3>${p.name}</h3>
+    <p>${p.desc}</p>
+    <a href="${p.link}" target="_blank">View →</a>
+  `;
 
-@keyframes blobMove{
-  0%{ transform:translate(-50%, -50%) scale(1); }
-  50%{ transform:translate(-40%, -60%) scale(1.2); }
-  100%{ transform:translate(-60%, -40%) scale(1); }
-}
+  container.appendChild(div);
+});
 
-.bg-noise{
-  position:fixed;
-  width:100%;
-  height:100%;
-  z-index:-1;
-  background-image:url("https://grainy-gradients.vercel.app/noise.svg");
-  opacity:0.04;
-}
+// ===== CURSOR GLOW =====
+const cursor=document.querySelector(".cursor");
+const blur=document.querySelector(".cursor-blur");
 
-/* GLASS */
-.glass{
-  backdrop-filter:blur(12px);
-  background:rgba(255,255,255,0.05);
-  border-bottom:1px solid rgba(255,255,255,0.1);
-}
+document.addEventListener("mousemove",(e)=>{
+  cursor.style.left=e.clientX+"px";
+  cursor.style.top=e.clientY+"px";
 
-/* NAV */
-.nav{
-  display:flex;
-  justify-content:center;
-  padding:20px;
-}
-
-.nav a{
-  margin:0 20px;
-  color:#aaa;
-}
-
-.nav a:hover{
-  color:white;
-}
-
-/* HERO */
-.hero{
-  padding:100px 60px 60px;
-}
-
-.hero h1{
-  font-size:60px;
-}
-
-/* BUTTONS */
-.btn{
-  padding:10px 20px;
-  background:linear-gradient(90deg,#7c5cff,#9a7cff);
-  border:none;
-  border-radius:10px;
-  color:white;
-}
-
-.btn-outline{
-  padding:10px 20px;
-  background:transparent;
-  border:1px solid #333;
-  border-radius:10px;
-  color:white;
-}
-
-/* SECTION */
-.section{
-  padding:60px;
-  max-width:900px;
-}
-
-/* PROJECTS */
-.projects{
-  display:flex;
-  gap:20px;
-}
-
-.card{
-  padding:20px;
-  background:rgba(255,255,255,0.05);
-  border-radius:14px;
-  backdrop-filter:blur(10px);
-  cursor:pointer;
-  transition:0.3s;
-}
-
-.card:hover{
-  box-shadow:0 0 40px #7c5cff33;
-}
-
-/* SKILLS */
-.skills span{
-  border:1px solid #333;
-  padding:8px 14px;
-  border-radius:20px;
-  margin:5px;
-  display:inline-block;
-}
-
-/* CONTACT */
-.contact-box{
-  margin-top:20px;
-  padding:12px;
-  border:1px solid #333;
-  border-radius:8px;
-}
-
-/* CURSOR */
-.cursor{
-  width:6px;
-  height:6px;
-  background:white;
-  position:fixed;
-  border-radius:50%;
-}
-
-.cursor-blur{
-  width:40px;
-  height:40px;
-  background:rgba(124,92,255,0.3);
-  position:fixed;
-  border-radius:50%;
-  filter:blur(20px);
-}
+  blur.style.left=e.clientX-50+"px";
+  blur.style.top=e.clientY-50+"px";
+});
