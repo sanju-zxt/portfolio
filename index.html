@@ -3,117 +3,134 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PORTFOLIO</title>
+<title>Sanju | Portfolio</title>
 
 <link rel="stylesheet" href="style.css">
-
-<!-- ICONS -->
-<script src="https://kit.fontawesome.com/your-kit.js" crossorigin="anonymous"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 </head>
 
 <body>
 
-<!-- NAV -->
-<nav class="nav">
-  <h2>Lohith Sanju P<span class="dot"></span></h2>
+<!-- NAVBAR -->
+<header class="navbar">
+  <div class="logo">SANJU<span>.</span></div>
 
-  <div>
+  <nav>
     <a href="#">Home</a>
+    <a href="#about">About</a>
     <a href="#projects">Projects</a>
     <a href="#skills">Skills</a>
-    <a href="certifications.html">Certifications</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <div class="nav-right">
+    <a href="https://github.com/sanju-zxt" target="_blank">GitHub</a>
   </div>
-</nav>
+</header>
 
 <!-- HERO -->
 <section class="hero">
 
-  <div class="hero-left reveal">
+  <div class="hero-left">
     <p class="intro">Hi, I'm</p>
+    <h1>Sanju</h1>
 
-    <h1>Lohith Sanju P</h1>
-
-    <h3>FULL STACK DEVELOPER | DATA ENGINEER</h3>
+    <h3>Full Stack Developer | Cloud Engineer</h3>
 
     <p class="desc">
-      Building scalable web applications, AI-powered systems, and real-world mobile applications.
+      Building scalable web applications and intelligent systems using modern technologies.
     </p>
 
-    <div class="btn-group">
-      <button class="btn primary">View My Work</button>
-      <button class="btn outline">Download CV</button>
+    <div class="hero-buttons">
+      <a href="#projects" class="btn primary">View My Work</a>
+      <a href="#" class="btn">Download CV</a>
+    </div>
+
+    <div class="stats">
+      <div>5+ Projects</div>
+      <div>2+ Years Learning</div>
+      <div>500+ Connections</div>
     </div>
 
   </div>
 
-  <!-- SUBTLE GLOW -->
-  <div class="hero-glow"></div>
+  <!-- RIGHT SIDE (NO PHOTO) -->
+  <div class="hero-right">
+    <div class="circle"></div>
+  </div>
 
 </section>
 
-<!-- ABOUT + PROJECT -->
-<section class="section">
+<!-- ABOUT -->
+<section id="about" class="about">
+  <h2>About Me</h2>
 
-  <div class="about reveal">
-    <h4>ABOUT ME</h4>
+  <p>
+    Passionate about building real-world solutions using cloud technologies,
+    AI systems, and scalable web applications. Focused on creating impactful
+    products with clean architecture.
+  </p>
+</section>
 
-    <h2>
-      Passionate about building AI-powered systems and scalable applications.
-    </h2>
+<!-- PROJECTS -->
+<section id="projects" class="projects">
+  <h2>Featured Projects</h2>
 
-    <p>
-      Full Stack Developer, AI Developer and Data Engineer focused on solving real-world problems 
-      using modern technologies like React, Firebase, and Machine Learning.
-    </p>
-  </div>
+  <div class="project-grid">
 
-  <!-- PROJECTS -->
-  <div id="projects">
-    <h4 class="section-title">FEATURED PROJECTS</h4>
+    <div class="card">
+      <h3>Smart Student Monitoring System</h3>
+      <p>Cloud-based dashboard with Firebase + real-time analytics.</p>
+      <div class="tags">
+        <span>Firebase</span>
+        <span>JavaScript</span>
+      </div>
+      <div class="links">
+        <a href="https://sanju-zxt.github.io/smart-dashboard/" target="_blank">Live</a>
+        <a href="https://github.com/sanju-zxt/smart-dashboard" target="_blank">Code</a>
+      </div>
+    </div>
 
-    <div class="projects" id="projects-container">
-      <!-- Auto filled -->
+    <div class="card">
+      <h3>FraudShield AI</h3>
+      <p>AI-powered fraud detection system using ML models.</p>
+      <div class="tags">
+        <span>Python</span>
+        <span>ML</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Vision Bridge</h3>
+      <p>Platform connecting ideas with execution.</p>
+      <div class="tags">
+        <span>TypeScript</span>
+        <span>Firebase</span>
+      </div>
     </div>
 
   </div>
-
-</section>
-
-<!-- STATS -->
-<section class="stats">
-  <div><h2>5+</h2><p>Projects</p></div>
-  <div><h2>2+</h2><p>Years Learning</p></div>
-  <div><h2>20+</h2><p>Certificates</p></div>
-  <div><h2>500+</h2><p>Connections</p></div>
 </section>
 
 <!-- SKILLS -->
 <section id="skills" class="skills">
+  <h2>Technical Skills</h2>
 
-<h4 class="section-title">TECHNICAL SKILLS</h4>
+  <div class="skills-grid">
+    <span>HTML</span>
+    <span>CSS</span>
+    <span>JavaScript</span>
+    <span>Firebase</span>
+    <span>Azure</span>
+    <span>GitHub</span>
+  </div>
+</section>
 
-<div class="skills-grid">
-
-<div class="skill"><i class="fab fa-js"></i> JavaScript</div>
-<div class="skill"><i class="fab fa-react"></i> React</div>
-<div class="skill"><i class="fab fa-react"></i> React Native</div>
-<div class="skill"><i class="fas fa-fire"></i> Firebase</div>
-<div class="skill"><i class="fas fa-database"></i> MongoDB</div>
-<div class="skill"><i class="fab fa-python"></i> Python</div>
-<div class="skill"><i class="fas fa-chart-line"></i> Data Science</div>
-<div class="skill"><i class="fas fa-brain"></i> AI / ML</div>
-
-<div class="skill"><i class="fas fa-lightbulb"></i> Problem Solving</div>
-<div class="skill"><i class="fas fa-pencil-ruler"></i> UI/UX</div>
-<div class="skill"><i class="fas fa-server"></i> Backend</div>
-<div class="skill"><i class="fas fa-mobile-alt"></i> Android Studio</div>
-<div class="skill"><i class="fas fa-robot"></i> Prompt Engineering</div>
-<div class="skill"><i class="fas fa-code"></i> C</div>
-<div class="skill"><i class="fas fa-comments"></i> Communication</div>
-
-</div>
-
+<!-- CONTACT -->
+<section id="contact" class="contact">
+  <h2>Contact</h2>
+  <p>ssanju200610@gmail.com</p>
 </section>
 
 <script src="script.js"></script>
