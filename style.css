@@ -2,77 +2,72 @@ body{
   margin:0;
   font-family:'Inter';
   background:#050507;
-  color:#e5e5e5;
-  cursor:none;
+  color:white;
   overflow-x:hidden;
+  cursor:none;
+}
+
+/* WEBGL CANVAS */
+#bg{
+  position:fixed;
+  top:0;
+  left:0;
+  z-index:-1;
 }
 
 /* NAV */
 .nav{
   display:flex;
   justify-content:space-between;
-  padding:20px 80px;
+  padding:20px 60px;
 }
 
 /* HERO */
 .hero{
   height:100vh;
   display:flex;
-  align-items:center;
-  padding:0 80px;
-  position:relative;
+  flex-direction:column;
+  justify-content:center;
+  padding:0 60px;
 }
 
 .hero-title{
   font-size:70px;
 }
 
-/* PARALLAX */
-.parallax-layer{
-  position:absolute;
-  width:600px;
-  height:600px;
-  background:radial-gradient(circle,#7c5cff33,transparent);
-  filter:blur(120px);
-  top:10%;
-  left:60%;
-}
-
 /* BUTTON */
 .btn{
-  padding:12px 22px;
-  border-radius:8px;
-  margin-top:10px;
-}
-
-.primary{
+  padding:12px 20px;
   background:#7c5cff;
-  color:white;
+  border:none;
+  border-radius:10px;
 }
 
-/* PROJECTS */
+/* CARDS */
 .projects{
   display:flex;
   gap:20px;
 }
 
-.project-card{
+.card{
   background:#0b0b10;
   padding:20px;
-  border-radius:14px;
+  border-radius:12px;
+  transition:0.4s;
+}
+
+.card:hover{
+  transform:translateY(-10px);
+  box-shadow:0 0 40px #7c5cff44;
 }
 
 /* SKILLS */
-.skills-grid{
-  display:flex;
-  flex-wrap:wrap;
-  gap:10px;
-}
-
-.skill{
-  padding:10px 16px;
-  border:1px solid #222;
+.skills span{
+  border:1px solid #333;
+  padding:8px 14px;
   border-radius:20px;
+  margin:5px;
+  display:inline-block;
 }
 
 /* CURSOR */
@@ -83,21 +78,16 @@ body{
   position:fixed;
   border-radius:50%;
   pointer-events:none;
-  z-index:9999;
+  z-index:1000;
 }
 
-.cursor-blur{
-  width:60px;
-  height:60px;
-  background:rgba(124,92,255,0.2);
-  position:fixed;
+/* TRAIL */
+.trail{
+  width:40px;
+  height:40px;
   border-radius:50%;
-  filter:blur(40px);
+  background:radial-gradient(circle,#7c5cff55,transparent);
+  position:fixed;
   pointer-events:none;
-}
-
-/* TEXT REVEAL */
-.reveal-text{
-  opacity:0;
-  transform:translateY(50px);
+  filter:blur(20px);
 }
