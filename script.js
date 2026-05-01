@@ -1,4 +1,18 @@
-// CURSOR
+gsap.registerPlugin(ScrollTrigger);
+
+
+// ===== SMOOTH SCROLL FIX =====
+document.querySelectorAll('a[href^="#"]').forEach(anchor=>{
+  anchor.addEventListener("click", function(e){
+    e.preventDefault();
+    document.querySelector(this.getAttribute("href")).scrollIntoView({
+      behavior:"smooth"
+    });
+  });
+});
+
+
+// ===== CURSOR =====
 const cursor=document.querySelector(".cursor");
 const blur=document.querySelector(".cursor-blur");
 
@@ -10,42 +24,62 @@ document.addEventListener("mousemove",(e)=>{
   blur.style.top=e.clientY-30+"px";
 });
 
-// MAGNETIC
-document.querySelectorAll(".magnetic").forEach(btn=>{
-  btn.addEventListener("mousemove",e=>{
-    const r=btn.getBoundingClientRect();
-    btn.style.transform=`translate(${(e.clientX-r.left-r.width/2)/6}px, ${(e.clientY-r.top-r.height/2)/6}px)`;
-  });
 
-  btn.addEventListener("mouseleave",()=>{
-    btn.style.transform="translate(0,0)";
+// ===== HERO ANIMATION =====
+gsap.from(".hero-title",{
+  y:80,
+  opacity:0,
+  duration:1.2,
+  ease:"power3.out"
+});
+
+
+// ===== TEXT REVEAL =====
+gsap.utils.toArray(".reveal-text").forEach(el=>{
+  gsap.to(el,{
+    scrollTrigger:{
+      trigger:el,
+      start:"top 80%"
+    },
+    opacity:1,
+    y:0,
+    duration:1
   });
 });
 
-// PARALLAX
-document.addEventListener("mousemove",(e)=>{
-  const bg=document.querySelector(".parallax-layer");
-  bg.style.transform=`translate(${e.clientX/40}px,${e.clientY/40}px)`;
-});
 
-// SCROLL REVEAL
-window.addEventListener("scroll",()=>{
-  document.querySelectorAll(".reveal").forEach(el=>{
-    if(el.getBoundingClientRect().top<window.innerHeight-100){
-      el.classList.add("active");
+// ===== SECTION ZOOM =====
+gsap.utils.toArray(".zoom").forEach(section=>{
+  gsap.from(section,{
+    scale:0.95,
+    opacity:0,
+    scrollTrigger:{
+      trigger:section,
+      start:"top 80%"
     }
   });
 });
 
-// 3D PROJECT TILT
+
+// ===== SCROLL PINNING HERO =====
+ScrollTrigger.create({
+  trigger:".hero",
+  start:"top top",
+  end:"+=100%",
+  pin:true,
+  scrub:true
+});
+
+
+// ===== PROJECT TILT =====
 document.querySelectorAll(".project-card").forEach(card=>{
-  card.addEventListener("mousemove",e=>{
+  card.addEventListener("mousemove",(e)=>{
     const r=card.getBoundingClientRect();
+
     card.style.transform=`
       perspective(1000px)
-      rotateX(${-(e.clientY-r.top-r.height/2)/12}deg)
-      rotateY(${(e.clientX-r.left-r.width/2)/12}deg)
-      scale(1.03)
+      rotateX(${-(e.clientY-r.top-r.height/2)/10}deg)
+      rotateY(${(e.clientX-r.left-r.width/2)/10}deg)
     `;
   });
 
