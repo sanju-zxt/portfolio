@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Lohith Sanju Portfolio</title>
 
 <link rel="stylesheet" href="style.css">
@@ -11,14 +10,18 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
 </head>
 
 <body>
 
-<!-- NAVBAR -->
+<!-- LOADER -->
+<div id="loader">
+  <h1 class="loader-text">Lohith Sanju</h1>
+</div>
+
+<!-- NAV -->
 <header class="nav">
-  <h2 class="logo">Lohith Sanju</h2>
+  <h2 class="logo">Lohith<span>.</span></h2>
 
   <nav class="nav-links">
     <a href="#about">About</a>
@@ -28,23 +31,22 @@
   </nav>
 
   <div class="nav-icons">
-  <a href="https://github.com/sanju-zxt" target="_blank">
-    <i class="fab fa-github"></i>
-  </a>
-  <a href="https://linkedin.com/in/YOUR-LINKEDIN" target="_blank">
-    <i class="fab fa-linkedin"></i>
-  </a>
-</div>
+    <a href="https://github.com/sanju-zxt" target="_blank"><i class="fab fa-github"></i></a>
+    <a href="#"><i class="fab fa-linkedin"></i></a>
+  </div>
 </header>
 
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-content">
+  <div class="parallax-bg"></div>
 
+  <div class="hero-content">
     <span class="hero-intro">Hi, I'm</span>
 
-    <h1 class="hero-title">Lohith Sanju P</h1>
+    <h1 class="hero-title">
+      Lohith Sanju <span id="typing"></span>
+    </h1>
 
     <h3 class="hero-role">
       Full Stack Developer | AI Developer | Data Engineer
@@ -55,95 +57,75 @@
     </p>
 
     <div class="hero-buttons">
-      <button class="btn primary">View Work</button>
-      <button class="btn outline">Download CV</button>
+      <a href="#projects" class="btn primary magnetic">View Work</a>
+      <button class="btn outline magnetic">Download CV</button>
     </div>
-
   </div>
 </section>
 
 
 <!-- ABOUT -->
-<section id="about" class="section">
-  <h2 class="section-title">About</h2>
-
-  <p class="about">
-    I am a results-driven Full Stack Developer with a strong focus on building scalable web
-    applications, AI-powered systems, and data-driven solutions.
-
-    I have hands-on experience with React, Firebase, Python, and MongoDB, and I actively
-    build real-world projects that solve practical problems.
-
-    My work combines clean UI/UX design, efficient backend architecture, and intelligent
-    automation to deliver impactful products.
+<section id="about" class="section reveal">
+  <h2>About</h2>
+  <p>
+    I am a results-driven Full Stack Developer with strong focus on AI systems,
+    scalable backend architecture, and real-world applications.
+    I build impactful solutions using React, Firebase, Python and modern stacks.
   </p>
 </section>
 
 
 <!-- PROJECTS -->
-<section id="projects" class="section">
-  <h2 class="section-title">Selected Work</h2>
+<section id="projects" class="section reveal">
+  <h2>Selected Work</h2>
 
-  <div id="projects-container" class="projects">
-
-    <!-- Project 1 -->
+  <div class="projects">
     <div class="project-card">
       <h3>Smart Dashboard</h3>
-      <p>Real-time student monitoring system</p>
-      <a href="https://github.com/sanju-zxt" target="_blank">View Project →</a>
+      <p>Student monitoring system</p>
+      <a href="#">View Project →</a>
     </div>
 
-    <!-- Project 2 -->
     <div class="project-card">
       <h3>FraudShield AI</h3>
-      <p>AI-based fraud detection system</p>
-      <a href="https://github.com/sanju-zxt" target="_blank">View Project →</a>
+      <p>Fraud detection system</p>
+      <a href="#">View Project →</a>
     </div>
 
-    <!-- Project 3 -->
     <div class="project-card">
       <h3>Vision Bridge</h3>
       <p>Innovation platform</p>
-      <a href="https://github.com/sanju-zxt" target="_blank">View Project →</a>
+      <a href="#">View Project →</a>
     </div>
-
   </div>
 </section>
 
 
 <!-- SKILLS -->
-<section id="skills" class="section">
-  <h2 class="section-title">Skills</h2>
+<section id="skills" class="section reveal">
+  <h2>Skills</h2>
 
   <div class="skills-grid">
-
     <div class="skill"><i class="fab fa-js"></i> JavaScript</div>
     <div class="skill"><i class="fab fa-react"></i> React</div>
     <div class="skill"><i class="fab fa-python"></i> Python</div>
     <div class="skill"><i class="fas fa-fire"></i> Firebase</div>
     <div class="skill"><i class="fas fa-database"></i> MongoDB</div>
     <div class="skill"><i class="fas fa-brain"></i> AI / ML</div>
-    <div class="skill"><i class="fas fa-chart-line"></i> Data Science</div>
-    <div class="skill"><i class="fas fa-server"></i> Backend</div>
-
   </div>
 </section>
 
 
 <!-- CONTACT -->
-<section class="section contact">
-  <h2 class="section-title">Contact</h2>
-
-  <p class="contact-text">
-    Open to collaborations and opportunities.
-  </p>
+<section class="section reveal">
+  <h2>Contact</h2>
+  <p>Open to collaborations and opportunities.</p>
 
   <div class="contact-box">
     <i class="fas fa-envelope"></i>
     <span>ssanju200610@gmail.com</span>
   </div>
 </section>
-
 
 <script src="script.js"></script>
 
