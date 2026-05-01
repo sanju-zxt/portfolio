@@ -3,134 +3,82 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sanju | Portfolio</title>
+<title>Lohith Sanju Portfolio</title>
 
 <link rel="stylesheet" href="style.css">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<!-- ICONS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 </head>
 
 <body>
 
-<!-- NAVBAR -->
-<header class="navbar">
-  <div class="logo">SANJU<span>.</span></div>
+<!-- CURSOR -->
+<div class="cursor"></div>
+<div class="cursor-blur"></div>
 
-  <nav>
+<!-- NAVBAR -->
+<nav class="nav">
+  <h2>Lohith Sanju <span class="dot"></span></h2>
+
+  <div class="nav-links">
     <a href="#">Home</a>
-    <a href="#about">About</a>
     <a href="#projects">Projects</a>
     <a href="#skills">Skills</a>
-    <a href="#contact">Contact</a>
-  </nav>
-
-  <div class="nav-right">
-    <a href="https://github.com/sanju-zxt" target="_blank">GitHub</a>
+    <a href="certifications.html">Certifications</a>
   </div>
-</header>
+
+  <div class="nav-icons">
+    <a href="https://github.com/sanju-zxt" target="_blank">
+      <i class="fab fa-github"></i>
+    </a>
+    <a href="https://linkedin.com" target="_blank">
+      <i class="fab fa-linkedin"></i>
+    </a>
+  </div>
+</nav>
 
 <!-- HERO -->
 <section class="hero">
-
   <div class="hero-left">
-    <p class="intro">Hi, I'm</p>
-    <h1>Sanju</h1>
+    <h1>Lohith Sanju P</h1>
+    <h3>Full Stack Developer | Data Engineer</h3>
 
-    <h3>Full Stack Developer | Cloud Engineer</h3>
-
-    <p class="desc">
-      Building scalable web applications and intelligent systems using modern technologies.
+    <p>
+      Building scalable web applications, AI systems and real-world solutions.
     </p>
 
-    <div class="hero-buttons">
-      <a href="#projects" class="btn primary">View My Work</a>
-      <a href="#" class="btn">Download CV</a>
-    </div>
-
-    <div class="stats">
-      <div>5+ Projects</div>
-      <div>2+ Years Learning</div>
-      <div>500+ Connections</div>
-    </div>
-
+    <button class="btn">View My Work</button>
+    <button class="btn outline">Download CV</button>
   </div>
 
-  <!-- RIGHT SIDE (NO PHOTO) -->
-  <div class="hero-right">
-    <div class="circle"></div>
-  </div>
-
-</section>
-
-<!-- ABOUT -->
-<section id="about" class="about">
-  <h2>About Me</h2>
-
-  <p>
-    Passionate about building real-world solutions using cloud technologies,
-    AI systems, and scalable web applications. Focused on creating impactful
-    products with clean architecture.
-  </p>
+  <div class="glow"></div>
 </section>
 
 <!-- PROJECTS -->
-<section id="projects" class="projects">
+<section id="projects" class="section">
   <h2>Featured Projects</h2>
 
-  <div class="project-grid">
-
-    <div class="card">
-      <h3>Smart Student Monitoring System</h3>
-      <p>Cloud-based dashboard with Firebase + real-time analytics.</p>
-      <div class="tags">
-        <span>Firebase</span>
-        <span>JavaScript</span>
-      </div>
-      <div class="links">
-        <a href="https://sanju-zxt.github.io/smart-dashboard/" target="_blank">Live</a>
-        <a href="https://github.com/sanju-zxt/smart-dashboard" target="_blank">Code</a>
-      </div>
-    </div>
-
-    <div class="card">
-      <h3>FraudShield AI</h3>
-      <p>AI-powered fraud detection system using ML models.</p>
-      <div class="tags">
-        <span>Python</span>
-        <span>ML</span>
-      </div>
-    </div>
-
-    <div class="card">
-      <h3>Vision Bridge</h3>
-      <p>Platform connecting ideas with execution.</p>
-      <div class="tags">
-        <span>TypeScript</span>
-        <span>Firebase</span>
-      </div>
-    </div>
-
-  </div>
+  <div class="projects" id="projects-container"></div>
 </section>
 
 <!-- SKILLS -->
-<section id="skills" class="skills">
-  <h2>Technical Skills</h2>
+<section id="skills" class="section">
+<h2>Skills</h2>
 
-  <div class="skills-grid">
-    <span>HTML</span>
-    <span>CSS</span>
-    <span>JavaScript</span>
-    <span>Firebase</span>
-    <span>Azure</span>
-    <span>GitHub</span>
-  </div>
-</section>
+<div class="skills-grid">
 
-<!-- CONTACT -->
-<section id="contact" class="contact">
-  <h2>Contact</h2>
-  <p>ssanju200610@gmail.com</p>
+<div class="skill"><i class="fab fa-js"></i> JavaScript</div>
+<div class="skill"><i class="fab fa-react"></i> React</div>
+<div class="skill"><i class="fab fa-python"></i> Python</div>
+<div class="skill"><i class="fas fa-fire"></i> Firebase</div>
+<div class="skill"><i class="fas fa-database"></i> MongoDB</div>
+<div class="skill"><i class="fas fa-brain"></i> AI / ML</div>
+<div class="skill"><i class="fas fa-mobile"></i> React Native</div>
+
+</div>
+
 </section>
 
 <script src="script.js"></script>
