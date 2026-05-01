@@ -1,102 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Lohith Sanju Portfolio</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>Portfolio - Lohith Sanju</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
 <!-- NAVBAR -->
 <header class="navbar">
-  <div class="logo">LOHITH SANJU <span></span></div>
+  <h2>LOHITH SANJU <span class="dot"></span></h2>
 
   <nav>
-    <a class="active" href="#">Home</a>
-    <a href="projects.html">Projects</a>
-    <a href="skills.html">Skills</a>
+    <a href="#">Home</a>
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#skills">Skills</a>
     <a href="certifications.html">Certifications</a>
   </nav>
 
-  <div class="actions">
-    <a href="#" class="icon">GitHub</a>
-    <a href="#" class="icon">LinkedIn</a>
-    <a href="#" class="connect">Let's Connect →</a>
+  <div class="nav-btns">
+    <a href="https://github.com/sanju-zxt" target="_blank">GitHub</a>
+    <a href="https://linkedin.com" target="_blank">LinkedIn</a>
   </div>
 </header>
 
 <!-- HERO -->
 <section class="hero">
-
-  <div class="hero-text">
-    <h4>Hi, I'm</h4>
+  <div class="hero-left">
+    <p class="intro">Hi, I'm</p>
     <h1>Lohith Sanju P</h1>
-
-    <p class="role">FULL STACK DEVELOPER | DATA ENGINEER</p>
+    <h3>FULL STACK DEVELOPER | DATA ENGINEER</h3>
 
     <p class="desc">
       Building scalable web applications and intelligent solutions with modern technologies.
     </p>
 
     <div class="buttons">
-      <a href="projects.html" class="primary">View My Work →</a>
-      <a href="#" class="secondary">Download CV</a>
+      <a class="btn primary" href="#projects">View My Work →</a>
+      <a class="btn" href="#">Download CV</a>
     </div>
 
-    <div class="status">
+    <div class="meta">
       <span>500+ Connections</span>
       <span class="green">● Open to Work</span>
     </div>
   </div>
 
-  <div class="hero-visual">
-    <div class="ring"></div>
+  <div class="hero-right">
+    <div class="circle"></div>
   </div>
-
 </section>
 
-<!-- MAIN CONTENT -->
-<section class="content">
+<!-- ABOUT + PROJECTS -->
+<section class="grid-section">
 
-  <!-- ABOUT -->
-  <div class="about card">
-    <h3>About Me</h3>
+  <div class="about-card" id="about">
+    <h4>ABOUT ME</h4>
+    <h2>Passionate about turning ideas into real-world solutions.</h2>
     <p>
-      Passionate about turning ideas into real-world solutions.  
       Full Stack Developer with strong focus on AI, scalable systems and real-world applications.
     </p>
-    <a href="#">Learn More →</a>
   </div>
 
-  <!-- PROJECTS -->
-  <div class="projects card">
-    <div class="top">
-      <h3>Featured Projects</h3>
-      <span>View All →</span>
+  <div class="projects" id="projects">
+    <div class="projects-header">
+      <h4>FEATURED PROJECTS</h4>
+      <a href="#">View All →</a>
     </div>
 
     <div class="project-grid">
 
-      <div class="project">
-        <h4>Smart Student Monitoring</h4>
+      <div class="card">
+        <h3>Smart Student Monitoring</h3>
         <p>Real-time dashboard with alerts</p>
-        <div class="tags">Firebase • JS • Chart.js</div>
-        <a href="https://github.com/sanju-zxt/smart-dashboard">Live Demo ↗</a>
+        <span>Firebase • JS • Chart.js</span>
+        <a href="https://github.com/sanju-zxt/smart-dashboard" target="_blank">Live Demo →</a>
       </div>
 
-      <div class="project">
-        <h4>FraudShield AI</h4>
+      <div class="card">
+        <h3>FraudShield AI</h3>
         <p>AI fraud detection system</p>
-        <div class="tags">Python • ML • Flask</div>
-        <a href="https://github.com/sanju-zxt/FraudShieldAI">Live Demo ↗</a>
+        <span>Python • ML • Flask</span>
+        <a href="https://github.com/sanju-zxt/FraudShieldAI" target="_blank">Live Demo →</a>
       </div>
 
-      <div class="project">
-        <h4>Vision Bridge</h4>
+      <div class="card">
+        <h3>Vision Bridge</h3>
         <p>Innovation platform</p>
-        <div class="tags">React • Firebase</div>
-        <a href="https://github.com/sanju-zxt/vision-bridge">Live Demo ↗</a>
+        <span>React • Firebase</span>
+        <a href="https://github.com/sanju-zxt/vision-bridge" target="_blank">Live Demo →</a>
       </div>
 
     </div>
@@ -106,26 +99,27 @@
 
 <!-- STATS -->
 <section class="stats">
-  <div><h2>5+</h2><p>Projects</p></div>
-  <div><h2>2+</h2><p>Years Learning</p></div>
-  <div><h2>20+</h2><p>Certifications</p></div>
-  <div><h2>500+</h2><p>Connections</p></div>
+  <div>5+<span>Projects</span></div>
+  <div>2+<span>Years Learning</span></div>
+  <div>20+<span>Certificates</span></div>
+  <div>500+<span>Connections</span></div>
 </section>
 
 <!-- SKILLS -->
-<section class="skills">
-  <h3>Technical Skills</h3>
+<section id="skills" class="skills">
+  <h4>TECHNICAL SKILLS</h4>
 
-  <div class="skills-row">
-    <div>HTML5</div>
-    <div>CSS3</div>
-    <div>JavaScript</div>
-    <div>React</div>
-    <div>Node.js</div>
-    <div>Firebase</div>
-    <div>Python</div>
-    <div>GitHub</div>
-    <div>Azure</div>
+  <div class="skills-grid">
+    <div>💻 HTML5</div>
+    <div>🎨 CSS3</div>
+    <div>⚡ JavaScript</div>
+    <div>⚛ React</div>
+    <div>🔥 Firebase</div>
+    <div>🐍 Python</div>
+    <div>📊 Data Science</div>
+    <div>🤖 AI / ML</div>
+    <div>📱 React Native</div>
+    <div>🗄 MongoDB</div>
   </div>
 </section>
 
