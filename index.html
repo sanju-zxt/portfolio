@@ -16,11 +16,11 @@
 
 <body>
 
-<!-- NAV -->
+<!-- NAVBAR -->
 <header class="nav">
-  <h2>Lohith Sanju</h2>
+  <h2 class="logo">Lohith Sanju</h2>
 
-  <nav>
+  <nav class="nav-links">
     <a href="#about">About</a>
     <a href="#projects">Work</a>
     <a href="#skills">Skills</a>
@@ -34,46 +34,83 @@
   </div>
 </header>
 
+
 <!-- HERO -->
 <section class="hero">
-  <div>
-    <h1>Lohith Sanju P</h1>
-    <h3>Full Stack Developer | AI Developer | Data Engineer</h3>
+  <div class="hero-content">
 
-    <p>
+    <span class="hero-intro">Hi, I'm</span>
+
+    <h1 class="hero-title">Lohith Sanju P</h1>
+
+    <h3 class="hero-role">
+      Full Stack Developer | AI Developer | Data Engineer
+    </h3>
+
+    <p class="hero-desc">
       Building scalable web applications and intelligent systems with modern technologies.
     </p>
 
-    <button class="btn">View Work</button>
-    <button class="btn outline">Download CV</button>
+    <div class="hero-buttons">
+      <button class="btn primary">View Work</button>
+      <button class="btn outline">Download CV</button>
+    </div>
+
   </div>
 </section>
 
+
 <!-- ABOUT -->
 <section id="about" class="section">
-  <h2>About</h2>
+  <h2 class="section-title">About</h2>
 
   <p class="about">
-    I am a results-driven Full Stack Developer with a strong focus on building scalable web applications,
-    AI-powered systems, and data-driven solutions.
+    I am a results-driven Full Stack Developer with a strong focus on building scalable web
+    applications, AI-powered systems, and data-driven solutions.
 
-    I have hands-on experience with React, Firebase, Python, and MongoDB, and I actively build real-world
-    projects that solve practical problems.
+    I have hands-on experience with React, Firebase, Python, and MongoDB, and I actively
+    build real-world projects that solve practical problems.
 
-    My work combines clean UI/UX design, efficient backend systems, and intelligent automation.
+    My work combines clean UI/UX design, efficient backend architecture, and intelligent
+    automation to deliver impactful products.
   </p>
 </section>
 
+
 <!-- PROJECTS -->
 <section id="projects" class="section">
-  <h2>Selected Work</h2>
+  <h2 class="section-title">Selected Work</h2>
 
-  <div id="projects-container" class="projects"></div>
+  <div id="projects-container" class="projects">
+
+    <!-- Project 1 -->
+    <div class="project-card">
+      <h3>Smart Dashboard</h3>
+      <p>Real-time student monitoring system</p>
+      <a href="https://github.com/sanju-zxt" target="_blank">View Project →</a>
+    </div>
+
+    <!-- Project 2 -->
+    <div class="project-card">
+      <h3>FraudShield AI</h3>
+      <p>AI-based fraud detection system</p>
+      <a href="https://github.com/sanju-zxt" target="_blank">View Project →</a>
+    </div>
+
+    <!-- Project 3 -->
+    <div class="project-card">
+      <h3>Vision Bridge</h3>
+      <p>Innovation platform</p>
+      <a href="https://github.com/sanju-zxt" target="_blank">View Project →</a>
+    </div>
+
+  </div>
 </section>
+
 
 <!-- SKILLS -->
 <section id="skills" class="section">
-  <h2>Skills</h2>
+  <h2 class="section-title">Skills</h2>
 
   <div class="skills-grid">
 
@@ -89,17 +126,21 @@
   </div>
 </section>
 
+
 <!-- CONTACT -->
 <section class="section contact">
-  <h2>Contact</h2>
+  <h2 class="section-title">Contact</h2>
 
-  <p>Open to collaborations and opportunities.</p>
+  <p class="contact-text">
+    Open to collaborations and opportunities.
+  </p>
 
   <div class="contact-box">
     <i class="fas fa-envelope"></i>
     <span>ssanju200610@gmail.com</span>
   </div>
 </section>
+
 
 <script src="script.js"></script>
 
