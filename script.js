@@ -1,38 +1,48 @@
-// CURSOR
-const cursor=document.querySelector(".cursor");
-const blur=document.querySelector(".cursor-blur");
-
+// ===== PARALLAX DEPTH =====
 document.addEventListener("mousemove",(e)=>{
-  cursor.style.left=e.clientX+"px";
-  cursor.style.top=e.clientY+"px";
+  const layers=document.querySelectorAll(".parallax-layer");
 
-  blur.style.left=e.clientX-30+"px";
-  blur.style.top=e.clientY-30+"px";
-});
+  layers.forEach(layer=>{
+    const speed = 20;
+    const x = (window.innerWidth/2 - e.clientX)/speed;
+    const y = (window.innerHeight/2 - e.clientY)/speed;
 
-// MAGNETIC
-document.querySelectorAll(".magnetic").forEach(btn=>{
-  btn.addEventListener("mousemove",e=>{
-    const r=btn.getBoundingClientRect();
-    btn.style.transform=`translate(${(e.clientX-r.left-r.width/2)/6}px, ${(e.clientY-r.top-r.height/2)/6}px)`;
-  });
-
-  btn.addEventListener("mouseleave",()=>{
-    btn.style.transform="translate(0,0)";
+    layer.style.transform = `translate(${x}px, ${y}px)`;
   });
 });
 
-// PARALLAX
-document.addEventListener("mousemove",(e)=>{
-  const bg=document.querySelector(".parallax-layer");
-  bg.style.transform=`translate(${e.clientX/40}px,${e.clientY/40}px)`;
-});
 
-// SCROLL REVEAL
+// ===== SCROLL REVEAL (APPLE STYLE) =====
+const reveals = document.querySelectorAll(".reveal");
+
 window.addEventListener("scroll",()=>{
-  document.querySelectorAll(".reveal").forEach(el=>{
-    if(el.getBoundingClientRect().top<window.innerHeight-100){
-      el.classList.add("active");
+  reveals.forEach(el=>{
+    const top = el.getBoundingClientRect().top;
+
+    if(top < window.innerHeight - 80){
+      el.style.opacity = 1;
+      el.style.transform = "translateY(0)";
     }
+  });
+});
+
+
+// ===== PROJECT HOVER PREVIEW =====
+document.querySelectorAll(".project-card").forEach(card=>{
+  card.addEventListener("mousemove",e=>{
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    card.style.transform = `
+      perspective(1000px)
+      rotateX(${-(y-rect.height/2)/12}deg)
+      rotateY(${(x-rect.width/2)/12}deg)
+      scale(1.03)
+    `;
+  });
+
+  card.addEventListener("mouseleave",()=>{
+    card.style.transform = "rotateX(0) rotateY(0)";
   });
 });
