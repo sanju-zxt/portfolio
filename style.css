@@ -6,24 +6,28 @@ body {
 }
 
 /* NAV */
-nav {
+.navbar {
   display: flex;
   justify-content: space-between;
   padding: 20px 60px;
 }
 
-nav a {
-  margin-left: 20px;
+.navbar nav a {
+  margin: 0 15px;
   color: #94a3b8;
   text-decoration: none;
 }
 
-.dot {
+.navbar .active {
+  color: #6366f1;
+}
+
+.logo span {
   width: 8px;
   height: 8px;
   background: #6366f1;
-  border-radius: 50%;
   display: inline-block;
+  border-radius: 50%;
 }
 
 /* HERO */
@@ -33,7 +37,7 @@ nav a {
   padding: 80px 60px;
 }
 
-.hero-left h1 {
+.hero-text h1 {
   font-size: 60px;
 }
 
@@ -47,60 +51,50 @@ nav a {
   border-radius: 8px;
 }
 
-.btn-primary {
-  background: linear-gradient(90deg, #2563eb, #6366f1);
+.primary {
+  background: linear-gradient(90deg,#2563eb,#6366f1);
 }
 
-.btn-secondary {
+.secondary {
   border: 1px solid #334155;
 }
 
-/* RIGHT SIDE VISUAL */
-.hero-right {
-  position: relative;
-}
-
-.circle {
-  width: 300px;
-  height: 300px;
+/* RING */
+.hero-visual .ring {
+  width: 320px;
+  height: 320px;
   border: 2px solid #6366f1;
   border-radius: 50%;
-  box-shadow: 0 0 60px #6366f1;
+  box-shadow: 0 0 80px #6366f1;
 }
 
-/* SECTION */
-.section {
+/* CARDS */
+.content {
   display: flex;
-  gap: 40px;
+  gap: 30px;
   padding: 60px;
-}
-
-.about-card {
-  flex: 1;
-  background: rgba(15,23,42,0.6);
-  padding: 20px;
-  border-radius: 12px;
-}
-
-.projects {
-  flex: 2;
-}
-
-.project-grid {
-  display: flex;
-  gap: 20px;
 }
 
 .card {
   background: rgba(15,23,42,0.6);
   padding: 20px;
-  border-radius: 12px;
-  flex: 1;
-  transition: 0.3s;
+  border-radius: 16px;
 }
 
-.card:hover {
-  transform: translateY(-10px);
+/* PROJECT GRID */
+.project-grid {
+  display: flex;
+  gap: 20px;
+}
+
+.project {
+  background: rgba(2,6,23,0.8);
+  padding: 15px;
+  border-radius: 12px;
+  flex: 1;
+}
+
+.project:hover {
   box-shadow: 0 0 20px #6366f1;
 }
 
@@ -116,13 +110,13 @@ nav a {
   padding: 60px;
 }
 
-.skills-grid {
+.skills-row {
   display: flex;
   gap: 15px;
   flex-wrap: wrap;
 }
 
-.skills-grid div {
+.skills-row div {
   background: #0f172a;
   padding: 10px 15px;
   border-radius: 8px;
