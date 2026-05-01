@@ -1,25 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Login - Portfolio</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<title>Lohith Sanju Portfolio</title>
+<link rel="stylesheet" href="style.css">
 </head>
 
-<body class="login-body">
+<body>
 
-<div class="login-box">
-  <h2>🔐 Login</h2>
-
-  <input type="email" id="email" placeholder="Email">
-  <input type="password" id="password" placeholder="Password">
-
-  <div class="btn-group">
-    <button onclick="signUp()">Sign Up</button>
-    <button onclick="login()">Login</button>
+<!-- NAV -->
+<nav>
+  <h2>LOHITH SANJU <span class="dot"></span></h2>
+  <div>
+    <a href="#">Home</a>
+    <a href="projects.html">Projects</a>
+    <a href="skills.html">Skills</a>
+    <a href="certifications.html">Certifications</a>
   </div>
-</div>
+</nav>
 
-<script src="auth.js"></script>
+<!-- HERO -->
+<section class="hero">
+
+  <div class="hero-left">
+    <h4>Hi, I'm</h4>
+    <h1>Lohith Sanju P</h1>
+
+    <p class="role">
+      FULL STACK DEVELOPER | AI DEVELOPER | DATA ENGINEER
+    </p>
+
+    <p class="desc">
+      Building scalable applications and intelligent systems using modern technologies.
+    </p>
+
+    <div class="buttons">
+      <a href="projects.html" class="btn-primary">View My Work</a>
+      <a href="certifications.html" class="btn-secondary">Certificates</a>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="circle"></div>
+  </div>
+
+</section>
+
+<!-- ABOUT + PROJECTS -->
+<section class="section">
+
+  <div class="about-card">
+    <h3>About Me</h3>
+    <p>
+      Passionate Full Stack Developer and AI Engineer with hands-on experience in building real-world systems.
+      Focused on scalable, impactful solutions.
+    </p>
+  </div>
+
+  <div class="projects">
+    <h3>Featured Projects</h3>
+
+    <div class="project-grid">
+
+      <div class="card">
+        <h4>Smart Dashboard</h4>
+        <p>Real-time student monitoring system</p>
+        <span>Firebase • JS • Charts</span>
+      </div>
+
+      <div class="card">
+        <h4>FraudShield AI</h4>
+        <p>AI fraud detection system</p>
+        <span>Python • ML • Flask</span>
+      </div>
+
+      <div class="card">
+        <h4>Vision Bridge</h4>
+        <p>Innovation platform</p>
+        <span>React • Firebase</span>
+      </div>
+
+    </div>
+  </div>
+
+</section>
+
+<!-- STATS -->
+<section class="stats">
+  <div>5+<span>Projects</span></div>
+  <div>2+<span>Years Learning</span></div>
+  <div>20+<span>Certificates</span></div>
+  <div>500+<span>Connections</span></div>
+</section>
+
+<!-- SKILLS -->
+<section class="skills">
+  <h3>Technical Skills</h3>
+
+  <div class="skills-grid">
+    <div>💻 JavaScript</div>
+    <div>⚛ React</div>
+    <div>🔥 Firebase</div>
+    <div>🐍 Python</div>
+    <div>📊 Data Science</div>
+    <div>🤖 AI / ML</div>
+    <div>📱 React Native</div>
+    <div>🗄 MongoDB</div>
+  </div>
+</section>
+
 </body>
 </html>
