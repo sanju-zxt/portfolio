@@ -36,11 +36,15 @@ body{
 
 /* BUTTON */
 .btn{
-  margin-top:20px;
-  padding:12px 28px;
+  padding:12px 30px;
   border-radius:12px;
   background:linear-gradient(90deg,#7c5cff,#9a7cff);
   border:none;
+  transition:0.3s;
+}
+
+.btn:hover{
+  box-shadow:0 0 30px #7c5cff55;
 }
 
 /* PROJECTS */
@@ -56,13 +60,12 @@ body{
   background:#0b0b10;
   border-radius:16px;
   transition:0.4s;
-  text-decoration:none;
-  color:white;
+  cursor:pointer;
 }
 
 .card:hover{
-  transform:rotateX(8deg) rotateY(8deg) translateY(-10px);
-  box-shadow:0 0 40px #7c5cff33;
+  transform:rotateX(10deg) rotateY(10deg) translateY(-10px);
+  box-shadow:0 0 40px #7c5cff44;
 }
 
 /* SKILLS */
@@ -92,7 +95,7 @@ body{
   filter:blur(15px);
 }
 
-/* SECTION SPACING */
+/* SECTION */
 .section{
   padding:120px 60px;
 }
