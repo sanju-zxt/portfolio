@@ -7,16 +7,22 @@
 
 <link rel="stylesheet" href="style.css">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
+
 </head>
 
 <body>
 
-<!-- BACKGROUND -->
+<!-- LIVE BACKGROUND -->
 <div class="bg-gradient"></div>
+<div class="bg-blob"></div>
 <div class="bg-noise"></div>
 
+<!-- CURSOR -->
+<div class="cursor"></div>
+<div class="cursor-blur"></div>
+
 <!-- NAV -->
-<header class="nav">
+<header class="nav glass">
   <nav>
     <a href="#about">About</a>
     <a href="#projects">Work</a>
@@ -27,12 +33,12 @@
 
 <!-- HERO -->
 <section class="hero">
-  <h1>Lohith Sanju P</h1>
+  <h1 id="typeText"></h1>
   <p>Full Stack Developer | AI Developer | Data Engineer</p>
 
   <div class="hero-buttons">
-    <button onclick="scrollToSection('projects')">View Work</button>
-    <button class="outline">Download CV</button>
+    <button class="btn magnetic" onclick="scrollToSection('projects')">View Work</button>
+    <button class="btn-outline">Download CV</button>
   </div>
 </section>
 
@@ -56,17 +62,17 @@ I enjoy solving real-world problems through clean architecture, intuitive design
 
   <div class="projects">
 
-    <div class="card" onclick="openProject('https://github.com/sanju-zxt/smart-dashboard')">
+    <div class="card tilt" onclick="openProject('https://github.com/')">
       <h3>Smart Dashboard</h3>
       <p>Real-time monitoring system</p>
     </div>
 
-    <div class="card" onclick="openProject('https://github.com/sanju-zxt/FraudShieldAI')">
+    <div class="card tilt" onclick="openProject('https://github.com/')">
       <h3>FraudShield AI</h3>
       <p>AI fraud detection system</p>
     </div>
 
-    <div class="card" onclick="openProject('https://github.com/sanju-zxt/vision-bridge')">
+    <div class="card tilt" onclick="openProject('https://github.com/')">
       <h3>Vision Bridge</h3>
       <p>Innovation platform</p>
     </div>
@@ -79,6 +85,7 @@ I enjoy solving real-world problems through clean architecture, intuitive design
   <h2>Skills</h2>
 
   <div class="skills">
+
     <span>JavaScript</span>
     <span>React</span>
     <span>React Native</span>
@@ -97,6 +104,7 @@ I enjoy solving real-world problems through clean architecture, intuitive design
     <span>Android Studio</span>
     <span>C Programming</span>
     <span>Communication</span>
+
   </div>
 </section>
 
