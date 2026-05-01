@@ -4,6 +4,7 @@ body{
   background:#050507;
   color:#e5e5e5;
   cursor:none;
+  overflow-x:hidden;
 }
 
 /* NAV */
@@ -13,34 +14,35 @@ body{
   padding:20px 80px;
 }
 
-.logo span{ color:#7c5cff; }
-
 /* HERO */
 .hero{
-  padding:120px 80px;
+  height:100vh;
+  display:flex;
+  align-items:center;
+  padding:0 80px;
   position:relative;
 }
 
-.parallax-layer{
-  position:absolute;
-  width:500px;
-  height:500px;
-  background:radial-gradient(circle,#7c5cff33,transparent);
-  top:10%;
-  left:60%;
-  filter:blur(120px);
+.hero-title{
+  font-size:70px;
 }
 
-.hero h1{
-  font-size:60px;
+/* PARALLAX */
+.parallax-layer{
+  position:absolute;
+  width:600px;
+  height:600px;
+  background:radial-gradient(circle,#7c5cff33,transparent);
+  filter:blur(120px);
+  top:10%;
+  left:60%;
 }
 
 /* BUTTON */
 .btn{
-  padding:12px 20px;
+  padding:12px 22px;
   border-radius:8px;
-  margin-right:10px;
-  border:none;
+  margin-top:10px;
 }
 
 .primary{
@@ -57,40 +59,20 @@ body{
 .project-card{
   background:#0b0b10;
   padding:20px;
-  border-radius:16px;
-  transition:0.3s;
-  overflow:hidden;
-}
-
-.project-card img{
-  width:100%;
-  border-radius:10px;
-  margin-bottom:10px;
-}
-
-.project-card:hover{
-  transform:translateY(-10px) scale(1.02);
+  border-radius:14px;
 }
 
 /* SKILLS */
 .skills-grid{
   display:flex;
   flex-wrap:wrap;
-  gap:12px;
+  gap:10px;
 }
 
 .skill{
   padding:10px 16px;
   border:1px solid #222;
-  border-radius:30px;
-}
-
-/* CONTACT */
-.contact-box{
-  padding:10px;
-  border:1px solid #222;
-  display:inline-flex;
-  gap:10px;
+  border-radius:20px;
 }
 
 /* CURSOR */
@@ -100,6 +82,7 @@ body{
   background:white;
   position:fixed;
   border-radius:50%;
+  pointer-events:none;
   z-index:9999;
 }
 
@@ -110,16 +93,11 @@ body{
   position:fixed;
   border-radius:50%;
   filter:blur(40px);
+  pointer-events:none;
 }
 
-/* REVEAL */
-.reveal{
+/* TEXT REVEAL */
+.reveal-text{
   opacity:0;
-  transform:translateY(40px);
-}
-
-.reveal.active{
-  opacity:1;
-  transform:translateY(0);
-  transition:0.8s;
+  transform:translateY(50px);
 }
