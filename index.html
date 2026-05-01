@@ -4,102 +4,94 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Lohith Sanju Portfolio</title>
+<title>Lohith Sanju | Portfolio</title>
 
 <link rel="stylesheet" href="style.css">
-
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 </head>
 
 <body>
 
-<div class="cursor"></div>
-<div class="cursor-blur"></div>
-
 <!-- NAV -->
-<nav class="nav">
+<header class="nav">
   <h2>Lohith Sanju</h2>
 
-  <div class="nav-links">
-    <a href="#">Home</a>
+  <nav>
     <a href="#about">About</a>
-    <a href="#projects">Projects</a>
+    <a href="#projects">Work</a>
     <a href="#skills">Skills</a>
     <a href="certifications.html">Certifications</a>
+  </nav>
+
+  <div class="nav-icons">
+    <a href="https://github.com/sanju-zxt" target="_blank"><i class="fab fa-github"></i></a>
   </div>
-</nav>
+</header>
 
 <!-- HERO -->
-<section class="hero section">
-  <div>
+<section class="hero">
+  <div class="hero-content">
     <h1>Lohith Sanju P</h1>
-    <h3>Full Stack Developer | AI Developer | Data Engineer</h3>
+
+    <h2 id="typed"></h2>
 
     <p>
-      I build scalable web apps, AI-powered systems, and real-world solutions using modern technologies.
+      I design and build scalable applications, AI systems, and real-world solutions with clean architecture.
     </p>
 
-    <button class="btn magnetic">View Projects</button>
-    <button class="btn magnetic">Download CV</button>
+    <div class="hero-actions">
+      <a href="#projects" class="btn">View Work</a>
+      <a href="certifications.html" class="btn outline">Certificates</a>
+    </div>
   </div>
 </section>
 
 <!-- ABOUT -->
 <section id="about" class="section">
-<h2>About Me</h2>
+  <h2>About</h2>
 
-<p class="about-text">
-I am a passionate Full Stack Developer with strong interest in AI and Data Engineering. 
-I specialize in building real-world applications using React, Firebase, and Machine Learning.
-My goal is to create scalable systems that solve real problems and deliver meaningful impact.
-</p>
-
+  <p class="about">
+    Full Stack Developer with focus on AI systems, scalable backend architecture, and real-world applications. 
+    I work with React, Firebase, Python and modern development stacks to build impactful solutions.
+  </p>
 </section>
 
 <!-- PROJECTS -->
 <section id="projects" class="section">
-<h2>Projects</h2>
-<div id="projects-container" class="projects"></div>
+  <h2>Selected Work</h2>
+
+  <div id="projects-container" class="projects"></div>
 </section>
 
 <!-- SKILLS -->
 <section id="skills" class="section">
-<h2>Skills</h2>
+  <h2>Skills</h2>
 
-<div class="skills-grid">
-
-<div class="skill">JavaScript</div>
-<div class="skill">React</div>
-<div class="skill">Python</div>
-<div class="skill">Firebase</div>
-<div class="skill">MongoDB</div>
-<div class="skill">AI / ML</div>
-<div class="skill">Data Science</div>
-<div class="skill">Backend</div>
-
-</div>
-
+  <div class="skills-grid">
+    <div class="skill">JavaScript</div>
+    <div class="skill">React</div>
+    <div class="skill">Python</div>
+    <div class="skill">Firebase</div>
+    <div class="skill">MongoDB</div>
+    <div class="skill">AI / ML</div>
+    <div class="skill">Data Science</div>
+    <div class="skill">Backend</div>
+  </div>
 </section>
 
 <!-- CONTACT -->
 <section class="section contact">
-<h2>Contact</h2>
+  <h2>Contact</h2>
 
-<div class="contact-box">
-<i class="fas fa-envelope"></i>
-<span>ssanju200610@gmail.com</span>
-</div>
+  <p>Open to collaborations and opportunities.</p>
 
+  <div class="contact-box">
+    <i class="fas fa-envelope"></i>
+    <span>ssanju200610@gmail.com</span>
+  </div>
 </section>
-
-<!-- CERTIFICATE POPUP -->
-<div id="popup" class="popup">
-  <span onclick="closePopup()">✕</span>
-  <iframe id="pdfViewer"></iframe>
-</div>
 
 <script src="script.js"></script>
 
