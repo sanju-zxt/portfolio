@@ -1,99 +1,128 @@
 body{
   margin:0;
-  font-family:Arial;
-  background:#050507;
+  font-family:'Inter';
   color:white;
+  background:#050507;
 }
 
-/* REMOVE BLUE LINKS */
-a{
-  color:inherit;
-  text-decoration:none;
+/* BACKGROUND */
+.bg-gradient{
+  position:fixed;
+  width:100%;
+  height:100%;
+  top:0;
+  left:0;
+  z-index:-2;
+
+  background:
+    radial-gradient(circle at 30% 30%, #7c5cff22, transparent 40%),
+    radial-gradient(circle at 70% 60%, #9a7cff22, transparent 40%),
+    #050507;
+
+  animation:moveBg 12s infinite alternate ease-in-out;
+}
+
+@keyframes moveBg{
+  from{
+    background-position:30% 30%,70% 60%;
+  }
+  to{
+    background-position:40% 40%,60% 50%;
+  }
+}
+
+.bg-noise{
+  position:fixed;
+  width:100%;
+  height:100%;
+  z-index:-1;
+  background-image:url("https://grainy-gradients.vercel.app/noise.svg");
+  opacity:0.05;
 }
 
 /* NAV */
 .nav{
   display:flex;
-  justify-content:space-between;
-  padding:15px 60px;
-  background:rgba(0,0,0,0.6);
-  backdrop-filter:blur(10px);
+  justify-content:center;
+  padding:20px;
 }
 
-.nav-links a{
-  margin:0 15px;
+.nav a{
+  margin:0 20px;
   color:#aaa;
+  text-decoration:none;
 }
 
-.nav-links a:hover{
+.nav a:hover{
   color:white;
-}
-
-.nav-icons i{
-  margin-left:15px;
 }
 
 /* HERO */
 .hero{
-  display:flex;
-  justify-content:space-between;
-  padding:100px 60px;
+  padding:100px 60px 60px;
 }
 
 .hero h1{
   font-size:60px;
 }
 
-/* BUTTON */
-.btn{
+.hero-buttons{
+  margin-top:20px;
+}
+
+.hero button{
   padding:10px 20px;
-  margin:10px 10px 0 0;
-  border-radius:8px;
-  background:#111;
-  border:1px solid #333;
+  border:none;
+  border-radius:10px;
+  margin-right:10px;
+  background:#7c5cff;
   color:white;
 }
 
-.outline{
+.hero .outline{
   background:transparent;
+  border:1px solid #333;
 }
 
-/* GLOW */
-.glow{
-  width:300px;
-  height:300px;
-  background: radial-gradient(circle,#4444ff22,transparent);
-  border-radius:50%;
+/* SECTION */
+.section{
+  padding:60px;
+  max-width:900px;
 }
 
 /* PROJECTS */
 .projects{
   display:flex;
   gap:20px;
+  margin-top:20px;
 }
 
-.project{
+.card{
   padding:20px;
-  background:#0b0b0f;
-  border-radius:10px;
+  background:#0b0b10;
+  border-radius:12px;
   transition:0.3s;
+  cursor:pointer;
 }
 
-.project:hover{
+.card:hover{
   transform:translateY(-8px);
+  box-shadow:0 0 30px #7c5cff33;
 }
 
 /* SKILLS */
-.skills-grid{
-  display:flex;
-  flex-wrap:wrap;
-  gap:10px;
+.skills span{
+  border:1px solid #333;
+  padding:8px 14px;
+  border-radius:20px;
+  margin:5px;
+  display:inline-block;
 }
 
-.skill{
-  padding:10px;
-  border:1px solid #222;
+/* CONTACT */
+.contact-box{
+  margin-top:20px;
+  padding:12px;
+  border:1px solid #333;
   border-radius:8px;
-  display:flex;
-  gap:8px;
 }
