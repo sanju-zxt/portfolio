@@ -347,6 +347,25 @@
             margin-bottom: 20px;
         }
 
+        .about-highlight {
+            background: rgba(124, 92, 255, 0.08);
+            border-left: 3px solid var(--primary);
+            padding: 20px 25px;
+            border-radius: 0 12px 12px 0;
+            margin: 25px 0;
+        }
+
+        .about-highlight p {
+            margin: 0;
+            color: var(--text);
+            font-weight: 500;
+        }
+
+        .about-highlight i {
+            color: var(--primary-light);
+            margin-right: 10px;
+        }
+
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -1110,8 +1129,15 @@
         </div>
         <div class="about-content reveal">
             <div class="about-text">
-                <p>I am a results-driven Full Stack Developer specializing in building scalable web applications, AI-powered systems, and real-world solutions using modern technologies. I have hands-on experience with React, Firebase, Python, and modern development stacks, and I focus on creating efficient, user-centric, and impactful digital products.</p>
-                <p>I actively work on real-world projects that solve practical problems by combining clean UI/UX design, strong backend architecture, and intelligent automation.</p>
+                <p>I am a results-driven Full Stack Developer and aspiring Data Engineer currently pursuing my <strong>Bachelor of Engineering (BE) in Computer Science and Engineering with a specialization in Data Science</strong>. My academic journey has given me a strong foundation in algorithms, data structures, machine learning, and statistical analysis — which I actively apply to real-world projects.</p>
+
+                <p>I specialize in building scalable web applications, AI-powered systems, and intelligent automation tools using modern technologies like React, Firebase, Python, and Node.js. I focus on creating efficient, user-centric, and impactful digital products that solve practical problems.</p>
+
+                <div class="about-highlight">
+                    <p><i class="fas fa-graduation-cap"></i> Currently pursuing BE CSE (Data Science) | Actively building real-world projects | 20+ certifications in AI, Data Science & Cybersecurity</p>
+                </div>
+
+                <p>When I'm not coding, you'll find me exploring new AI frameworks, contributing to open-source projects, or writing about my learnings. I believe in continuous learning and leveraging technology to make a meaningful impact. My goal is to bridge the gap between data-driven insights and seamless user experiences.</p>
             </div>
             <div class="stats-grid">
                 <div class="stat-card">
@@ -1537,7 +1563,7 @@
                 <div class="blog-content">
                     <div class="blog-date"><i class="far fa-calendar-alt"></i> April 15, 2026</div>
                     <h3 class="blog-title">Getting Started with AI Development: A Beginner's Roadmap</h3>
-                    <p class="blog-excerpt">Exploring the fundamentals of artificial intelligence, from understanding neural networks to building your first machine learning model with Python and TensorFlow.</p>
+                    <p class="blog-excerpt">Artificial Intelligence can feel overwhelming at first, but breaking it down into steps makes it manageable. Start with Python basics, move to libraries like NumPy and Pandas, then explore TensorFlow and scikit-learn. My journey began with simple regression models and gradually evolved into building FraudShield AI — an end-to-end fraud detection system. The key is consistency: practice daily, build small projects, and never shy away from reading research papers. Remember, every expert was once a beginner who refused to give up.</p>
                     <a href="#" class="blog-readmore">Read Article <i class="fas fa-arrow-right"></i></a>
                 </div>
             </article>
@@ -1550,7 +1576,7 @@
                 <div class="blog-content">
                     <div class="blog-date"><i class="far fa-calendar-alt"></i> March 28, 2026</div>
                     <h3 class="blog-title">Building Scalable Real-Time Applications with Firebase</h3>
-                    <p class="blog-excerpt">A deep dive into Firebase ecosystem — leveraging Firestore, Authentication, and Cloud Functions to build production-ready apps that scale effortlessly.</p>
+                    <p class="blog-excerpt">Firebase changed how I approach backend development. With Firestore's real-time sync, Authentication handling user management, and Cloud Functions running serverless logic, I built Smart Dashboard — a live student monitoring system — without managing a single server. The trick? Structure your Firestore collections wisely, use security rules aggressively, and leverage Firebase Hosting for blazing-fast deployments. For anyone starting out, Firebase is the perfect bridge between frontend skills and full-stack confidence.</p>
                     <a href="#" class="blog-readmore">Read Article <i class="fas fa-arrow-right"></i></a>
                 </div>
             </article>
@@ -1563,7 +1589,7 @@
                 <div class="blog-content">
                     <div class="blog-date"><i class="far fa-calendar-alt"></i> February 10, 2026</div>
                     <h3 class="blog-title">My Journey from C Programming to Full Stack Development</h3>
-                    <p class="blog-excerpt">Reflecting on the transition from writing basic C programs to architecting full-stack applications with React, Node.js, and modern cloud infrastructure.</p>
+                    <p class="blog-excerpt">My coding journey started with basic C programs in my first year of BE CSE (Data Science). Those printf statements and pointer concepts built my logical thinking. Slowly, I moved to JavaScript, fell in love with React's component architecture, and discovered the power of Python for data analysis. Today, I architect full-stack applications combining React frontends with Node.js/Python backends. The transition wasn't easy — countless debugging nights, Stack Overflow dives, and failed deployments — but every error taught me something invaluable. If you're just starting, trust the process.</p>
                     <a href="#" class="blog-readmore">Read Article <i class="fas fa-arrow-right"></i></a>
                 </div>
             </article>
@@ -1716,7 +1742,6 @@
 
             const filePath = 'certificates/' + filename;
 
-            // Set embed source for inline PDF viewing
             const embed = document.getElementById('certEmbed');
             embed.src = filePath;
             embed.onload = function() {
@@ -1728,7 +1753,6 @@
                 document.getElementById('certFallback').style.display = 'flex';
             };
 
-            // Set download button
             const downloadBtn = document.getElementById('modalDownloadBtn');
             downloadBtn.href = filePath;
             downloadBtn.setAttribute('download', filename.replace(/%20/g, ' '));
@@ -1745,17 +1769,14 @@
             setTimeout(() => {
                 modal.style.display = 'none';
                 document.body.style.overflow = '';
-                // Clear embed to stop memory usage
                 document.getElementById('certEmbed').src = '';
             }, 300);
         }
 
-        // Close modal on overlay click
         document.getElementById('certModal').addEventListener('click', (e) => {
             if (e.target === e.currentTarget) closeCertModal();
         });
 
-        // Close modal on Escape key
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') closeCertModal();
         });
