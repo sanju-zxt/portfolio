@@ -1,3 +1,4 @@
+// SCROLL
 function scrollToSection(id){
   const el = document.getElementById(id);
   if(el){
@@ -5,6 +6,7 @@ function scrollToSection(id){
   }
 }
 
+// PROJECT LINKS
 function openProject(url){
   window.open(url, "_blank");
 }
@@ -34,18 +36,24 @@ if(cursor && blur){
   });
 }
 
-// TYPE TEXT
-const el = document.getElementById("typeText");
-if(el){
+// TYPE EFFECT (SAFE FIX)
+window.addEventListener("DOMContentLoaded", () => {
+  const el = document.getElementById("typeText");
+
+  if (!el) return;
+
   const text = "Lohith Sanju";
   let i = 0;
+
+  el.innerHTML = "";
 
   function type(){
     if(i < text.length){
       el.innerHTML += text.charAt(i);
       i++;
-      setTimeout(type,80);
+      setTimeout(type, 80);
     }
   }
+
   type();
-}
+});
