@@ -6,6 +6,13 @@ body{
   cursor:none;
 }
 
+/* ===== BACKGROUND FIX ===== */
+.bg-gradient,
+.bg-blob,
+.bg-noise{
+  pointer-events: none; /* 🔥 FIX CLICK ISSUE */
+}
+
 /* BACKGROUND */
 .bg-gradient{
   position:fixed;
@@ -52,11 +59,13 @@ body{
   opacity:0.05;
 }
 
-/* NAV */
+/* NAV FIX */
 .nav{
   display:flex;
   justify-content:space-between;
   padding:20px 60px;
+  position:relative;
+  z-index:10;
 }
 
 .nav nav{
@@ -76,14 +85,14 @@ body{
 /* HERO */
 .hero{
   padding:140px 80px;
+  position:relative;
+  z-index:5;
 }
 
-/* NAME FIX */
 .hero h1{
   font-size:60px;
   font-weight:700;
-  color:#ffffff;
-  text-shadow:0 0 25px rgba(124,92,255,0.5);
+  color:#fff;
 }
 
 /* BUTTON */
@@ -93,6 +102,7 @@ body{
   border:none;
   border-radius:10px;
   color:white;
+  cursor:pointer;
 }
 
 .btn-outline{
@@ -101,14 +111,17 @@ body{
   background:transparent;
   color:white;
   border-radius:10px;
+  cursor:pointer;
 }
 
 /* SECTION */
 .section{
   padding:80px;
+  position:relative;
+  z-index:5;
 }
 
-/* PROJECT */
+/* PROJECTS */
 .projects{
   display:flex;
   gap:20px;
@@ -120,10 +133,12 @@ body{
   background:rgba(255,255,255,0.05);
   border-radius:14px;
   cursor:pointer;
+  transition:0.3s;
 }
 
 .card:hover{
-  transform:translateY(-8px);
+  transform:translateY(-10px);
+  box-shadow:0 0 40px #7c5cff33;
 }
 
 /* SKILLS */
@@ -149,6 +164,7 @@ body{
   background:white;
   position:fixed;
   border-radius:50%;
+  z-index:999;
 }
 
 .cursor-blur{
@@ -158,4 +174,5 @@ body{
   position:fixed;
   border-radius:50%;
   filter:blur(20px);
+  z-index:998;
 }
