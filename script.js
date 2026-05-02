@@ -1,4 +1,3 @@
-// SCROLL
 function scrollToSection(id){
   const el = document.getElementById(id);
   if(el){
@@ -6,7 +5,6 @@ function scrollToSection(id){
   }
 }
 
-// PROJECT LINKS
 function openProject(url){
   window.open(url, "_blank");
 }
@@ -36,10 +34,9 @@ if(cursor && blur){
   });
 }
 
-// TYPE EFFECT (SAFE FIX)
+// TYPE EFFECT
 window.addEventListener("DOMContentLoaded", () => {
   const el = document.getElementById("typeText");
-
   if (!el) return;
 
   const text = "Lohith Sanju";
