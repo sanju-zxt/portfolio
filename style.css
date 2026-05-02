@@ -76,7 +76,6 @@ body{
 
 .socials a{
   margin-left:15px;
-  font-size:18px;
 }
 
 /* HERO */
@@ -88,7 +87,7 @@ body{
   font-size:60px;
 }
 
-/* BUTTONS */
+/* BUTTON */
 .btn{
   padding:12px 24px;
   background:linear-gradient(90deg,#7c5cff,#9a7cff);
@@ -100,16 +99,15 @@ body{
 
 .btn-outline{
   padding:12px 24px;
-  background:transparent;
   border:1px solid #333;
-  border-radius:10px;
+  background:transparent;
   color:white;
+  border-radius:10px;
 }
 
 /* SECTION */
 .section{
   padding:80px;
-  max-width:900px;
 }
 
 /* PROJECTS */
@@ -143,7 +141,6 @@ body{
 
 /* CONTACT */
 .contact-box{
-  margin-top:20px;
   padding:12px;
   border:1px solid #333;
   border-radius:8px;
