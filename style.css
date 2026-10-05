@@ -208,6 +208,45 @@ body:hover .cursor-glow {
    HERO SECTION
 ======================================== */
 
+/* Aliases: index.html uses #home / .hero-subtitle / .hero-desc / .hero-btns */
+#home {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 120px 60px 100px;
+  position: relative;
+}
+
+.hero-subtitle {
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #7c5cff;
+  margin-bottom: 14px;
+  animation: fadeInUp 0.6s ease 0.05s backwards;
+}
+
+.hero-desc {
+  font-size: 18px;
+  color: #999;
+  line-height: 1.8;
+  margin-bottom: 40px;
+  max-width: 700px;
+  animation: fadeInUp 0.6s ease 0.3s backwards;
+}
+
+.hero-btns {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+  animation: fadeInUp 0.6s ease 0.4s backwards;
+}
+
 .hero {
   min-height: 100vh;
   display: flex;
@@ -906,7 +945,8 @@ body:hover .cursor-glow {
     padding: 60px 20px;
   }
   
-  .hero {
+  .hero,
+  #home {
     padding: 100px 20px 40px;
   }
   
