@@ -15,8 +15,12 @@
         ::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 4px; }
         .cursor { width: 12px; height: 12px; background: #fff; border-radius: 50%; position: fixed; pointer-events: none; z-index: 9999; transition: transform 0.1s ease, background-color 0.2s ease; mix-blend-mode: difference; }
         .cursor-glow { width: 50px; height: 50px; border: 1px solid rgba(124, 92, 255, 0.3); border-radius: 50%; position: fixed; pointer-events: none; z-index: 9998; transition: transform 0.15s ease; }
-        .particles-container { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; overflow: hidden; background: radial-gradient(ellipse at 50% 50%, #0a0a15 0%, #000 70%); }
-        .particle { position: absolute; background: rgba(124, 92, 255, 0.3); border-radius: 50%; pointer-events: none; animation: float 15s infinite ease-in-out; }
+        .particles-container { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; overflow: hidden; background: radial-gradient(ellipse at 50% 40%, #14142b 0%, #0a0a15 45%, #05050c 100%); }
+        .particles-container::before { content: ''; position: absolute; inset: -20%; background: radial-gradient(circle at 18% 25%, rgba(124, 92, 255, 0.28) 0%, transparent 45%), radial-gradient(circle at 82% 20%, rgba(167, 139, 250, 0.22) 0%, transparent 42%), radial-gradient(circle at 50% 85%, rgba(56, 189, 248, 0.16) 0%, transparent 48%); filter: blur(70px); animation: auroraDrift 22s ease-in-out infinite alternate; }
+        .particles-container::after { content: ''; position: absolute; inset: 0; background-image: linear-gradient(rgba(124, 92, 255, 0.055) 1px, transparent 1px), linear-gradient(90deg, rgba(124, 92, 255, 0.055) 1px, transparent 1px); background-size: 64px 64px; mask-image: radial-gradient(ellipse at 50% 40%, #000 10%, transparent 72%); -webkit-mask-image: radial-gradient(ellipse at 50% 40%, #000 10%, transparent 72%); }
+        @keyframes auroraDrift { 0% { transform: translate3d(0, 0, 0) scale(1); } 50% { transform: translate3d(3%, -2%, 0) scale(1.08); } 100% { transform: translate3d(-3%, 2%, 0) scale(1.03); } }
+        #home::before { content: ''; position: absolute; top: 12%; left: 50%; width: 720px; height: 720px; transform: translateX(-50%); background: radial-gradient(circle, rgba(124, 92, 255, 0.18) 0%, transparent 62%); filter: blur(50px); pointer-events: none; z-index: -1; }
+        .particle { position: absolute; background: rgba(167, 139, 250, 0.75); border-radius: 50%; pointer-events: none; box-shadow: 0 0 10px rgba(124, 92, 255, 0.85); animation: float 15s infinite ease-in-out; }
         @keyframes float { 0%, 100% { transform: translateY(0) translateX(0); opacity: 0.3; } 25% { transform: translateY(-30px) translateX(20px); opacity: 0.6; } 50% { transform: translateY(20px) translateX(-20px); opacity: 0.4; } 75% { transform: translateY(-10px) translateX(30px); opacity: 0.5; } }
         .navbar { position: fixed; top: 0; width: 100%; padding: 20px 50px; z-index: 1000; transition: all 0.3s ease; background: transparent; }
         .navbar.scrolled { background: rgba(10, 10, 21, 0.9); backdrop-filter: blur(20px); padding: 15px 50px; border-bottom: 1px solid var(--border); }
@@ -442,14 +446,16 @@
         // Particles
         function createParticles() {
             const container = document.getElementById('particles');
-            for (let i = 0; i < 50; i++) {
+            const count = window.innerWidth < 768 ? 40 : 90;
+            for (let i = 0; i < count; i++) {
                 const p = document.createElement('div');
                 p.className = 'particle';
                 p.style.left = Math.random() * 100 + '%';
                 p.style.top = Math.random() * 100 + '%';
-                const size = Math.random() * 3 + 1;
+                const size = Math.random() * 4 + 2;
                 p.style.width = size + 'px';
                 p.style.height = size + 'px';
+                p.style.opacity = (Math.random() * 0.5 + 0.3).toFixed(2);
                 p.style.animationDuration = (Math.random() * 20 + 10) + 's';
                 p.style.animationDelay = (Math.random() * 5) + 's';
                 container.appendChild(p);
