@@ -143,8 +143,7 @@ body.has-cursor .cursor-dot,body.has-cursor .cursor-ring{ opacity:1; }
   border:1px solid var(--line-2); padding:3px 10px; border-radius:5px;
   background:linear-gradient(180deg,#13131c,#0a0a10);
 }
-.brand:hover .brand-mark{ border-color:var(--red); color:var(--red); animation:pulse-glow 1.8s ease-in-out infinite alternate; }
-@keyframes pulse-glow{ 0%{ box-shadow:0 0 0 0 rgba(255,51,51,.3); } 100%{ box-shadow:0 0 0 10px rgba(255,51,51,0); } }
+.brand:hover .brand-mark{ border-color:var(--red); color:var(--red); }
 .brand-sep{ color:var(--red); font-weight:700; }
 .brand-sub{ color:var(--muted); }
 
@@ -219,10 +218,7 @@ body.has-cursor .cursor-dot,body.has-cursor .cursor-ring{ opacity:1; }
   color:transparent;
   background:linear-gradient(100deg, var(--red) 0%, #ff7b6d 55%, var(--red) 100%);
   -webkit-background-clip:text; background-clip:text;
-  background-size:200% 200%;
-  animation:gradient-shift 8s ease-in-out infinite;
 }
-@keyframes gradient-shift{ 0%{ background-position:0% 50%; } 50%{ background-position:100% 50%; } 100%{ background-position:0% 50%; } }
 .hero-name-mark{ color:var(--red); font-weight:500; animation:blink 1.2s steps(2,end) infinite; }
 
 .hero-role{
@@ -235,16 +231,6 @@ body.has-cursor .cursor-dot,body.has-cursor .cursor-ring{ opacity:1; }
   display:inline-block; width:10px; height:1.05em; background:var(--red);
   animation:blink 1.1s steps(2,end) infinite; vertical-align:-2px;
 }
-
-/* Hero badges — more prominent crimson accents */
-.hero-badges{ display:flex; flex-wrap:wrap; gap:14px; margin-bottom:26px; }
-.hero-badge{
-  display:inline-flex; align-items:center; gap:8px;
-  font-family:var(--mono); font-size:12px; letter-spacing:.08em; text-transform:uppercase;
-  color:var(--red); border:1px solid var(--red); background:rgba(255,51,51,.08);
-  padding:6px 14px; border-radius:4px;
-}
-.hero-badge i{ font-size:13px; }
 
 .hero-desc{
   color:var(--ink-2); font-size:clamp(1rem,1.2vw,1.1rem); max-width:64ch;
@@ -277,23 +263,22 @@ body.has-cursor .cursor-dot,body.has-cursor .cursor-ring{ opacity:1; }
 .hero-meta li{ display:flex; align-items:center; gap:10px; letter-spacing:.04em; }
 .mi{ color:var(--red); opacity:.9; font-size:12px; }
 
-/* portrait - improved positioning, glow and subtle 3D effect */
+/* portrait - refined framing and subtle highlights */
 .hero-side{ display:flex; justify-content:flex-end; }
-.portrait{ width:100%; max-width:400px; }
+.portrait{ width:100%; max-width:340px; }
 
 .portrait-frame{
-  position:relative; border:1px solid var(--line-2); border-radius:10px; overflow:hidden;
+  position:relative; border:1px solid var(--line-2); border-radius:8px; overflow:hidden;
   background:var(--panel); aspect-ratio:4/5;
-  box-shadow:0 48px 90px -45px rgba(0,0,0,.88), 0 0 0 1px rgba(255,255,255,.03) inset;
-  transition:box-shadow .4s var(--ease), transform .4s var(--ease);
+  box-shadow:0 30px 70px -30px rgba(0,0,0,.9), 0 0 0 1px rgba(255,255,255,.03) inset;
 }
-.portrait:hover .portrait-frame{ box-shadow:0 70px 120px -45px rgba(255,51,51,.35); }
+.portrait:hover .portrait-frame{ box-shadow:0 45px 85px -35px rgba(0,0,0,.92); }
 .portrait-frame img{
-  width:100%; height:100%; object-fit:cover; object-position:50% 24%;
-  filter:grayscale(.65) contrast(1.08) brightness(.90);
-  transform:scale(1.03); transition:filter .8s var(--ease), transform 1s var(--ease);
+  width:100%; height:100%; object-fit:cover; object-position:50% 18%;
+  filter:grayscale(.55) contrast(1.08) brightness(.94);
+  transform:scale(1.01); transition:filter .6s var(--ease), transform .8s var(--ease);
 }
-.portrait:hover .portrait-frame img{ filter:grayscale(0) contrast(1.02) brightness(1.04); transform:scale(1.09); }
+.portrait:hover .portrait-frame img{ filter:grayscale(0) contrast(1.02) brightness(1); transform:scale(1.045); }
 .portrait-tint{
   position:absolute; inset:0; pointer-events:none;
   background:
@@ -501,9 +486,7 @@ body.has-cursor .cursor-dot,body.has-cursor .cursor-ring{ opacity:1; }
   display:flex; align-items:center; justify-content:center;
   background:var(--bg-2); border:1px solid rgba(255,51,51,.45); color:var(--red); font-size:12px;
   box-shadow:0 0 0 8px var(--bg);
-  animation:node-pulse 3.2s infinite;
 }
-@keyframes node-pulse{ 0%,100%{ box-shadow:0 0 0 8px var(--bg); } 50%{ box-shadow:0 0 0 12px var(--bg); } }
 .exp-card{
   border:1px solid var(--line); border-radius:8px; padding:28px 30px;
   background:linear-gradient(180deg, var(--panel-2), var(--panel));
@@ -677,7 +660,7 @@ body.has-cursor .cursor-dot,body.has-cursor .cursor-ring{ opacity:1; }
 /* ============================================================
    CONTACT
    ============================================================ */
-.contact-grid{ display:grid; grid-template-columns:repeat(auto-fit,minwidth(260px,1fr)); gap:14px; margin-bottom:28px; }
+.contact-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:14px; margin-bottom:28px; }
 .contact{
   display:grid; grid-template-columns:1fr auto; gap:6px; align-items:center;
   border:1px solid var(--line); border-radius:8px; padding:22px 24px;
