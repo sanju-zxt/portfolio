@@ -286,7 +286,6 @@ body.has-cursor .cursor-dot,body.has-cursor .cursor-ring{ opacity:1; }
   background:var(--panel); aspect-ratio:4/5;
   box-shadow:0 48px 90px -45px rgba(0,0,0,.88), 0 0 0 1px rgba(255,255,255,.03) inset;
   transition:box-shadow .4s var(--ease), transform .4s var(--ease);
-  transform-style:perspective-1000px;
 }
 .portrait:hover .portrait-frame{ box-shadow:0 70px 120px -45px rgba(255,51,51,.35); }
 .portrait-frame img{
