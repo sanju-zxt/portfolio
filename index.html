@@ -175,6 +175,21 @@
         footer { text-align: center; padding: 40px 50px; border-top: 1px solid var(--border); color: var(--text-muted); font-size: 0.9rem; position: relative; z-index: 1; }
         footer span { color: var(--primary-light); }
         @media (max-width: 768px) { .navbar { padding: 15px 20px; } .navbar.scrolled { padding: 12px 20px; } .nav-links { display: none; } section { padding: 60px 20px; } .projects-grid, .blog-grid { grid-template-columns: 1fr; } .hero-btns { flex-direction: column; align-items: center; } .cursor, .cursor-glow { display: none; } * { cursor: auto; } .cert-meta { grid-template-columns: 1fr; } .modal-actions { flex-direction: column; } .cert-preview embed { height: 300px; } .blog-modal-header { padding: 25px 25px 0; } .blog-modal-body { padding: 10px 25px 30px; } .blog-modal-title { font-size: 1.4rem; } }
+        .experience-list { position: relative; display: grid; gap: 28px; max-width: 1080px; margin: 0 auto; }
+        .experience-list::before { content: ''; position: absolute; left: 27px; top: 16px; bottom: 16px; width: 2px; background: linear-gradient(180deg, rgba(124, 92, 255, 0.55), rgba(124, 92, 255, 0.06)); }
+        .exp-card { position: relative; background: var(--bg-card); border: 1px solid var(--border); border-radius: 20px; padding: 32px 32px 28px 78px; transition: all 0.3s ease; }
+        .exp-card:hover { transform: translateY(-4px); border-color: var(--primary); box-shadow: 0 15px 40px rgba(124, 92, 255, 0.12); }
+        .exp-icon { position: absolute; left: 12px; top: 30px; width: 32px; height: 32px; border-radius: 50%; background: var(--bg-light); border: 1px solid rgba(124, 92, 255, 0.35); display: flex; align-items: center; justify-content: center; color: var(--primary-light); font-size: 0.9rem; }
+        .exp-top { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 10px; margin-bottom: 4px; }
+        .exp-role { font-size: 1.25rem; font-weight: 700; }
+        .exp-date { font-size: 0.82rem; color: var(--primary-light); border: 1px solid rgba(124, 92, 255, 0.3); background: rgba(124, 92, 255, 0.08); border-radius: 50px; padding: 4px 14px; white-space: nowrap; }
+        .exp-org { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 16px; }
+        .exp-org strong { color: var(--text); }
+        .exp-list { margin: 0 0 18px 18px; }
+        .exp-list li { color: var(--text-muted); font-size: 0.95rem; line-height: 1.75; margin-bottom: 7px; }
+        .exp-list li strong { color: var(--text); font-weight: 600; }
+        .exp-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+        @media (max-width: 768px) { .exp-card { padding: 26px 20px 22px 62px; } .experience-list::before { left: 21px; } .exp-icon { left: 6px; top: 24px; width: 28px; height: 28px; font-size: 0.8rem; } .exp-role { font-size: 1.1rem; } }
         @keyframes rainbow { 0% { filter: hue-rotate(0deg); } 100% { filter: hue-rotate(360deg); } }
     </style>
 <base target="_blank">
@@ -182,7 +197,7 @@
 <body>
     <div class="cursor"></div><div class="cursor-glow"></div>
     <div class="particles-container" id="particles"></div>
-    <nav class="navbar"><div class="nav-container"><div class="logo">LSP.</div><ul class="nav-links"><li><a href="#home" class="nav-link active">Home</a></li><li><a href="#about" class="nav-link">About</a></li><li><a href="#skills" class="nav-link">Skills</a></li><li><a href="#projects" class="nav-link">Projects</a></li><li><a href="#certifications" class="nav-link">Certifications</a></li><li><a href="#blog" class="nav-link">Blog</a></li><li><a href="#contact" class="nav-link">Contact</a></li></ul></div></nav>
+    <nav class="navbar"><div class="nav-container"><div class="logo">LSP.</div><ul class="nav-links"><li><a href="#home" class="nav-link active">Home</a></li><li><a href="#about" class="nav-link">About</a></li><li><a href="#experience" class="nav-link">Experience</a></li><li><a href="#skills" class="nav-link">Skills</a></li><li><a href="#projects" class="nav-link">Projects</a></li><li><a href="#certifications" class="nav-link">Certifications</a></li><li><a href="#blog" class="nav-link">Blog</a></li><li><a href="#contact" class="nav-link">Contact</a></li></ul></div></nav>
 
     <section id="home">
         <div class="hero-subtitle">Hello, I'm</div>
@@ -201,7 +216,8 @@
             <div class="about-text">
                 <p>I am a results-driven Full Stack Developer and aspiring Data Engineer currently pursuing my <strong>Bachelor of Engineering (BE) in Computer Science and Engineering with a specialization in Data Science</strong>. My academic journey has given me a strong foundation in algorithms, data structures, machine learning, and statistical analysis — which I actively apply to real-world projects.</p>
                 <p>I specialize in building scalable web applications, AI-powered systems, and intelligent automation tools using modern technologies like React, Firebase, Python, and Node.js. I focus on creating efficient, user-centric, and impactful digital products that solve practical problems.</p>
-                <div class="about-highlight"><p><i class="fas fa-graduation-cap"></i> Currently pursuing BE CSE (Data Science) | Actively building real-world projects | 20+ certifications in AI, Data Science & Cybersecurity</p></div>
+                <div class="about-highlight"><p><i class="fas fa-graduation-cap"></i> BE CSE (Data Science) &middot; AWS Student Builder Group Leader @ VVIT &middot; 20+ certifications in AI, Data Science &amp; Cybersecurity</p></div>
+                <p>In November 2026 I was selected as an <strong>AWS Student Builder Group Leader</strong> for VVIT &mdash; part of a global community of student leaders across 68+ countries. I now lead a student-run AWS developer community on campus: running cloud workshops, certification-prep sessions and project sprints, and mentoring a Core Team of organisers so the community outlives my term.</p>
                 <p>When I'm not coding, you'll find me exploring new AI frameworks, contributing to open-source projects, or writing about my learnings. I believe in continuous learning and leveraging technology to make a meaningful impact. My goal is to bridge the gap between data-driven insights and seamless user experiences.</p>
             </div>
             <div class="stats-grid">
@@ -209,6 +225,35 @@
                 <div class="stat-card"><div class="stat-number">40+</div><div class="stat-label">Tech Skills</div></div>
                 <div class="stat-card"><div class="stat-number">20+</div><div class="stat-label">Certifications</div></div>
                 <div class="stat-card"><div class="stat-number">10</div><div class="stat-label">Projects Built</div></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience">
+        <div class="section-header reveal"><div class="section-tag">Where I Work &amp; Lead</div><h2 class="section-title">Experience</h2></div>
+        <div class="experience-list">
+            <div class="exp-card reveal">
+                <div class="exp-icon"><i class="fas fa-cloud"></i></div>
+                <div class="exp-top"><h3 class="exp-role">AWS Student Builder Group Leader</h3><span class="exp-date">Nov 2026 &ndash; Present</span></div>
+                <div class="exp-org"><strong>Amazon Web Services (AWS)</strong> &middot; Volunteer &middot; Bengaluru, India</div>
+                <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.75; margin-bottom: 16px;">Selected as an AWS Student Builder Group Leader &mdash; one of a global community of student leaders across 68+ countries &mdash; responsible for building a student-led AWS developer community at Vijaya Vittala Institute of Technology (VVIT).</p>
+                <ul class="exp-list">
+                    <li>Founding and growing an <strong>AWS-focused student developer community</strong> on campus, and building/mentoring a Core Team of student organisers to run it.</li>
+                    <li>Planning and hosting <strong>6+ technical and community events</strong> across the 12-month programme: hands-on cloud workshops, certification-prep sessions, project-building sprints and networking events.</li>
+                    <li>Contributing technical articles and community insights to the <strong>AWS Builder Center</strong>, and routing AWS credits, certification vouchers and QA.com learning resources into student projects.</li>
+                    <li>Collaborating with fellow Student Builder Group Leaders, AWS community members and university stakeholders; mentoring the next group leader for continuity.</li>
+                </ul>
+                <div class="exp-tags"><span class="skill-tag">AWS</span><span class="skill-tag">Cloud Computing</span><span class="skill-tag">Generative AI</span><span class="skill-tag">Community Building</span><span class="skill-tag">Event Management</span><span class="skill-tag">Mentoring</span><span class="skill-tag">Public Speaking</span><span class="skill-tag">Stakeholder Management</span></div>
+            </div>
+            <div class="exp-card reveal">
+                <div class="exp-icon"><i class="fas fa-code"></i></div>
+                <div class="exp-top"><h3 class="exp-role">Full Stack Development Intern</h3><span class="exp-date">Feb 2026 &ndash; Apr 2026</span></div>
+                <div class="exp-org"><strong>Skyforger Technologies</strong> &middot; Internship</div>
+                <ul class="exp-list">
+                    <li>Built full-stack features with <strong>React Native, Node.js, Firebase and MongoDB</strong>, including FraudShieldAI &mdash; a real-time fraud-detection app with on-device risk explanations.</li>
+                    <li>Shipped responsive web applications in HTML, CSS and JavaScript, owning testing, debugging and deployment across the stack.</li>
+                </ul>
+                <div class="exp-tags"><span class="skill-tag">React Native</span><span class="skill-tag">Node.js</span><span class="skill-tag">Firebase</span><span class="skill-tag">MongoDB</span><span class="skill-tag">TypeScript</span></div>
             </div>
         </div>
     </section>
@@ -222,8 +267,9 @@
             <div class="skill-category reveal"><div class="skill-category-title"><i class="fas fa-brain"></i>AI &amp; Data</div><div class="skill-tags"><span class="skill-tag">Machine Learning</span><span class="skill-tag">Data Science</span><span class="skill-tag">Generative AI</span><span class="skill-tag">Gemini API</span><span class="skill-tag">Prompt Engineering</span><span class="skill-tag">NLP</span><span class="skill-tag">Computer Vision</span></div></div>
             <div class="skill-category reveal"><div class="skill-category-title"><i class="fas fa-atom"></i>Quantum Computing</div><div class="skill-tags"><span class="skill-tag">Qiskit</span><span class="skill-tag">Quantum Algorithms</span><span class="skill-tag">Quantum Walks</span><span class="skill-tag">Quantum Teleportation</span><span class="skill-tag">Simulation &amp; Analysis</span></div></div>
             <div class="skill-category reveal"><div class="skill-category-title"><i class="fas fa-shield-alt"></i>Security</div><div class="skill-tags"><span class="skill-tag">Ethical Hacking</span><span class="skill-tag">Cybersecurity</span><span class="skill-tag">Network Security</span></div></div>
+            <div class="skill-category reveal"><div class="skill-category-title"><i class="fas fa-cloud"></i>Cloud &amp; Community</div><div class="skill-tags"><span class="skill-tag">AWS</span><span class="skill-tag">Cloud Computing</span><span class="skill-tag">Cloud Architecture</span><span class="skill-tag">GitHub Pages</span><span class="skill-tag">Community Building</span><span class="skill-tag">Event Management</span><span class="skill-tag">Mentoring</span></div></div>
             <div class="skill-category reveal"><div class="skill-category-title"><i class="fas fa-tools"></i>Tools &amp; Others</div><div class="skill-tags"><span class="skill-tag">Git &amp; GitHub</span><span class="skill-tag">Docker</span><span class="skill-tag">Linux</span><span class="skill-tag">Vercel</span><span class="skill-tag">Jupyter</span><span class="skill-tag">VS Code</span></div></div>
-            <div class="skill-category reveal"><div class="skill-category-title"><i class="fas fa-lightbulb"></i>Soft Skills</div><div class="skill-tags"><span class="skill-tag">Problem Solving</span><span class="skill-tag">Critical Thinking</span><span class="skill-tag">Communication</span><span class="skill-tag">Team Collaboration</span><span class="skill-tag">Technical Writing</span></div></div>
+            <div class="skill-category reveal"><div class="skill-category-title"><i class="fas fa-lightbulb"></i>Soft Skills</div><div class="skill-tags"><span class="skill-tag">Problem Solving</span><span class="skill-tag">Critical Thinking</span><span class="skill-tag">Communication</span><span class="skill-tag">Public Speaking</span><span class="skill-tag">Team Leadership</span><span class="skill-tag">Team Collaboration</span><span class="skill-tag">Technical Writing</span></div></div>
         </div>
     </section>
 
