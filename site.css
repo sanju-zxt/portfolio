@@ -277,23 +277,24 @@ body.has-cursor .cursor-dot,body.has-cursor .cursor-ring{ opacity:1; }
 .hero-meta li{ display:flex; align-items:center; gap:10px; letter-spacing:.04em; }
 .mi{ color:var(--red); opacity:.9; font-size:12px; }
 
-/* portrait - improved positioning and glow */
+/* portrait - improved positioning, glow and subtle 3D effect */
 .hero-side{ display:flex; justify-content:flex-end; }
-.portrait{ width:100%; max-width:360px; }
+.portrait{ width:100%; max-width:400px; }
 
 .portrait-frame{
-  position:relative; border:1px solid var(--line-2); border-radius:8px; overflow:hidden;
+  position:relative; border:1px solid var(--line-2); border-radius:10px; overflow:hidden;
   background:var(--panel); aspect-ratio:4/5;
-  box-shadow:0 40px 80px -40px rgba(0,0,0,.85), 0 0 0 1px rgba(255,255,255,.03) inset;
-  transition:box-shadow .4s var(--ease);
+  box-shadow:0 48px 90px -45px rgba(0,0,0,.88), 0 0 0 1px rgba(255,255,255,.03) inset;
+  transition:box-shadow .4s var(--ease), transform .4s var(--ease);
+  transform-style:perspective-1000px;
 }
-.portrait:hover .portrait-frame{ box-shadow:0 60px 100px -40px rgba(255,51,51,.28); }
+.portrait:hover .portrait-frame{ box-shadow:0 70px 120px -45px rgba(255,51,51,.35); }
 .portrait-frame img{
-  width:100%; height:100%; object-fit:cover; object-position:50% 22%;
-  filter:grayscale(.60) contrast(1.06) brightness(.92);
-  transform:scale(1.02); transition:filter .7s var(--ease), transform .9s var(--ease);
+  width:100%; height:100%; object-fit:cover; object-position:50% 24%;
+  filter:grayscale(.65) contrast(1.08) brightness(.90);
+  transform:scale(1.03); transition:filter .8s var(--ease), transform 1s var(--ease);
 }
-.portrait:hover .portrait-frame img{ filter:grayscale(0) contrast(1.03) brightness(1.02); transform:scale(1.065); }
+.portrait:hover .portrait-frame img{ filter:grayscale(0) contrast(1.02) brightness(1.04); transform:scale(1.09); }
 .portrait-tint{
   position:absolute; inset:0; pointer-events:none;
   background:
