@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lohith Sanju P — Full-Stack / AI / Data Engineer</title>
+  <meta name="description" content="Full-stack developer and AI engineer. AWS Student Builder Group Leader. Building MLOps pipelines with real impact, AI systems with judgment, and production web apps with tests.">
+  <meta name="theme-color" content="#050507">
+  <meta name="author" content="Lohith Sanju P">
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:title" content="Lohith Sanju P — Full-Stack / AI / Data Engineer">
+  <meta property="og:description" content="AWS Student Builder Group Leader · MLOps pipelines, AI systems and production web apps. 13 projects, 20 certifications.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/profile-wide.jpg">
+  <meta property="og:url" content="https://sanju-zxt.github.io/portfolio/">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Lohith Sanju P — Portfolio">
+  <meta name="twitter:description" content="Full-stack developer building AI systems and MLOps pipelines.">
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='6' fill='%23050507'/%3E%3Crect x='6' y='6' width='52' height='52' rx='3' fill='none' stroke='%23ff3333' stroke-width='2'/%3E%3Ctext x='32' y='44' font-size='30' font-family='monospace' font-weight='bold' fill='%23ff3333' text-anchor='middle'%3EL%3C/text%3E%3C/svg%3E">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="preload" as="image" href="assets/profile-portrait.jpg" fetchpriority="high">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all';this.onload=null">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
+  <link rel="stylesheet" href="site.css">
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Lohith Sanju P",
+    "jobTitle": "Full Stack Developer / AI Developer / Data Engineer",
+    "url": "https://sanju-zxt.github.io/portfolio/",
+    "sameAs": [
+      "https://github.com/sanju-zxt",
+      "https://www.linkedin.com/in/lohith-sanju-p"
+    ],
+    "alumniOf": { "@type": "CollegeOrUniversity", "name": "Vijaya Vittala Institute of Technology" },
+    "worksFor": { "@type": "Organization", "name": "AWS Student Builder Group" },
+    "address": { "@type": "PostalAddress", "addressLocality": "Bengaluru", "addressCountry": "IN" }
+  }
+  </script>
+</head>
+<body>
+
+  <a class="skip-link" href="#main">skip to content</a>
+
+  <!-- Ambient background layers -->
+  <div class="grain" aria-hidden="true"></div>
+  <canvas id="fx" aria-hidden="true"></canvas>
+
+  <!-- Custom cursor -->
+  <div class="cursor-dot" aria-hidden="true"></div>
+  <div class="cursor-ring" aria-hidden="true"></div>
+
+  <!-- Scroll progress -->
+  <div class="scroll-progress" aria-hidden="true"><i id="progressBar"></i></div>
+
+  <!-- ══════════ NAV ══════════ -->
+  <header class="nav" id="nav">
+    <div class="nav-inner">
+      <a class="brand" href="#home" aria-label="Lohith Sanju P — home">
+        <span class="brand-mark">LSP</span><span class="brand-sep">//</span><span class="brand-sub">portfolio</span>
+      </a>
+
+      <nav class="nav-links" id="navLinks" aria-label="Sections">
+        <a href="#about" class="nav-link"><span>01</span>about</a>
+        <a href="#experience" class="nav-link"><span>02</span>experience</a>
+        <a href="#skills" class="nav-link"><span>03</span>skills</a>
+        <a href="#work" class="nav-link"><span>04</span>work</a>
+        <a href="#certs" class="nav-link"><span>05</span>certs</a>
+        <a href="#blog" class="nav-link"><span>06</span>blog</a>
+        <a href="#contact" class="nav-link"><span>07</span>contact</a>
+      </nav>
+
+      <div class="nav-right">
+        <span class="chip-live" title="Open to internships and full-time roles"><i></i>open to work</span>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks">
+          <span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ══════════ HERO ══════════ -->
+    <section id="home" class="hero">
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <div class="kicker reveal"><span class="kicker-bar"></span><span>hello, world</span><span class="dim">/ full-stack · ai · data</span></div>
+
+          <h1 class="hero-name reveal">Lohith<br><span class="hero-name-accent">Sanju P</span><span class="hero-name-mark">_</span></h1>
+
+          <p class="hero-role reveal"><span class="prompt">$</span> <span id="typeRole">full-stack developer</span><span class="caret" aria-hidden="true"></span></p>
+
+          <p class="hero-desc reveal">
+            I build software that ships: config-driven MLOps pipelines with proven lift, AI systems with judgment, and production web apps backed by tests and CI.
+          </p>
+
+          <div class="hero-cta reveal">
+            <a class="btn btn-primary" href="#work">view work <span aria-hidden="true">→</span></a>
+            <a class="btn btn-ghost" href="assets/resume.pdf" target="_blank" rel="noopener">resume <span aria-hidden="true">↓</span></a>
+            <a class="btn btn-ghost" href="#contact">contact <span aria-hidden="true">↗</span></a>
+          </div>
+
+          <ul class="hero-meta reveal">
+            <li><span class="mi"><i class="fas fa-location-dot"></i></span>Bengaluru, IN</li>
+            <li><span class="mi"><i class="fas fa-graduation-cap"></i></span>BE CSE · Data Science</li>
+            <li><span class="mi"><i class="fab fa-aws"></i></span>AWS SBG Leader</li>
+          </ul>
+        </div>
+
+        <aside class="hero-side reveal">
+          <figure class="portrait" id="portrait">
+            <div class="portrait-frame">
+              <img src="assets/profile-portrait.jpg"
+                   alt="Portrait of Lohith Sanju P"
+                   width="1066" height="1333"
+                   fetchpriority="high"
+                   loading="eager">
+              <div class="portrait-tint" aria-hidden="true"></div>
+              <div class="portrait-scan" aria-hidden="true"></div>
+              <span class="corner tl" aria-hidden="true"></span>
+              <span class="corner tr" aria-hidden="true"></span>
+              <span class="corner bl" aria-hidden="true"></span>
+              <span class="corner br" aria-hidden="true"></span>
+              <span class="portrait-rec"><i></i>rec</span>
+              <span class="portrait-ver">v2.7.0</span>
+            </div>
+            <figcaption class="portrait-meta">
+              <div><span>subject</span><b>lohith sanju p</b></div>
+              <div><span>role</span><b>builder · coder · maker</b></div>
+              <div><span>status</span><b class="ok">active</b></div>
+            </figcaption>
+          </figure>
+        </aside>
+      </div>
+
+      <!-- Terminal block -->
+      <div class="terminal reveal" aria-hidden="true">
+        <div class="terminal-bar">
+          <span class="t-dots"><i></i><i></i><i></i></span>
+          <span class="t-title">~/lohith — zsh</span>
+          <span class="t-badge">status: <b>online</b></span>
+        </div>
+        <div class="terminal-body">
+          <div class="t-line"><span class="t-ln">1</span><span class="t-code"><span class="t-p">$</span> whoami</span></div>
+          <div class="t-line"><span class="t-ln">2</span><span class="t-code">lohith · full-stack · ai · data · mlops</span></div>
+          <div class="t-line"><span class="t-ln">3</span><span class="t-code"><span class="t-p">$</span> cat stack.json <span class="t-pipe">|</span> jq -c</span></div>
+          <div class="t-line"><span class="t-ln">4</span><span class="t-code">{<span class="t-k">"web"</span>: [<span class="t-s">"react"</span>, <span class="t-s">"typescript"</span>, <span class="t-s">"tailwind"</span>], <span class="t-k">"backend"</span>: [<span class="t-s">"node"</span>, <span class="t-s">"python"</span>, <span class="t-s">"fastapi"</span>], <span class="t-k">"ml"</span>: [<span class="t-s">"scikit-learn"</span>, <span class="t-s">"mlflow"</span>, <span class="t-s">"docker"</span>]}</span></div>
+          <div class="t-line"><span class="t-ln">5</span><span class="t-code"><span class="t-p">$</span> echo $STATUS <span class="t-arrow">→</span> <span class="t-ok">shipping · 13 projects · 20+ certifications</span></span></div>
+        </div>
+      </div>
+
+      <a class="scroll-cue" href="#about" aria-label="Scroll to about"><span></span>scroll</a>
+    </section>
+
+    <!-- ══════════ TICKER ══════════ -->
+    <div class="ticker" aria-hidden="true">
+      <div class="ticker-track">
+        <span>python</span><b>·</b><span>typescript</span><b>·</b><span>react</span><b>·</b><span>node.js</span><b>·</b><span>flutter</span><b>·</b><span>firebase</span><b>·</b><span>scikit-learn</span><b>·</b><span>mlflow</span><b>·</b><span>fastapi</span><b>·</b><span>docker</span><b>·</b><span>aws</span><b>·</b><span>qiskit</span><b>·</b><span>postgresql</span><b>·</b><span>tailwind</span><b>·</b>
+        <span>python</span><b>·</b><span>typescript</span><b>·</b><span>react</span><b>·</b><span>node.js</span><b>·</b><span>flutter</span><b>·</b><span>firebase</span><b>·</b><span>scikit-learn</span><b>·</b><span>mlflow</span><b>·</b><span>fastapi</span><b>·</b><span>docker</span><b>·</b><span>aws</span><b>·</b><span>qiskit</span><b>·</b><span>postgresql</span><b>·</b><span>tailwind</span><b>·</b>
+      </div>
+    </div>
+
+    <!-- ══════════ ABOUT ══════════ -->
+    <section id="about" class="section">
+      <header class="section-head">
+        <span class="section-idx">01</span>
+        <div>
+          <p class="section-tag">// about</p>
+          <h2 class="section-title">Who I am</h2>
+        </div>
+        <span class="section-rule"></span>
+      </header>
+
+      <div class="about-grid">
+        <div class="about-text reveal">
+          <p>I'm a full-stack developer and data engineer focused on building software that ships with measurable impact. My MLOps work has demonstrated a proven 2.5× lift in insurance cross-sell propensity.</p>
+          <p>Currently I'm building the AWS Student Builder Group community at VVIT, mentoring the next generation of cloud builders. I contribute to the AWS Builder Center and run workshops on architecture, security and AI.</p>
+
+          <div class="callout reveal">
+            <i class="fas fa-chart-line" aria-hidden="true"></i>
+            <p>Looking for a software engineer or data specialist who ships production code. Let's build something measurable together.</p>
+          </div>
+
+          <p>When I'm not coding, you'll find me in my other life as a chess club member, open-source contributor, or exploring quantum algorithms.</p>
+        </div>
+
+        <aside class="about-panel reveal">
+          <div class="panel-head"><span>profile.json</span><span class="panel-dots"><i></i><i></i><i></i></span></div>
+          <dl class="kv">
+            <div><dt>name</dt><dd>Lohith Sanju P</dd></div>
+            <div><dt>role</dt><dd>full-stack · ai / data / mlops</dd></div>
+            <div><dt>based</dt><dd>Bengaluru, India</dd></div>
+            <div><dt>education</dt><dd>BE CSE (Data Science)</dd></div>
+            <div><dt>institute</dt><dd>VVIT, VTU · 2024–2028</dd></div>
+            <div class="kv-accent"><dt>focus</dt><dd>AWS community + production ML</dd></div>
+          </dl>
+          <div class="panel-foot"><span class="blink">▍</span>last deploy: this morning</div>
+        </aside>
+      </div>
+
+      <div class="stats">
+        <div class="stat reveal"><div class="stat-num"><span data-count="3">0</span><sup>rd</sup></div><div class="stat-lbl">year of study</div></div>
+        <div class="stat reveal"><div class="stat-num"><span data-count="40">0</span><sup>+</sup></div><div class="stat-lbl">technologies</div></div>
+        <div class="stat reveal"><div class="stat-num"><span data-count="20">0</span><sup>+</sup></div><div class="stat-lbl">certifications</div></div>
+        <div class="stat reveal"><div class="stat-num"><span data-count="13">0</span></div><div class="stat-lbl">projects shipped</div></div>
+      </div>
+    </section>
+
+    <!-- ══════════ EXPERIENCE ══════════ -->
+    <section id="experience" class="section">
+      <header class="section-head">
+        <span class="section-idx">02</span>
+        <div>
+          <p class="section-tag">// where I work &amp; lead</p>
+          <h2 class="section-title">Experience</h2>
+        </div>
+        <span class="section-rule"></span>
+      </header>
+
+      <div class="timeline">
+        <article class="exp reveal">
+          <span class="exp-node" aria-hidden="true"><i class="fas fa-cloud"></i></span>
+          <div class="exp-card">
+            <div class="exp-top">
+              <h3>AWS Student Builder Group Leader</h3>
+              <span class="exp-date">nov 2026 — present</span>
+            </div>
+            <p class="exp-org"><strong>Amazon Web Services (AWS)</strong> <span class="sep">·</span> Volunteer <span class="sep">·</span> Bengaluru, India</p>
+            <p class="exp-lead">Leading a global community of student developers across 68+ countries, building campus AWS expertise and mentoring the next generation of cloud builders.</p>
+            <ul class="exp-list">
+              <li>Founding and growing the campus AWS developer community with 6+ technical workshops and events.</li>
+              <li>Contributing technical articles to the <strong>AWS Builder Center</strong> and routing AWS credits and cert vouchers to student projects.</li>
+              <li>Mentoring the Core Team and documenting community-building playbooks for continuity.</li>
+            </ul>
+            <ul class="tags"><li>AWS</li><li>community</li><li>mentoring</li><li>public speaking</li><li>workshops</li></ul>
+          </div>
+        </article>
+
+        <article class="exp reveal">
+          <span class="exp-node" aria-hidden="true"><i class="fas fa-code"></i></span>
+          <div class="exp-card">
+            <div class="exp-top">
+              <h3>Full Stack Development Intern</h3>
+              <span class="exp-date">feb 2026 — apr 2026</span>
+            </div>
+            <p class="exp-org"><strong>Skyforger Technologies</strong> <span class="sep">·</span> Internship</p>
+            <ul class="exp-list">
+              <li>Shipped full-stack features with <strong>React Native, Node.js, Firebase and MongoDB</strong> — including FraudShieldAI, a real-time fraud-detection app.</li>
+              <li>Built responsive web apps in HTML, CSS and JavaScript, owning testing, debugging and deployment across the stack.</li>
+            </ul>
+            <ul class="tags"><li>react-native</li><li>node.js</li><li>firebase</li><li>mongodb</li><li>typescript</li></ul>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ══════════ SKILLS ══════════ -->
+    <section id="skills" class="section">
+      <header class="section-head">
+        <span class="section-idx">03</span>
+        <div>
+          <p class="section-tag">// my expertise</p>
+          <h2 class="section-title">Skills &amp; stack</h2>
+        </div>
+        <span class="section-rule"></span>
+      </header>
+
+      <div class="skills-grid">
+        <article class="skill-card reveal">
+          <div class="skill-head"><span class="skill-id">[01]</span><h3>Frontend</h3><i class="fas fa-window-maximize" aria-hidden="true"></i></div>
+          <ul class="tags"><li>javascript</li><li>typescript</li><li>react</li><li>react 19</li><li>tailwind</li><li>html5 / css3</li><li>gsap / three.js</li></ul>
+        </article>
+        <article class="skill-card reveal">
+          <div class="skill-head"><span class="skill-id">[02]</span><h3>App development</h3><i class="fas fa-mobile-screen" aria-hidden="true"></i></div>
+          <ul class="tags"><li>flutter</li><li>dart</li><li>android studio</li><li>firebase auth</li><li>firestore</li><li>rest apis</li></ul>
+        </article>
+        <article class="skill-card reveal">
+          <div class="skill-head"><span class="skill-id">[03]</span><h3>Backend</h3><i class="fas fa-server" aria-hidden="true"></i></div>
+          <ul class="tags"><li>node.js</li><li>python</li><li>express</li><li>flask</li><li>fastapi</li><li>mongodb</li><li>postgresql</li></ul>
+        </article>
+        <article class="skill-card reveal">
+          <div class="skill-head"><span class="skill-id">[04]</span><h3>AI &amp; data</h3><i class="fas fa-brain" aria-hidden="true"></i></div>
+          <ul class="tags"><li>machine learning</li><li>data science</li><li>generative ai</li><li>gemini api</li><li>nlp</li><li>computer vision</li></ul>
+        </article>
+        <article class="skill-card reveal">
+          <div class="skill-head"><span class="skill-id">[05]</span><h3>MLOps</h3><i class="fas fa-diagram-project" aria-hidden="true"></i></div>
+          <ul class="tags"><li>scikit-learn</li><li>mlflow</li><li>docker</li><li>github actions</li><li>pytest</li><li>model serving</li></ul>
+        </article>
+        <article class="skill-card reveal">
+          <div class="skill-head"><span class="skill-id">[06]</span><h3>Quantum</h3><i class="fas fa-atom" aria-hidden="true"></i></div>
+          <ul class="tags"><li>qiskit</li><li>quantum algorithms</li><li>quantum walks</li><li>teleportation</li><li>simulation</li></ul>
+        </article>
+        <article class="skill-card reveal">
+          <div class="skill-head"><span class="skill-id">[07]</span><h3>Cloud &amp; community</h3><i class="fas fa-cloud" aria-hidden="true"></i></div>
+          <ul class="tags"><li>AWS</li><li>cloud architecture</li><li>github pages</li><li>vercel</li><li>community building</li><li>mentoring</li></ul>
+        </article>
+        <article class="skill-card reveal">
+          <div class="skill-head"><span class="skill-id">[08]</span><h3>Security &amp; tools</h3><i class="fas fa-shield-halved" aria-hidden="true"></i></div>
+          <ul class="tags"><li>ethical hacking</li><li>network security</li><li>git &amp; github</li><li>linux</li><li>jupyter</li><li>vs code</li></ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- ══════════ WORK ══════════ -->
+    <section id="work" class="section">
+      <header class="section-head">
+        <span class="section-idx">04</span>
+        <div>
+          <p class="section-tag">// selected work</p>
+          <h2 class="section-title">Projects</h2>
+        </div>
+        <span class="section-rule"></span>
+      </header>
+
+      <div class="filters" id="filters" role="tablist" aria-label="Filter projects">
+        <button class="filter is-active" data-filter="all" role="tab" aria-selected="true">all <span>13</span></button>
+        <button class="filter" data-filter="ai" role="tab" aria-selected="false">ai &amp; ml <span>8</span></button>
+        <button class="filter" data-filter="web" role="tab" aria-selected="false">web <span>8</span></button>
+        <button class="filter" data-filter="apps" role="tab" aria-selected="false">apps <span>3</span></button>
+        <button class="filter" data-filter="research" role="tab" aria-selected="false">research <span>2</span></button>
+      </div>
+
+      <div class="projects" id="projectsGrid">
+        <article class="project reveal" data-tags="ai web" data-idx="01">
+          <div class="project-top"><span class="project-idx">01</span><span class="badge badge-live">shipped</span></div>
+          <h3>Insurance Cross-Sell MLOps</h3>
+          <p>End-to-end MLOps pipeline that ranks policyholders with a proven <strong>2.5× lift</strong> in cross-sell propensity at <strong>0.7978 roc_auc</strong>. Config-driven training, MLflow registry, Docker deployment.</p>
+          <div class="metrics">
+            <span><b>0.7978</b> roc_auc</span>
+            <span><b>2.5&times;</b> lift</span>
+            <span><b>47</b> tests</span>
+          </div>
+          <ul class="tags"><li>python</li><li>scikit-learn</li><li>mlflow</li><li>fastapi</li><li>docker</li></ul>
+          <div class="project-links">
+            <a href="https://github.com/sanju-zxt/Insurance-crosssell-mlops" target="_blank" rel="noopener"><i class="fab fa-github" aria-hidden="true"></i> code</a>
+          </div>
+        </article>
+
+        <article class="project reveal" data-tags="web" data-idx="02">
+          <div class="project-top"><span class="project-idx">02</span><span class="badge badge-live">live</span></div>
+          <h3>IGNITE 2026</h3>
+          <p>Official platform for a four-week industry product-prototyping sprint with SmartX Technologies and AptPath. Registration flow, countdown, eight info/legal pages — shipped end-to-end.</p>
+          <div class="metrics"><span><b>52/52</b> playwright</span><span><b>8</b> info pages</span></div>
+          <ul class="tags"><li>typescript</li><li>react</li><li>tailwind</li><li>vite</li></ul>
+          <div class="project-links">
+            <a href="https://www.ignitearena.live" target="_blank" rel="noopener"><i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i> live</a>
+            <a href="https://github.com/sanju-zxt/Hack-Matrix" target="_blank" rel="noopener"><i class="fab fa-github" aria-hidden="true"></i> code</a>
+          </div>
+        </article>
+
+        <article class="project reveal" data-tags="ai research" data-idx="03">
+          <div class="project-top"><span class="project-idx">03</span><span class="badge">research</span></div>
+          <h3>signbridge-isl</h3>
+          <p>WebSocket-based Indian Sign Language recognition demo: MediaPipe Pose + Hands feed an LSTM classifier. Covers <strong>49 isolated signs</strong> with <strong>&lt;5ms</strong> inference.</p>
+          <ul class="tags"><li>python</li><li>mediapipe</li><li>lstm</li><li>webrtc</li></ul>
+          <div class="project-links">
+            <a href="https://github.com/sanju-zxt/signbridge-isl" target="_blank" rel="noopener"><i class="fab fa-github" aria-hidden="true"></i> code</a>
+          </div>
+        </article>
+
+        <article class="project reveal" data-tags="ai web" data-idx="04">
+          <div class="project-top"><span class="project-idx">04</span><span class="badge badge-live">live</span></div>
+          <h3>herald-emergency</h3>
+          <p>Emergency intelligence platform: Gemini-powered incident analysis, entity graphs, timelines and AI co-pilot for responders.</p>
+          <ul class="tags"><li>typescript</li><li>gemini</li><li>react</li><li>entity graph</li></ul>
+          <div class="project-links">
+            <a href="https://herald-beryl.vercel.app" target="_blank" rel="noopener"><i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i> live</a>
+            <a href="https://github.com/sanju-zxt/herald-emergency" target="_blank" rel="noopener"><i class="fab fa-github" aria-hidden="true"></i> code</a>
+          </div>
+        </article>
+
+        <article class="project reveal" data-tags="apps" data-idx="05">
+          <div class="project-top"><span class="project-idx">05</span><span class="badge">prototype</span></div>
+          <h3>sentinel-prototype</h3>
+          <p>A proactive, silence-first haptic co-pilot for blind and visually impaired people. Guides with directional cues instead of chatter.</p>
+          <ul class="tags"><li>javascript</li><li>web audio</li><li>accessibility</li><li>haptics</li></ul>
+          <div class="project-links">
+            <a href="https://github.com/sanju-zxt/sentinel-prototype" target="_blank" rel="noopener"><i class="fab fa-github" aria-hidden="true"></i> code</a>
+          </div>
+        </article>
+
+        <article class="project reveal" data-tags="research ai" data-idx="06">
+          <div class="project-top"><span class="project-idx">06</span><span class="badge">research</span></div>
+          <h3>BQT-MDQW</h3>
+          <p>Research prototype combining quantum teleportation, coined quantum walks and classical MDQW routing. Built on Qiskit Aer with reproducible results.</p>
+          <ul class="tags"><li>python</li><li>qiskit</li><li>quantum computing</li></ul>
+          <div class="project-links">
+            <a href="https://github.com/sanju-zxt/BQT-MDQW" target="_blank" rel="noopener"><i class="fab fa-github" aria-hidden="true"></i> code</a>
+          </div>
+        </article>
+
+        <article class="project reveal" data-tags="ai web" data-idx="07">
+          <div class="project-top"><span class="project-idx">07</span><span class="badge">prototype</span></div>
+          <h3>BharatLensAI</h3>
+          <p>Multilingual image understanding platform that analyses visuals and explains them in Indian languages.</p>
+          <ul class="tags"><li>javascript</li><li>vision ai</li><li>multilingual</li><li>nlp</li></ul>
+          <div class="project-links">
+            <a href="https://github.com/sanju-zxt/BharatLensAI" target="_blank" rel="noopener"><i class="fab fa-github" aria-hidden="true"></i> code</a>
+          </div>
+        </article>
+
+        <article class="project reveal" data-tags="ai apps" data-idx="08">
+          <div class="project-top"><span class="project-idx">08</span><span class="badge">prototype</span></div>
+          <h3>SignBridge2Vision</h3>
+          <p>Real-time speech-to-sign-language system that converts live audio into a sign language avatar.</p>
+          <ul class="tags"><li>python</li><li>speech-to-sign</li><li>avatar</li><li>real-time</li></ul>
+          <div class="project-links">
+            <a href="https://github.com/sanju-zxt/SignBridge2Vision" target="_blank" rel="noopener"><i class="fab fa-github" aria-hidden="true"></i> code</a>
+          </div>
+        </article>
+
+        <article class="project reveal" data-tags="ai apps" data-idx="09">
+          <div class="project-top"><span class="project-idx">09</span><span class="badge">internship</span></div>
+          <h3>FraudShieldAI</h3>
+          <p>Real-time AI fraud detection for mobile: flags suspicious transactions on-device and explains the risk behind every alert.</p>
+          <ul class="tags"><li>typescript</li><li>machine learning</li><li>mobile</li><li>real-time</li></ul>
+          <div class="project-links">
+            <a href="https://github.com/sanju-zxt/FraudShieldAI" target="_blank" rel="noopener"><i class="fab fa-github" aria-hidden="true"></i> code</a>
+          </div>
+        </article>
+
+        <article class="project reveal" data-tags="web" data-idx="10">
+          <div class="project-top"><span class="project-idx">10</span><span class="badge badge-live">live</span></div>
+          <h3>vision-bridge</h3>
+          <p>Collaboration platform connecting innovators with opportunities — the bridge between creative idea and real-world execution.</p>
+          <ul class="tags"><li>typescript</li><li>firebase</li><li>react</li></ul>
+          <div class="project-links">
+            <a href="https://vision-bridge.vercel.app" target="_blank" rel="noopener"><i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i> live</a>
+            <a href="https://github.com/sanju-zxt/vision-bridge" target="_blank" rel="noopener"><i class="fab fa-github" aria-hidden="true"></i> code</a>
+          </div>
+        </article>
+
+        <article class="project reveal" data-tags="web ai" data-idx="11">
+          <div class="project-top"><span class="project-idx">11</span><span class="badge">prototype</span></div>
+          <h3>shadownet-frontend</h3>
+          <p>Frontend client for the ShadowNet intelligence platform: live entity graphs, narrative timelines and sentiment dashboards.</p>
+          <ul class="tags"><li>javascript</li><li>data visualisation</li><li>dashboards</li></ul>
+          <div class="project-links">
+            <a href="https://github.com/sanju-zxt/shadownet-frontend" target="_blank" rel="noopener"><i class="fab fa-github" aria-hidden="true"></i> code</a>
+          </div>
+        </article>
+
+        <article class="project reveal" data-tags="web" data-idx="12">
+          <div class="project-top"><span class="project-idx">12</span><span class="badge">prototype</span></div>
+          <h3>smart-dashboard</h3>
+          <p>Cloud-based student performance dashboard tracking attendance, grades and progress in real time.</p>
+          <ul class="tags"><li>javascript</li><li>chart.js</li><li>firebase</li><li>analytics</li></ul>
+          <div class="project-links">
+            <a href="https://github.com/sanju-zxt/smart-dashboard" target="_blank" rel="noopener"><i class="fab fa-github" aria-hidden="true"></i> code</a>
+          </div>
+        </article>
+
+        <article class="project reveal" data-tags="web" data-idx="13">
+          <div class="project-top"><span class="project-idx">13</span><span class="badge badge-you">you are here</span></div>
+          <h3>portfolio</h3>
+          <p>This site. Hand-written HTML, CSS and a custom 2D canvas physics layer — no framework, no build step.</p>
+          <div class="metrics"><span><b>0</b> frameworks</span><span><b>1</b> canvas</span></div>
+          <ul class="tags"><li>html</li><li>css3</li><li>javascript</li><li>canvas</li></ul>
+          <div class="project-links">
+            <a href="https://github.com/sanju-zxt/portfolio" target="_blank" rel="noopener"><i class="fab fa-github" aria-hidden="true"></i> code</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ══════════ CERTIFICATIONS ══════════ -->
+    <section id="certs" class="section">
+      <header class="section-head">
+        <span class="section-idx">05</span>
+        <div>
+          <p class="section-tag">// credentials</p>
+          <h2 class="section-title">Certifications</h2>
+          <p class="section-sub">Click any card to preview &amp; download the certificate.</p>
+        </div>
+        <span class="section-rule"></span>
+      </header>
+
+      <div class="certs">
+        <button class="cert reveal" data-cert="AI For Everyone|Artificial Intelligence|DeepLearning.AI / Coursera|2024|AI%20FOR%20EVERYONE%20.pdf">
+          <span class="cert-idx">01</span><span class="cert-name">AI For Everyone</span><span class="cert-sub">Artificial Intelligence</span><span class="cert-arrow">↗</span>
+        </button>
+        <button class="cert reveal" data-cert="Amazon DynamoDB|AWS / Database|Amazon Web Services|2024|Amazon%20DynamoDB.pdf">
+          <span class="cert-idx">02</span><span class="cert-name">Amazon DynamoDB</span><span class="cert-sub">AWS / Database</span><span class="cert-arrow">↗</span>
+        </button>
+        <button class="cert reveal" data-cert="Big Data Foundations|Data Engineering|IBM / Coursera|2024|Big%20Data%20Foundations.pdf">
+          <span class="cert-idx">03</span><span class="cert-name">Big Data Foundations</span><span class="cert-sub">Data Engineering</span><span class="cert-arrow">↗</span>
+        </button>
+        <button class="cert reveal" data-cert="Operating Systems Certification|System Fundamentals|University / Platform|2024|Completed%20certification%20on%20core%20Operating%20Systems%20concepts.pdf">
+          <span class="cert-idx">04</span><span class="cert-name">Operating Systems</span><span class="cert-sub">System Fundamentals</span><span class="cert-arrow">↗</span>
+        </button>
+        <button class="cert reveal" data-cert="Critical Thinking in the AI Era|AI & Analytics|Online Platform|2024|Critical%20Thinking%20in%20the%20AI%20Era.pdf">
+          <span class="cert-idx">05</span><span class="cert-name">Critical Thinking in the AI Era</span><span class="cert-sub">AI &amp; Analytics</span><span class="cert-arrow">↗</span>
+        </button>
+        <button class="cert reveal" data-cert="Data Science & Analytics|HP LIFE|HP Foundation|2024|Data%20Science%20%26%20Analytics%20%E2%80%93%20HP%20LIFE.pdf">
+          <span class="cert-idx">06</span><span class="cert-name">Data Science &amp; Analytics</span><span class="cert-sub">HP LIFE</span><span class="cert-arrow">↗</span>
+        </button>
+        <button class="cert reveal" data-cert="Data Science Tools|Data Science|IBM / Coursera|2024|Data%20Science%20Tools.pdf">
+          <span class="cert-idx">07</span><span class="cert-name">Data Science Tools</span><span class="cert-sub">Data Science</span><span class="cert-arrow">↗</span>
+        </button>
+        <button class="cert reveal" data-cert="DSA|Data Structures & Algorithms|Platform / University|2024|DSA.pdf">
+          <span class="cert-idx">08</span><span class="cert-name">DSA</span><span class="cert-sub">Data Structures &amp; Algorithms</span><span class="cert-arrow">↗</span>
+        </button>
+        <button class="cert reveal" data-cert="Ethical Hacking & Cybersecurity|Security|EC-Council / Platform|2024|Ethical%20Hacking%20%26%20Cybersecurity%20organized%20by%20VaultofCodes.pdf">
+          <span class="cert-idx">09</span><span class="cert-name">Ethical Hacking &amp; Cybersecurity</span><span class="cert-sub">Security</span><span class="cert-arrow">↗</span>
+        </button>
+        <button class="cert reveal" data-cert="Excel (Advanced)|Microsoft Office|EXCELR|2024|EXCELR-116102-Lohith%20Sanju%20P.pdf">
+          <span class="cert-idx">10</span><span class="cert-name">Excel (Advanced)</span><span class="cert-sub">Microsoft Office</span><span class="cert-arrow">↗</span>
+        </button>
+        <button class="cert reveal" data-cert="AI Basics|Artificial Intelligence|Platform / Institute|2024|Getting%20Started%20with%20Artificial%20Intelligence.pdf">
+          <span class="cert-idx">11</span><span class="cert-name">AI Basics</span><span class="cert-sub">Artificial Intelligence</span><span class="cert-arrow">↗</span>
+        </button>
+        <button class="cert reveal" data-cert="Google Developer Groups|Google|Google Developers|2024|Google%20Developer%20Groups%20.pdf">
+          <span class="cert-idx">12</span><span class="cert-name">Google Developer Groups</span><span class="cert-sub">Google</span><span class="cert-arrow">↗</span>
+        </button>
+        <button class="cert reveal" data-cert="Industrial Design|Design|Platform / Institute|2024|Certificate.pdf">
+          <span class="cert-idx">13</span><span class="cert-name">Industrial Design</span><span class="cert-sub">Design</span><span class="cert-arrow">↗</span>
+        </button>
+        <button class="cert reveal" data-cert="JavaScript Bootcamp|Web Development|Bootcamp Provider|2024|JavaScript%20Bootcamp.pdf">
+          <span class="cert-idx">14</span><span class="cert-name">JavaScript Bootcamp</span><span class="cert-sub">Web Development</span><span class="cert-arrow">↗</span>
+        </button>
+        <button class="cert reveal" data-cert="Open Source Connect Global|Open Source|Open Source Organization|2024|Open%20Source%20Connect%20Global%20.pdf">
+          <span class="cert-idx">15</span><span class="cert-name">Open Source Connect Global</span><span class="cert-sub">Open Source</span><span class="cert-arrow">↗</span>
+        </button>
+        <button class="cert reveal" data-cert="Python for Data Science|Data Science|IBM / Coursera|2024|Python%20for%20Data%20Science.pdf">
+          <span class="cert-idx">16</span><span class="cert-name">Python for Data Science</span><span class="cert-sub">Data Science</span><span class="cert-arrow">↗</span>
+        </button>
+        <button class="cert reveal" data-cert="Skyforger Internship Completion|Internship|Skyforger|2024|skyforgerintern%20completion.pdf">
+          <span class="cert-idx">17</span><span class="cert-name">Skyforger Internship</span><span class="cert-sub">Internship completion</span><span class="cert-arrow">↗</span>
+        </button>
+        <button class="cert reveal" data-cert="Offer Letter|Professional|Company / Organization|2024|OfferLetter_LOHITH_SANJU_P%20(1).pdf">
+          <span class="cert-idx">18</span><span class="cert-name">Offer Letter</span><span class="cert-sub">Professional</span><span class="cert-arrow">↗</span>
+        </button>
+        <button class="cert reveal" data-cert="LUEGGSEPT12539.pdf|LUEGGS Certification|LUEGGS|2024|LUEGGSEPT12539.pdf">
+          <span class="cert-idx">19</span><span class="cert-name">LUEGGS Certification</span><span class="cert-sub">Achievement</span><span class="cert-arrow">↗</span>
+        </button>
+        <button class="cert reveal" data-cert="Personal Certification|Lohith Sanju P Certificate|Issuing Authority|2024|Lohith%20Sanju%20P%20Certificate.pdf">
+          <span class="cert-idx">20</span><span class="cert-name">Personal Certification</span><span class="cert-sub">Credential</span><span class="cert-arrow">↗</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- ══════════ BLOG ══════════ -->
+    <section id="blog" class="section">
+      <header class="section-head">
+        <span class="section-idx">06</span>
+        <div>
+          <p class="section-tag">// notes</p>
+          <h2 class="section-title">Writing</h2>
+        </div>
+        <span class="section-rule"></span>
+      </header>
+
+      <div class="posts">
+        <article class="post reveal">
+          <div class="post-top"><span class="post-cat">ai &amp; ml</span><span class="post-date">2026.04.15</span></div>
+          <h3>Getting started with AI development: a beginner's roadmap</h3>
+          <p>AI feels overwhelming until you break it into steps. Python first, then NumPy and Pandas, then scikit-learn — my own path from a first regression model to building FraudShieldAI.</p>
+          <button class="post-more" data-post="0">read article <span aria-hidden="true">→</span></button>
+        </article>
+        <article class="post reveal">
+          <div class="post-top"><span class="post-cat">firebase</span><span class="post-date">2026.03.28</span></div>
+          <h3>Building scalable real-time apps with Firebase</h3>
+          <p>Firestore's live sync, Auth and Cloud Functions let me ship Smart Dashboard without a single server — here's what I learned about data modelling and security rules the hard way.</p>
+          <button class="post-more" data-post="1">read article <span aria-hidden="true">→</span></button>
+        </article>
+        <article class="post reveal">
+          <div class="post-top"><span class="post-cat">career</span><span class="post-date">2026.02.10</span></div>
+          <h3>From C programming to full-stack development</h3>
+          <p>It started with printf in first year. Then JavaScript, React's component model, and Python for data. A messy, humbling path — and what I wish someone had told me earlier.</p>
+          <button class="post-more" data-post="2">read article <span aria-hidden="true">→</span></button>
+        </article>
+      </div>
+    </section>
+
+    <!-- ══════════ CONTACT ══════════ -->
+    <section id="contact" class="section section-contact">
+      <header class="section-head">
+        <span class="section-idx">07</span>
+        <div>
+          <p class="section-tag">// get in touch</p>
+          <h2 class="section-title">Let's build something</h2>
+          <p class="section-sub">Open to internships, collaborations and anything cloud-, AI- or data-shaped.</p>
+        </div>
+        <span class="section-rule"></span>
+      </header>
+
+      <div class="contact-grid">
+        <a class="contact reveal" href="mailto:ssanju200610@gmail.com">
+          <span class="contact-k">email</span>
+          <span class="contact-v">ssanju200610@gmail.com</span>
+          <span class="contact-arrow">↗</span>
+        </a>
+        <a class="contact reveal" href="https://github.com/sanju-zxt" target="_blank" rel="noopener">
+          <span class="contact-k">github</span>
+          <span class="contact-v">github.com/sanju-zxt</span>
+          <span class="contact-arrow">↗</span>
+        </a>
+        <a class="contact reveal" href="https://www.linkedin.com/in/lohith-sanju-p" target="_blank" rel="noopener">
+          <span class="contact-k">linkedin</span>
+          <span class="contact-v">linkedin.com/in/lohith-sanju-p</span>
+          <span class="contact-arrow">↗</span>
+        </a>
+      </div>
+
+      <div class="contact-band reveal">
+        <p class="contact-cta">Have something that needs building?<span class="blink">▍</span></p>
+        <a class="btn btn-primary" href="mailto:ssanju200610@gmail.com">start a conversation <span aria-hidden="true">→</span></a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ══════════ FOOTER ══════════ -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <p><span class="brand-mark">LSP</span> <span class="footer-dim">— built by hand · html · css · canvas</span></p>
+      <p class="footer-dim">&copy; 2026 Lohith Sanju P · Bengaluru, IN</p>
+    </div>
+  </footer>
+
+  <!-- ══════════ TELEMETRY HUD ══════════ -->
+  <div class="hud" aria-hidden="true">
+    <span class="hud-item"><i class="hud-dot"></i><b>sys</b> online</span>
+    <span class="hud-sep"></span>
+    <span class="hud-item"><b>fps</b> <span id="hudFps">—</span></span>
+    <span class="hud-sep"></span>
+    <span class="hud-item"><b>mem</b> <span id="hudMem">—</span></span>
+    <span class="hud-sep"></span>
+    <span class="hud-item"><b>ping</b> <span id="hudPing">—</span></span>
+    <span class="hud-sep"></span>
+    <span class="hud-item"><b>net</b> <span id="hudNet">—</span></span>
+    <span class="hud-sep"></span>
+    <span class="hud-item"><b>ist</b> <span id="hudClock">—</span></span>
+  </div>
+  <button class="to-top" id="toTop" aria-label="Back to top"><i class="fas fa-arrow-up" aria-hidden="true"></i></button>
+
+  <!-- ══════════ CERT MODAL ══════════ -->
+  <div class="modal" id="certModal" role="dialog" aria-modal="true" aria-labelledby="certTitle">
+    <div class="modal-card">
+      <header class="modal-head">
+        <div>
+          <p class="modal-kicker">// credential</p>
+          <h3 id="certTitle">Certificate</h3>
+          <p class="modal-sub" id="certSub">Issuing organisation</p>
+        </div>
+        <button class="modal-x" data-close aria-label="Close"><i class="fas fa-xmark" aria-hidden="true"></i></button>
+      </header>
+      <div class="modal-body">
+        <div class="cert-frame"><embed id="certEmbed" type="application/pdf" title="Certificate PDF"></div>
+        <dl class="kv kv-tight">
+          <div><dt>issuer</dt><dd id="certIssuer">—</dd></div>
+          <div><dt>year</dt><dd id="certYear">—</dd></div>
+          <div><dt>category</dt><dd id="certCat">—</dd></div>
+          <div><dt>status</dt><dd class="ok">verified</dd></div>
+        </dl>
+        <div class="modal-actions">
+          <a class="btn btn-primary" id="certDownload" href="#" target="_blank" rel="noopener">download <span aria-hidden="true">↓</span></a>
+          <button class="btn btn-ghost" data-close>close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════ POST MODAL ══════════ -->
+  <div class="modal modal-card-post" id="postModal" role="dialog" aria-modal="true" aria-labelledby="postTitle">
+    <div class="modal-card">
+      <header class="modal-head">
+        <div>
+          <p class="modal-kicker" id="postCat">// article</p>
+          <h3 id="postTitle">Article</h3>
+          <p class="modal-sub"><span id="postDate">—</span> · <span id="postRead">5 min read</span> · Lohith Sanju P</p>
+        </div>
+        <button class="modal-x" data-close aria-label="Close"><i class="fas fa-xmark" aria-hidden="true"></i></button>
+      </header>
+      <div class="modal-body post-body" id="postBody"></div>
+      <footer class="modal-foot"><ul class="tags" id="postTags"></ul></footer>
+    </div>
+  </div>
+
+  <script src="site.js" defer></script>
+</body>
+</html>< ! - -   v 2 . 7 . 1   - - >  
+ 

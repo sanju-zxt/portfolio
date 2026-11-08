@@ -1,0 +1,11 @@
+# Keep binaries byte-exact — never apply line-ending conversion to these.
+*.pdf  binary
+*.jpg  binary
+*.jpeg binary
+*.png  binary
+*.webp binary
+*.gif  binary
+*.ico  binary
+*.mp4  binary
+*.woff binary
+*.woff2 binary
