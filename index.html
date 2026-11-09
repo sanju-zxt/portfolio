@@ -88,6 +88,7 @@
         </button>
       </div>
     </div>
+    <div class="nav-scrim" id="navScrim" hidden></div>
   </header>
 
   <main id="main">
@@ -476,78 +477,181 @@
     </section>
 
     <!-- ══════════ CERTIFICATIONS ══════════ -->
-    <section id="certs" class="section">
+    <section id="certs" class="section section-certs">
       <header class="section-head">
         <span class="section-idx">05</span>
         <div>
           <p class="section-tag">// credentials</p>
           <h2 class="section-title">Certifications</h2>
-          <p class="section-sub">Click any card to preview &amp; download the certificate.</p>
+          <p class="section-sub">20 credentials, kept behind one click — open the vault, then pick a card to preview or download the PDF.</p>
         </div>
         <span class="section-rule"></span>
       </header>
 
-      <div class="certs">
-        <button class="cert reveal" data-cert="AI For Everyone|Artificial Intelligence|DeepLearning.AI / Coursera|2024|AI%20FOR%20EVERYONE%20.pdf">
-          <span class="cert-idx">01</span><span class="cert-name">AI For Everyone</span><span class="cert-sub">Artificial Intelligence</span><span class="cert-arrow">↗</span>
+      <div class="vault reveal">
+        <button class="vault-toggle" id="certsToggle" aria-expanded="false" aria-controls="certsPanel">
+          <span class="vault-icon" aria-hidden="true"><i class="fas fa-folder-closed"></i></span>
+          <span class="vault-copy">
+            <span class="vault-title">credential vault</span>
+            <span class="vault-sub">20 files · ai · data · cloud · security · design</span>
+          </span>
+          <span class="vault-cta" aria-hidden="true">
+            <span class="vault-cta-label">reveal</span>
+            <i class="fas fa-chevron-down"></i>
+          </span>
         </button>
-        <button class="cert reveal" data-cert="Amazon DynamoDB|AWS / Database|Amazon Web Services|2024|Amazon%20DynamoDB.pdf">
-          <span class="cert-idx">02</span><span class="cert-name">Amazon DynamoDB</span><span class="cert-sub">AWS / Database</span><span class="cert-arrow">↗</span>
-        </button>
-        <button class="cert reveal" data-cert="Big Data Foundations|Data Engineering|IBM / Coursera|2024|Big%20Data%20Foundations.pdf">
-          <span class="cert-idx">03</span><span class="cert-name">Big Data Foundations</span><span class="cert-sub">Data Engineering</span><span class="cert-arrow">↗</span>
-        </button>
-        <button class="cert reveal" data-cert="Operating Systems Certification|System Fundamentals|University / Platform|2024|Completed%20certification%20on%20core%20Operating%20Systems%20concepts.pdf">
-          <span class="cert-idx">04</span><span class="cert-name">Operating Systems</span><span class="cert-sub">System Fundamentals</span><span class="cert-arrow">↗</span>
-        </button>
-        <button class="cert reveal" data-cert="Critical Thinking in the AI Era|AI & Analytics|Online Platform|2024|Critical%20Thinking%20in%20the%20AI%20Era.pdf">
-          <span class="cert-idx">05</span><span class="cert-name">Critical Thinking in the AI Era</span><span class="cert-sub">AI &amp; Analytics</span><span class="cert-arrow">↗</span>
-        </button>
-        <button class="cert reveal" data-cert="Data Science & Analytics|HP LIFE|HP Foundation|2024|Data%20Science%20%26%20Analytics%20%E2%80%93%20HP%20LIFE.pdf">
-          <span class="cert-idx">06</span><span class="cert-name">Data Science &amp; Analytics</span><span class="cert-sub">HP LIFE</span><span class="cert-arrow">↗</span>
-        </button>
-        <button class="cert reveal" data-cert="Data Science Tools|Data Science|IBM / Coursera|2024|Data%20Science%20Tools.pdf">
-          <span class="cert-idx">07</span><span class="cert-name">Data Science Tools</span><span class="cert-sub">Data Science</span><span class="cert-arrow">↗</span>
-        </button>
-        <button class="cert reveal" data-cert="DSA|Data Structures & Algorithms|Platform / University|2024|DSA.pdf">
-          <span class="cert-idx">08</span><span class="cert-name">DSA</span><span class="cert-sub">Data Structures &amp; Algorithms</span><span class="cert-arrow">↗</span>
-        </button>
-        <button class="cert reveal" data-cert="Ethical Hacking & Cybersecurity|Security|EC-Council / Platform|2024|Ethical%20Hacking%20%26%20Cybersecurity%20organized%20by%20VaultofCodes.pdf">
-          <span class="cert-idx">09</span><span class="cert-name">Ethical Hacking &amp; Cybersecurity</span><span class="cert-sub">Security</span><span class="cert-arrow">↗</span>
-        </button>
-        <button class="cert reveal" data-cert="Excel (Advanced)|Microsoft Office|EXCELR|2024|EXCELR-116102-Lohith%20Sanju%20P.pdf">
-          <span class="cert-idx">10</span><span class="cert-name">Excel (Advanced)</span><span class="cert-sub">Microsoft Office</span><span class="cert-arrow">↗</span>
-        </button>
-        <button class="cert reveal" data-cert="AI Basics|Artificial Intelligence|Platform / Institute|2024|Getting%20Started%20with%20Artificial%20Intelligence.pdf">
-          <span class="cert-idx">11</span><span class="cert-name">AI Basics</span><span class="cert-sub">Artificial Intelligence</span><span class="cert-arrow">↗</span>
-        </button>
-        <button class="cert reveal" data-cert="Google Developer Groups|Google|Google Developers|2024|Google%20Developer%20Groups%20.pdf">
-          <span class="cert-idx">12</span><span class="cert-name">Google Developer Groups</span><span class="cert-sub">Google</span><span class="cert-arrow">↗</span>
-        </button>
-        <button class="cert reveal" data-cert="Industrial Design|Design|Platform / Institute|2024|Certificate.pdf">
-          <span class="cert-idx">13</span><span class="cert-name">Industrial Design</span><span class="cert-sub">Design</span><span class="cert-arrow">↗</span>
-        </button>
-        <button class="cert reveal" data-cert="JavaScript Bootcamp|Web Development|Bootcamp Provider|2024|JavaScript%20Bootcamp.pdf">
-          <span class="cert-idx">14</span><span class="cert-name">JavaScript Bootcamp</span><span class="cert-sub">Web Development</span><span class="cert-arrow">↗</span>
-        </button>
-        <button class="cert reveal" data-cert="Open Source Connect Global|Open Source|Open Source Organization|2024|Open%20Source%20Connect%20Global%20.pdf">
-          <span class="cert-idx">15</span><span class="cert-name">Open Source Connect Global</span><span class="cert-sub">Open Source</span><span class="cert-arrow">↗</span>
-        </button>
-        <button class="cert reveal" data-cert="Python for Data Science|Data Science|IBM / Coursera|2024|Python%20for%20Data%20Science.pdf">
-          <span class="cert-idx">16</span><span class="cert-name">Python for Data Science</span><span class="cert-sub">Data Science</span><span class="cert-arrow">↗</span>
-        </button>
-        <button class="cert reveal" data-cert="Skyforger Internship Completion|Internship|Skyforger|2024|skyforgerintern%20completion.pdf">
-          <span class="cert-idx">17</span><span class="cert-name">Skyforger Internship</span><span class="cert-sub">Internship completion</span><span class="cert-arrow">↗</span>
-        </button>
-        <button class="cert reveal" data-cert="Offer Letter|Professional|Company / Organization|2024|OfferLetter_LOHITH_SANJU_P%20(1).pdf">
-          <span class="cert-idx">18</span><span class="cert-name">Offer Letter</span><span class="cert-sub">Professional</span><span class="cert-arrow">↗</span>
-        </button>
-        <button class="cert reveal" data-cert="LUEGGSEPT12539.pdf|LUEGGS Certification|LUEGGS|2024|LUEGGSEPT12539.pdf">
-          <span class="cert-idx">19</span><span class="cert-name">LUEGGS Certification</span><span class="cert-sub">Achievement</span><span class="cert-arrow">↗</span>
-        </button>
-        <button class="cert reveal" data-cert="Personal Certification|Lohith Sanju P Certificate|Issuing Authority|2024|Lohith%20Sanju%20P%20Certificate.pdf">
-          <span class="cert-idx">20</span><span class="cert-name">Personal Certification</span><span class="cert-sub">Credential</span><span class="cert-arrow">↗</span>
-        </button>
+
+        <div class="certs-panel" id="certsPanel" aria-hidden="true" inert>
+          <div class="certs-clip">
+            <div class="certs">
+              <button class="cert" data-cert="AI For Everyone|Artificial Intelligence|DeepLearning.AI / Coursera|2024|AI%20FOR%20EVERYONE%20.pdf">
+                <span class="cert-idx">01</span>
+                <span class="cert-name">AI For Everyone</span>
+                <span class="cert-sub">Artificial Intelligence</span>
+                <span class="cert-meta">DeepLearning.AI / Coursera · 2024</span>
+                <span class="cert-arrow" aria-hidden="true">↗</span>
+              </button>
+              <button class="cert" data-cert="Amazon DynamoDB|AWS / Database|Amazon Web Services|2024|Amazon%20DynamoDB.pdf">
+                <span class="cert-idx">02</span>
+                <span class="cert-name">Amazon DynamoDB</span>
+                <span class="cert-sub">AWS / Database</span>
+                <span class="cert-meta">Amazon Web Services · 2024</span>
+                <span class="cert-arrow" aria-hidden="true">↗</span>
+              </button>
+              <button class="cert" data-cert="Big Data Foundations|Data Engineering|IBM / Coursera|2024|Big%20Data%20Foundations.pdf">
+                <span class="cert-idx">03</span>
+                <span class="cert-name">Big Data Foundations</span>
+                <span class="cert-sub">Data Engineering</span>
+                <span class="cert-meta">IBM / Coursera · 2024</span>
+                <span class="cert-arrow" aria-hidden="true">↗</span>
+              </button>
+              <button class="cert" data-cert="Operating Systems Certification|System Fundamentals|University / Platform|2024|Completed%20certification%20on%20core%20Operating%20Systems%20concepts.pdf">
+                <span class="cert-idx">04</span>
+                <span class="cert-name">Operating Systems</span>
+                <span class="cert-sub">System Fundamentals</span>
+                <span class="cert-meta">University / Platform · 2024</span>
+                <span class="cert-arrow" aria-hidden="true">↗</span>
+              </button>
+              <button class="cert" data-cert="Critical Thinking in the AI Era|AI &amp; Analytics|Online Platform|2024|Critical%20Thinking%20in%20the%20AI%20Era.pdf">
+                <span class="cert-idx">05</span>
+                <span class="cert-name">Critical Thinking in the AI Era</span>
+                <span class="cert-sub">AI &amp; Analytics</span>
+                <span class="cert-meta">Online Platform · 2024</span>
+                <span class="cert-arrow" aria-hidden="true">↗</span>
+              </button>
+              <button class="cert" data-cert="Data Science &amp; Analytics|HP LIFE|HP Foundation|2024|Data%20Science%20%26%20Analytics%20%E2%80%93%20HP%20LIFE.pdf">
+                <span class="cert-idx">06</span>
+                <span class="cert-name">Data Science &amp; Analytics</span>
+                <span class="cert-sub">HP LIFE</span>
+                <span class="cert-meta">HP Foundation · 2024</span>
+                <span class="cert-arrow" aria-hidden="true">↗</span>
+              </button>
+              <button class="cert" data-cert="Data Science Tools|Data Science|IBM / Coursera|2024|Data%20Science%20Tools.pdf">
+                <span class="cert-idx">07</span>
+                <span class="cert-name">Data Science Tools</span>
+                <span class="cert-sub">Data Science</span>
+                <span class="cert-meta">IBM / Coursera · 2024</span>
+                <span class="cert-arrow" aria-hidden="true">↗</span>
+              </button>
+              <button class="cert" data-cert="DSA|Data Structures &amp; Algorithms|Platform / University|2024|DSA.pdf">
+                <span class="cert-idx">08</span>
+                <span class="cert-name">DSA</span>
+                <span class="cert-sub">Data Structures &amp; Algorithms</span>
+                <span class="cert-meta">Platform / University · 2024</span>
+                <span class="cert-arrow" aria-hidden="true">↗</span>
+              </button>
+              <button class="cert" data-cert="Ethical Hacking &amp; Cybersecurity|Security|EC-Council / Platform|2024|Ethical%20Hacking%20%26%20Cybersecurity%20organized%20by%20VaultofCodes.pdf">
+                <span class="cert-idx">09</span>
+                <span class="cert-name">Ethical Hacking &amp; Cybersecurity</span>
+                <span class="cert-sub">Security</span>
+                <span class="cert-meta">EC-Council / Platform · 2024</span>
+                <span class="cert-arrow" aria-hidden="true">↗</span>
+              </button>
+              <button class="cert" data-cert="Excel (Advanced)|Microsoft Office|EXCELR|2024|EXCELR-116102-Lohith%20Sanju%20P.pdf">
+                <span class="cert-idx">10</span>
+                <span class="cert-name">Excel (Advanced)</span>
+                <span class="cert-sub">Microsoft Office</span>
+                <span class="cert-meta">EXCELR · 2024</span>
+                <span class="cert-arrow" aria-hidden="true">↗</span>
+              </button>
+              <button class="cert" data-cert="AI Basics|Artificial Intelligence|Platform / Institute|2024|Getting%20Started%20with%20Artificial%20Intelligence.pdf">
+                <span class="cert-idx">11</span>
+                <span class="cert-name">AI Basics</span>
+                <span class="cert-sub">Artificial Intelligence</span>
+                <span class="cert-meta">Platform / Institute · 2024</span>
+                <span class="cert-arrow" aria-hidden="true">↗</span>
+              </button>
+              <button class="cert" data-cert="Google Developer Groups|Google|Google Developers|2024|Google%20Developer%20Groups%20.pdf">
+                <span class="cert-idx">12</span>
+                <span class="cert-name">Google Developer Groups</span>
+                <span class="cert-sub">Google</span>
+                <span class="cert-meta">Google Developers · 2024</span>
+                <span class="cert-arrow" aria-hidden="true">↗</span>
+              </button>
+              <button class="cert" data-cert="Industrial Design|Design|Platform / Institute|2024|Certificate.pdf">
+                <span class="cert-idx">13</span>
+                <span class="cert-name">Industrial Design</span>
+                <span class="cert-sub">Design</span>
+                <span class="cert-meta">Platform / Institute · 2024</span>
+                <span class="cert-arrow" aria-hidden="true">↗</span>
+              </button>
+              <button class="cert" data-cert="JavaScript Bootcamp|Web Development|Bootcamp Provider|2024|JavaScript%20Bootcamp.pdf">
+                <span class="cert-idx">14</span>
+                <span class="cert-name">JavaScript Bootcamp</span>
+                <span class="cert-sub">Web Development</span>
+                <span class="cert-meta">Bootcamp Provider · 2024</span>
+                <span class="cert-arrow" aria-hidden="true">↗</span>
+              </button>
+              <button class="cert" data-cert="Open Source Connect Global|Open Source|Open Source Organization|2024|Open%20Source%20Connect%20Global%20.pdf">
+                <span class="cert-idx">15</span>
+                <span class="cert-name">Open Source Connect Global</span>
+                <span class="cert-sub">Open Source</span>
+                <span class="cert-meta">Open Source Organization · 2024</span>
+                <span class="cert-arrow" aria-hidden="true">↗</span>
+              </button>
+              <button class="cert" data-cert="Python for Data Science|Data Science|IBM / Coursera|2024|Python%20for%20Data%20Science.pdf">
+                <span class="cert-idx">16</span>
+                <span class="cert-name">Python for Data Science</span>
+                <span class="cert-sub">Data Science</span>
+                <span class="cert-meta">IBM / Coursera · 2024</span>
+                <span class="cert-arrow" aria-hidden="true">↗</span>
+              </button>
+              <button class="cert" data-cert="Skyforger Internship Completion|Internship|Skyforger|2024|skyforgerintern%20completion.pdf">
+                <span class="cert-idx">17</span>
+                <span class="cert-name">Skyforger Internship</span>
+                <span class="cert-sub">Internship completion</span>
+                <span class="cert-meta">Skyforger · 2024</span>
+                <span class="cert-arrow" aria-hidden="true">↗</span>
+              </button>
+              <button class="cert" data-cert="Offer Letter|Professional|Company / Organization|2024|OfferLetter_LOHITH_SANJU_P%20(1).pdf">
+                <span class="cert-idx">18</span>
+                <span class="cert-name">Offer Letter</span>
+                <span class="cert-sub">Professional</span>
+                <span class="cert-meta">Company / Organization · 2024</span>
+                <span class="cert-arrow" aria-hidden="true">↗</span>
+              </button>
+              <button class="cert" data-cert="LUEGGSEPT12539.pdf|LUEGGS Certification|LUEGGS|2024|LUEGGSEPT12539.pdf">
+                <span class="cert-idx">19</span>
+                <span class="cert-name">LUEGGS Certification</span>
+                <span class="cert-sub">Achievement</span>
+                <span class="cert-meta">LUEGGS · 2024</span>
+                <span class="cert-arrow" aria-hidden="true">↗</span>
+              </button>
+              <button class="cert" data-cert="Personal Certification|Lohith Sanju P Certificate|Issuing Authority|2024|Lohith%20Sanju%20P%20Certificate.pdf">
+                <span class="cert-idx">20</span>
+                <span class="cert-name">Personal Certification</span>
+                <span class="cert-sub">Credential</span>
+                <span class="cert-meta">Issuing Authority · 2024</span>
+                <span class="cert-arrow" aria-hidden="true">↗</span>
+              </button>
+            </div>
+
+            <div class="certs-foot">
+              <p class="certs-note"><i class="fas fa-lock" aria-hidden="true"></i>Everything stays in this page — nothing downloads until you press download.</p>
+              <button class="btn btn-ghost" id="certsHide">hide vault <span aria-hidden="true">↑</span></button>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -659,14 +763,21 @@
       </header>
       <div class="modal-body">
         <div class="cert-frame"><embed id="certEmbed" type="application/pdf" title="Certificate PDF"></div>
+        <div class="cert-poster" id="certPoster">
+          <span class="cert-poster-ico" aria-hidden="true"><i class="fas fa-file-pdf"></i></span>
+          <p class="cert-poster-title">PDF credential</p>
+          <p class="cert-poster-note">Inline previews are limited on phones — open the file to read it full size.</p>
+          <a class="btn btn-primary" id="certOpenMobile" href="#" target="_blank" rel="noopener">open PDF <span aria-hidden="true">↗</span></a>
+        </div>
         <dl class="kv kv-tight">
-          <div><dt>issuer</dt><dd id="certIssuer">—</dd></div>
-          <div><dt>year</dt><dd id="certYear">—</dd></div>
-          <div><dt>category</dt><dd id="certCat">—</dd></div>
+          <div><dt>issuer</dt><dd id="certIssuer">-</dd></div>
+          <div><dt>year</dt><dd id="certYear">-</dd></div>
+          <div><dt>category</dt><dd id="certCat">-</dd></div>
           <div><dt>status</dt><dd class="ok">verified</dd></div>
         </dl>
         <div class="modal-actions">
-          <a class="btn btn-primary" id="certDownload" href="#" target="_blank" rel="noopener">download <span aria-hidden="true">↓</span></a>
+          <a class="btn btn-primary" id="certDownload" href="#" target="_blank" rel="noopener" download>download <span aria-hidden="true">↓</span></a>
+          <a class="btn btn-ghost" id="certOpen" href="#" target="_blank" rel="noopener">open in tab <span aria-hidden="true">↗</span></a>
           <button class="btn btn-ghost" data-close>close</button>
         </div>
       </div>
@@ -691,5 +802,4 @@
 
   <script src="site.js" defer></script>
 </body>
-</html>< ! - -   v 2 . 7 . 1   - - >  
- 
+</html>

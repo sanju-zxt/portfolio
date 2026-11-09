@@ -262,6 +262,7 @@
   var nav = $('#nav');
   var navLinks = $('#navLinks');
   var navToggle = $('#navToggle');
+  var navScrim = $('#navScrim');
 
   function onScrollNav() {
     if (window.scrollY > 24) nav.classList.add('is-stuck');
@@ -270,16 +271,27 @@
   onScrollNav();
   window.addEventListener('scroll', onScrollNav, { passive: true });
 
+  function setNav(open) {
+    if (!navLinks || !navToggle) return;
+    navLinks.classList.toggle('is-open', open);
+    navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    if (navScrim) navScrim.hidden = !open;
+    document.body.style.overflow = open ? 'hidden' : '';
+  }
+
   if (navToggle) {
     navToggle.addEventListener('click', function () {
-      var open = navLinks.classList.toggle('is-open');
-      navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      setNav(!navLinks.classList.contains('is-open'));
     });
     $$('.nav-link').forEach(function (a) {
-      a.addEventListener('click', function () {
-        navLinks.classList.remove('is-open');
-        navToggle.setAttribute('aria-expanded', 'false');
-      });
+      a.addEventListener('click', function () { setNav(false); });
+    });
+    if (navScrim) navScrim.addEventListener('click', function () { setNav(false); });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && navLinks.classList.contains('is-open')) setNav(false);
+    });
+    window.addEventListener('resize', function () {
+      if (window.innerWidth > 900 && navLinks.classList.contains('is-open')) setNav(false);
     });
   }
 
@@ -542,6 +554,10 @@
   function closeModal(m) {
     m.classList.remove('is-open');
     document.body.style.overflow = '';
+    if (m === certModal) {
+      var em = $('#certEmbed');
+      if (em) em.removeAttribute('src');
+    }
     if (lastFocus && lastFocus.focus) lastFocus.focus();
   }
   $$('.modal').forEach(function (m) {
@@ -555,39 +571,83 @@
   });
 
   // certificates
-  $$('.cert').forEach(function (btn) {
-    btn.addEventListener('click', function () {
-      var parts = (btn.getAttribute('data-cert') || '').split('|');
-      var title = parts[0] || 'Certificate';
-      var cat = parts[1] || '—';
-      var issuer = parts[2] || '—';
-      var year = parts[3] || '—';
-      var file = parts[4] || '';
-      $('#certTitle').textContent = title;
-      $('#certSub').textContent = cat;
-      $('#certIssuer').textContent = issuer;
-      $('#certYear').textContent = year;
-      $('#certCat').textContent = cat;
-      var url = 'certificates/' + file;
-      $('#certEmbed').setAttribute('src', url + '#view=FitH');
-      $('#certDownload').setAttribute('href', url);
-      openModal(certModal);
-    });
-  });
-
-  // legacy API kept for any old links
-  window.openCertModal = function (title, cat, issuer, year, file) {
+  function fillCert(title, cat, issuer, year, file) {
+    var url = 'certificates/' + file;
     $('#certTitle').textContent = title;
     $('#certSub').textContent = cat;
     $('#certIssuer').textContent = issuer;
     $('#certYear').textContent = year;
     $('#certCat').textContent = cat;
-    var url = 'certificates/' + file;
     $('#certEmbed').setAttribute('src', url + '#view=FitH');
-    $('#certDownload').setAttribute('href', url);
+    ['#certDownload', '#certOpen', '#certOpenMobile'].forEach(function (sel) {
+      var a = $(sel);
+      if (a) a.setAttribute('href', url);
+    });
     openModal(certModal);
+  }
+
+  $$('.cert').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var parts = (btn.getAttribute('data-cert') || '').split('|');
+      fillCert(parts[0] || 'Certificate', parts[1] || '—', parts[2] || '—', parts[3] || '—', parts[4] || '');
+    });
+  });
+
+  // legacy API kept for any old links
+  window.openCertModal = function (title, cat, issuer, year, file) {
+    fillCert(title, cat, issuer, year, file);
   };
   window.closeCertModal = function () { closeModal(certModal); };
+
+  /* ==========================================================
+     10b · CERTIFICATE VAULT (collapsed until clicked)
+     ========================================================== */
+  var certsToggle = $('#certsToggle');
+  var certsPanel = $('#certsPanel');
+  var certsHide = $('#certsHide');
+  var certsLabel = certsToggle ? $('.vault-cta-label', certsToggle) : null;
+  var certsOpen = false;
+
+  if (certsPanel) {
+    $$('.cert', certsPanel).forEach(function (card, i) {
+      card.style.setProperty('--i', i);
+      card.addEventListener('pointermove', function (e) {
+        var r = card.getBoundingClientRect();
+        card.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+        card.style.setProperty('--my', (e.clientY - r.top) + 'px');
+      });
+    });
+  }
+
+  function setCerts(open) {
+    if (!certsPanel || !certsToggle) return;
+    certsOpen = open;
+    certsToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    certsPanel.classList.toggle('is-open', open);
+    certsPanel.setAttribute('aria-hidden', open ? 'false' : 'true');
+    if (open) certsPanel.removeAttribute('inert');
+    else certsPanel.setAttribute('inert', '');
+    if (certsLabel) certsLabel.textContent = open ? 'collapse' : 'reveal';
+  }
+
+  if (certsToggle) {
+    certsToggle.addEventListener('click', function () { setCerts(!certsOpen); });
+  }
+  if (certsHide) {
+    certsHide.addEventListener('click', function () {
+      setCerts(false);
+      var sec = document.getElementById('certs');
+      if (sec) sec.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
+      if (certsToggle) certsToggle.focus({ preventScroll: true });
+    });
+  }
+  setCerts(false);
+
+  function openCertsFromHash() {
+    if (location.hash === '#certs') setCerts(true);
+  }
+  window.addEventListener('hashchange', openCertsFromHash);
+  openCertsFromHash();
 
   /* ==========================================================
      11 · ARTICLES
