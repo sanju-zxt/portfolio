@@ -736,3 +736,769 @@
   document.head.appendChild(style);
 
 })();
+
+
+/* ============================================================
+   V2 module — theme switch, project vault, cert search,
+   case studies, command palette, github stats, contact form,
+   deep links, service worker
+   ============================================================ */
+(function () {
+  'use strict';
+
+  var $ = function (s, c) { return (c || document).querySelector(s); };
+  var $$ = function (s, c) { return Array.prototype.slice.call((c || document).querySelectorAll(s)); };
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var root = document.documentElement;
+
+  /* ==========================================================
+     1 · THEME
+     ========================================================== */
+  var themeBtn = $('#themeToggle');
+
+  function applyTheme(theme) {
+    root.setAttribute('data-theme', theme);
+    try { localStorage.setItem('lsp-theme', theme); } catch (e) {}
+    var meta = document.querySelector('meta[name="theme-color"]');
+    if (meta) meta.setAttribute('content', theme === 'light' ? '#f4f4f7' : '#050507');
+    if (themeBtn) {
+      var light = theme === 'light';
+      themeBtn.setAttribute('aria-pressed', light ? 'true' : 'false');
+      themeBtn.setAttribute('aria-label', light ? 'Switch to dark theme' : 'Switch to light theme');
+      themeBtn.title = light ? 'Dark theme' : 'Light theme';
+      var i = themeBtn.querySelector('i');
+      if (i) i.className = light ? 'fas fa-moon' : 'fas fa-sun';
+    }
+  }
+
+  var savedTheme = 'dark';
+  try { savedTheme = localStorage.getItem('lsp-theme') || 'dark'; } catch (e) {}
+  applyTheme(savedTheme);
+
+  if (themeBtn) {
+    themeBtn.addEventListener('click', function () {
+      applyTheme(root.getAttribute('data-theme') === 'light' ? 'dark' : 'light');
+    });
+  }
+
+  /* ==========================================================
+     2 · GENERIC VAULT (projects)
+     ========================================================== */
+  function wireVault(toggleEl, panelEl) {
+    if (!toggleEl || !panelEl) return null;
+    var label = toggleEl.querySelector('.vault-cta-label');
+    var open = false;
+    function set(value) {
+      open = value;
+      toggleEl.setAttribute('aria-expanded', value ? 'true' : 'false');
+      panelEl.classList.toggle('is-open', value);
+      panelEl.setAttribute('aria-hidden', value ? 'false' : 'true');
+      if (value) panelEl.removeAttribute('inert');
+      else panelEl.setAttribute('inert', '');
+      if (label) label.textContent = value ? 'collapse' : 'reveal';
+    }
+    toggleEl.addEventListener('click', function () { set(!open); });
+    set(false);
+    return { set: set, isOpen: function () { return open; }, toggle: toggleEl, panel: panelEl };
+  }
+
+  var projectVault = wireVault($('#projectsToggle'), $('#projectsPanel'));
+  var projectsHide = $('#projectsHide');
+  if (projectsHide && projectVault) {
+    projectsHide.addEventListener('click', function () {
+      projectVault.set(false);
+      var sec = document.getElementById('work');
+      if (sec) sec.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
+      var t = $('#projectsToggle');
+      if (t) t.focus({ preventScroll: true });
+    });
+  }
+
+  function openProjectVault() {
+    if (projectVault && !projectVault.isOpen()) projectVault.set(true);
+  }
+  function openCertVault() {
+    var t = $('#certsToggle');
+    if (t && t.getAttribute('aria-expanded') !== 'true') t.click();
+  }
+
+  /* ==========================================================
+     3 · PROJECT CASE STUDIES
+     ========================================================== */
+  var CASES = {
+    'Insurance Cross-Sell MLOps': {
+      tag: 'mlops · production ml',
+      problem: 'An insurer wants to know which policyholders will buy vehicle insurance, but the outreach list is untargeted so sales teams burn calls on people who never convert.',
+      built: [
+        'Config-driven training package (xsell) with pydantic config, feature builder, threshold tuning and a versioned model artifact.',
+        'FastAPI service exposing /health, /model/info, /predict and /predict/batch with schema validation and a graceful 503 when the model is missing.',
+        'MLflow tracking plus a registry entry, a Docker image that runs as a non-root user, and a healthcheck that fails when the artifact disappears.'
+      ],
+      metrics: [['0.7978', 'roc_auc'], ['0.3856', 'f1 @ 0.59'], ['2.5x', 'top-decile lift'], ['47', 'pytest tests']],
+      next: 'Drift monitoring, registry-driven promotion instead of an env var, and a CI retrain gate before any further feature work.'
+    },
+    'IGNITE 2026': {
+      tag: 'react · product site',
+      problem: 'A four-week industry prototyping sprint for a college needed a real registration product: countdown, eligibility, payments and legally-required policy pages, live before launch week.',
+      built: [
+        'Single source of truth in eventConfig.ts so every page renders from one data file.',
+        'Registration flow, countdown, FAQ, prize structure and eight info/legal pages with a generic policy renderer.',
+        'Playwright end-to-end suite covering navigation, forms and the mobile breakpoints.'
+      ],
+      metrics: [['52/52', 'playwright passes'], ['8', 'info/legal pages'], ['4', 'week programme']],
+      next: 'The submission side is stubbed: real registrations still route through a form link, and payment status is marked pending.'
+    },
+    'signbridge-isl': {
+      tag: 'computer vision · accessibility',
+      problem: 'Indian Sign Language has almost no real-time tooling: deaf users cannot be understood by people who do not sign.',
+      built: [
+        'MediaPipe Pose + Hands extract landmarks in the browser, streamed over WebSocket to a Python inference service.',
+        'LSTM classifier trained on isolated signs with a confidence gate so unknown gestures are rejected instead of guessed.',
+        'Sub-5ms inference per frame keeps the caption loop responsive.'
+      ],
+      metrics: [['49', 'isolated signs'], ['<5ms', 'inference']],
+      next: 'Continuous signing is the hard part: isolated signs do not compose into grammar yet, so sentence-level recognition is the next step.'
+    },
+    'herald-emergency': {
+      tag: 'ai · incident response',
+      problem: 'Emergency coordinators drown in unstructured reports: calls, messages and documents arrive faster than anyone can read them.',
+      built: [
+        'Gemini-powered extraction that turns free-text incident reports into structured entities and events.',
+        'Entity graph plus timeline view so responders can see who, where and when without re-reading sources.',
+        'Co-pilot panel for follow-up questions scoped to the active incident.'
+      ],
+      metrics: [['graph', 'entity linking'], ['timeline', 'event replay']],
+      next: 'Everything is a web demo: no dispatch integrations, no offline mode, and no evaluation set for extraction accuracy.'
+    },
+    'sentinel-prototype': {
+      tag: 'accessibility · haptics',
+      problem: 'Screen readers talk constantly, which is exhausting and unsafe in motion. Blind users need directional guidance, not narration.',
+      built: [
+        'Silence-first interaction model: obstacles are encoded as haptic direction and intensity instead of speech.',
+        'Browser sensor + audio prototype proving the cue language before any hardware work.',
+        'Cue grammar documented so the same pattern can be ported to a wearable.'
+      ],
+      metrics: [['0', 'spoken words'], ['3', 'cue axes']],
+      next: 'Needs real blind participants to validate the cue language; a phone-only prototype cannot prove safety.'
+    },
+    'BQT-MDQW': {
+      tag: 'quantum · research',
+      problem: 'Quantum walk routing is usually published as maths on paper with no reproducible artefact.',
+      built: [
+        'Qiskit Aer implementation of coined quantum walks combined with classical MDQW routing.',
+        'Deterministic seeds and exported results so the numbers can be re-run by anyone.',
+        'Comparison against classical routing baselines.'
+      ],
+      metrics: [['qiskit', 'aer backend'], ['seeded', 'reproducible']],
+      next: 'Simulator-only results do not survive noise assumptions; the next step is a noise model plus error mitigation.'
+    },
+    'BharatLensAI': {
+      tag: 'vision · multilingual',
+      problem: 'Image understanding tools assume English, so Indian users get descriptions in a language they may not read.',
+      built: [
+        'Vision model output piped through a translation layer into Indian languages.',
+        'Caption plus explanation output instead of a bare label list.',
+        'Simple upload-first interface with no signup.'
+      ],
+      metrics: [['vision', 'captions'], ['multi', 'language']],
+      next: 'Needs a proper evaluation of translation quality and a latency budget for large images.'
+    },
+    'SignBridge2Vision': {
+      tag: 'speech · avatar',
+      problem: 'Live speech is invisible to deaf users in meetings and classrooms.',
+      built: [
+        'Streaming speech-to-text feeding a sign avatar so the output is signed instead of captioned.',
+        'Real-time pipeline designed around a fixed frame budget.',
+        'Shared vocabulary with signbridge-isl so both projects improve together.'
+      ],
+      metrics: [['live', 'audio in'], ['avatar', 'signed out']],
+      next: 'Avatar naturalness and sign grammar are the open problems; the pipeline proves the plumbing, not the fluency.'
+    },
+    'FraudShieldAI': {
+      tag: 'ml · mobile',
+      problem: 'Fraud alerts that only say "suspicious" train users to ignore them.',
+      built: [
+        'On-device scoring so transaction data never leaves the phone.',
+        'Per-alert explanation of the features that drove the risk score.',
+        'In-app feedback loop to correct false positives.'
+      ],
+      metrics: [['on-device', 'scoring'], ['explained', 'every alert']],
+      next: 'Needs a labelled, privacy-cleared dataset before the model can be tuned beyond prototype accuracy.'
+    },
+    'vision-bridge': {
+      tag: 'react · firebase',
+      problem: 'Student innovators have ideas but no route to mentors, funding or teams.',
+      built: [
+        'Firebase auth and Firestore data model for ideas, profiles and opportunities.',
+        'Matching view that surfaces opportunities against a stated idea.',
+        'Deployed on Vercel with live data.'
+      ],
+      metrics: [['live', 'deployed'], ['firebase', 'realtime']],
+      next: 'Matching is still rule-based; there is no ranking model or moderation queue yet.'
+    },
+    'shadownet-frontend': {
+      tag: 'data visualisation',
+      problem: 'Intelligence analysts read narrative timelines in spreadsheets and lose the connections between actors.',
+      built: [
+        'Entity graph view with linked nodes for people, organisations and events.',
+        'Narrative timeline that keeps sourced quotes attached to each event.',
+        'Sentiment dashboard for topic drift over time.'
+      ],
+      metrics: [['graph', 'entities'], ['timeline', 'sourced']],
+      next: 'Frontend only: the graph layout struggles past a few thousand nodes and needs clustering.'
+    },
+    'smart-dashboard': {
+      tag: 'analytics · firebase',
+      problem: 'Attendance, marks and progress live in separate spreadsheets that nobody reconciles.',
+      built: [
+        'Real-time Firestore-backed dashboard for attendance, grades and progress.',
+        'Chart.js visualisations with per-student filters.',
+        'Teacher-side entry flow instead of manual file uploads.'
+      ],
+      metrics: [['realtime', 'sync'], ['chart.js', 'views']],
+      next: 'No role-based access control yet: staff and student views share the same data path.'
+    },
+    'portfolio': {
+      tag: 'vanilla js · canvas',
+      problem: 'Most portfolios are template-shaped: same grid, same three cards, nothing that shows how the person actually builds.',
+      built: [
+        'Hand-written HTML, CSS and JavaScript with no framework and no build step.',
+        'Custom 2D canvas particle layer with flocking, cursor repulsion and a telemetry HUD.',
+        'This v2 pass: click-to-reveal vaults, command palette, searchable credentials, case studies, light theme and a service worker for offline use.'
+      ],
+      metrics: [['0', 'frameworks'], ['1', 'canvas layer'], ['100', 'lighthouse-minded']],
+      next: 'Wire the contact endpoint to a live form service and add per-project screenshots once captured.'
+    }
+  };
+
+  var caseModal = $('#caseModal');
+  var lastCaseFocus = null;
+
+  function openCase(title) {
+    var data = CASES[title];
+    if (!data || !caseModal) return;
+    var card = $$('.project').filter(function (p) {
+      var h = p.querySelector('h3');
+      return h && h.textContent.trim() === title;
+    })[0];
+
+    $('#caseTitle').textContent = title;
+    $('#caseSub').textContent = data.tag + (card ? ' · project ' + card.getAttribute('data-idx') : '');
+
+    var html = '<div class="case-block"><h4>problem</h4><p>' + data.problem + '</p></div>';
+    html += '<div class="case-block"><h4>what I built</h4><ul>' + data.built.map(function (li) { return '<li>' + li + '</li>'; }).join('') + '</ul></div>';
+    if (data.metrics && data.metrics.length) {
+      html += '<div class="case-grid">' + data.metrics.map(function (m) {
+        return '<div class="case-metric"><b>' + m[0] + '</b><span>' + m[1] + '</span></div>';
+      }).join('') + '</div>';
+    }
+    html += '<div class="case-block"><h4>what I would fix next</h4><p>' + data.next + '</p></div>';
+    if (card) {
+      var links = card.querySelector('.project-links');
+      if (links) html += '<div class="modal-actions">' + links.innerHTML.replace(/<a /g, '<a class="btn btn-ghost" ') + '</div>';
+    }
+    $('#caseBody').innerHTML = html;
+
+    lastCaseFocus = document.activeElement;
+    caseModal.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+    var x = caseModal.querySelector('[data-close]');
+    if (x) x.focus();
+  }
+
+  function closeCase() {
+    if (!caseModal) return;
+    caseModal.classList.remove('is-open');
+    document.body.style.overflow = '';
+    if (lastCaseFocus && lastCaseFocus.focus) lastCaseFocus.focus();
+  }
+
+  if (caseModal) {
+    caseModal.addEventListener('click', function (e) {
+      if (e.target === caseModal || (e.target.closest && e.target.closest('[data-close]'))) closeCase();
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && caseModal.classList.contains('is-open')) closeCase();
+    });
+  }
+
+  // inject a "case study" button into every project card
+  $$('.project').forEach(function (card) {
+    card.classList.remove('reveal');
+    var h = card.querySelector('h3');
+    if (!h) return;
+    var title = h.textContent.trim();
+    if (!CASES[title]) return;
+    var btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'project-case';
+    btn.innerHTML = 'case study <span aria-hidden="true">&#8600;</span>';
+    btn.setAttribute('aria-label', 'Open case study: ' + title);
+    btn.addEventListener('click', function () { openCase(title); });
+    var links = card.querySelector('.project-links');
+    if (links && links.nextSibling) card.insertBefore(btn, links.nextSibling);
+    else card.appendChild(btn);
+  });
+
+  /* ==========================================================
+     4 · CERTIFICATE SEARCH + MODAL BROWSING
+     ========================================================== */
+  var certCards = $$('.cert');
+  var certSearch = $('#certSearch');
+  var certChips = $('#certChips');
+  var certCount = $('#certCount');
+  var certVisible = certCards.slice();
+  var certIndex = 0;
+  var certFilter = 'all';
+
+  function bucketOf(cat) {
+    var c = (cat || '').toLowerCase();
+    if (/artificial|analytics|thinking|\bai\b/.test(c)) return 'ai';
+    if (/data|database|excel|office/.test(c)) return 'data';
+    if (/aws|google|open source|cloud/.test(c)) return 'cloud';
+    if (/security|cyber|hacking/.test(c)) return 'security';
+    if (/web|javascript|dsa|system|operating/.test(c)) return 'systems';
+    if (/design/.test(c)) return 'design';
+    return 'career';
+  }
+
+  var buckets = {};
+  certCards.forEach(function (card) {
+    var parts = (card.getAttribute('data-cert') || '').split('|');
+    var b = bucketOf(parts[1]);
+    card.setAttribute('data-bucket', b);
+    card.setAttribute('data-search', (card.getAttribute('data-cert') || '').toLowerCase());
+    buckets[b] = (buckets[b] || 0) + 1;
+  });
+
+  var BUCKET_LABEL = { all: 'all', ai: 'ai', data: 'data', cloud: 'cloud', security: 'security', systems: 'systems', design: 'design', career: 'career' };
+
+  function buildChips() {
+    if (!certChips) return;
+    var keys = ['all'].concat(Object.keys(BUCKET_LABEL).filter(function (k) { return k !== 'all' && buckets[k]; }));
+    certChips.innerHTML = keys.map(function (k) {
+      var n = k === 'all' ? certCards.length : buckets[k];
+      return '<button type="button" class="vault-chip' + (k === 'all' ? ' is-on' : '') + '" data-bucket="' + k + '" aria-pressed="' + (k === 'all') + '">' + BUCKET_LABEL[k] + ' ' + n + '</button>';
+    }).join('');
+    certChips.addEventListener('click', function (e) {
+      var b = e.target.closest && e.target.closest('.vault-chip');
+      if (!b) return;
+      certFilter = b.getAttribute('data-bucket');
+      $$('.vault-chip', certChips).forEach(function (c) {
+        var on = c === b;
+        c.classList.toggle('is-on', on);
+        c.setAttribute('aria-pressed', on ? 'true' : 'false');
+      });
+      filterCerts();
+    });
+  }
+
+  function filterCerts() {
+    var q = (certSearch && certSearch.value || '').trim().toLowerCase();
+    certVisible = [];
+    certCards.forEach(function (card) {
+      var okQuery = !q || card.getAttribute('data-search').indexOf(q) !== -1;
+      var okBucket = certFilter === 'all' || card.getAttribute('data-bucket') === certFilter;
+      var show = okQuery && okBucket;
+      card.classList.toggle('is-filtered', !show);
+      if (show) certVisible.push(card);
+    });
+    if (certCount) certCount.textContent = certVisible.length + ' of ' + certCards.length + ' shown';
+    var empty = $('#certEmpty');
+    if (empty) empty.hidden = certVisible.length !== 0;
+  }
+
+  buildChips();
+  filterCerts();
+  if (certSearch) {
+    certSearch.addEventListener('input', filterCerts);
+    certSearch.addEventListener('search', filterCerts);
+  }
+
+  var certModal = $('#certModal');
+
+  function certTitleOf(card) { return (card.getAttribute('data-cert') || '').split('|')[0] || 'Certificate'; }
+
+  function showCertAt(i) {
+    if (!certVisible.length) return;
+    certIndex = (i + certVisible.length) % certVisible.length;
+    var card = certVisible[certIndex];
+    var parts = (card.getAttribute('data-cert') || '').split('|');
+    if (window.openCertModal) window.openCertModal(parts[0], parts[1], parts[2], parts[3], parts[4]);
+    var label = $('#certPos');
+    if (label) label.textContent = (certIndex + 1) + ' / ' + certVisible.length;
+  }
+
+  certCards.forEach(function (card) {
+    card.addEventListener('click', function () {
+      var i = certVisible.indexOf(card);
+      if (i !== -1) certIndex = i;
+      var pos = $('#certPos');
+      if (pos) pos.textContent = (certIndex + 1) + ' / ' + certVisible.length;
+    });
+  });
+
+  if (certModal) {
+    var prev = $('#certPrev'), next = $('#certNext');
+    if (prev) prev.addEventListener('click', function () { showCertAt(certIndex - 1); });
+    if (next) next.addEventListener('click', function () { showCertAt(certIndex + 1); });
+    document.addEventListener('keydown', function (e) {
+      if (!certModal.classList.contains('is-open')) return;
+      if (e.key === 'ArrowLeft') { e.preventDefault(); showCertAt(certIndex - 1); }
+      if (e.key === 'ArrowRight') { e.preventDefault(); showCertAt(certIndex + 1); }
+    });
+  }
+
+  /* ==========================================================
+     5 · COMMAND PALETTE
+     ========================================================== */
+  var palette = $('#palette');
+  var paletteInput = $('#paletteInput');
+  var paletteList = $('#paletteList');
+  var paletteItems = [];
+  var paletteShown = [];
+  var paletteActive = 0;
+
+  function goto(hash) {
+    var el = document.querySelector(hash);
+    if (!el) return;
+    el.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
+    history.replaceState(null, '', hash);
+  }
+
+  function buildPalette() {
+    var items = [];
+    $$('.nav-link').forEach(function (a) {
+      items.push({
+        label: a.textContent.replace(/^\d+/, '').trim(),
+        hint: 'section',
+        icon: 'fa-hashtag',
+        run: function () { goto(a.getAttribute('href')); }
+      });
+    });
+    $$('.project').forEach(function (card) {
+      var h = card.querySelector('h3');
+      if (!h) return;
+      var title = h.textContent.trim();
+      items.push({
+        label: title,
+        hint: 'project',
+        icon: 'fa-cube',
+        run: function () { openProjectVault(); openCase(title); }
+      });
+    });
+    certCards.forEach(function (card) {
+      var title = certTitleOf(card);
+      items.push({
+        label: title,
+        hint: 'certificate',
+        icon: 'fa-certificate',
+        run: function () { openCertVault(); var i = certVisible.indexOf(card); showCertAt(i === -1 ? 0 : i); }
+      });
+    });
+    $$('.post').forEach(function (post) {
+      var h = post.querySelector('h3');
+      var more = post.querySelector('.post-more');
+      if (!h || !more) return;
+      items.push({
+        label: h.textContent.trim(),
+        hint: 'article',
+        icon: 'fa-pen-nib',
+        run: function () { more.click(); }
+      });
+    });
+    items.push({ label: 'email · ssanju200610@gmail.com', hint: 'contact', icon: 'fa-envelope', run: function () { location.href = 'mailto:ssanju200610@gmail.com'; } });
+    items.push({ label: 'github · sanju-zxt', hint: 'contact', icon: 'fa-github', run: function () { window.open('https://github.com/sanju-zxt', '_blank', 'noopener'); } });
+    items.push({ label: 'linkedin · lohith-sanju-p', hint: 'contact', icon: 'fa-linkedin', run: function () { window.open('https://www.linkedin.com/in/lohith-sanju-p', '_blank', 'noopener'); } });
+    items.push({ label: 'resume (pdf)', hint: 'download', icon: 'fa-file-arrow-down', run: function () { window.open('assets/resume.pdf', '_blank', 'noopener'); } });
+    items.push({ label: 'toggle light / dark theme', hint: 'theme', icon: 'fa-circle-half-stroke', run: function () { if (themeBtn) themeBtn.click(); } });
+    return items;
+  }
+
+  function score(label, q) {
+    var l = label.toLowerCase();
+    if (!q) return 1;
+    if (l.indexOf(q) === 0) return 100;
+    if (l.indexOf(q) !== -1) return 60 - l.indexOf(q) / 10;
+    var qi = 0;
+    for (var i = 0; i < l.length && qi < q.length; i++) if (l[i] === q[qi]) qi++;
+    return qi === q.length ? 20 : 0;
+  }
+
+  function renderPalette(q) {
+    if (!paletteList) return;
+    var scored = paletteItems.map(function (it) {
+      return { it: it, s: Math.max(score(it.label, q), score(it.hint, q) * 0.8) };
+    }).filter(function (x) { return x.s > 0; }).sort(function (a, b) { return b.s - a.s; }).slice(0, 12);
+    paletteShown = scored.map(function (x) { return x.it; });
+    paletteActive = 0;
+    if (!paletteShown.length) {
+      paletteList.innerHTML = '<p class="palette-empty">no matches for "' + q.replace(/</g, '&lt;') + '"</p>';
+      return;
+    }
+    paletteList.innerHTML = paletteShown.map(function (it, i) {
+      return '<button type="button" class="palette-item' + (i === 0 ? ' is-active' : '') + '" data-i="' + i + '">' +
+        '<i class="' + (it.icon.indexOf('fa-brands') === 0 ? it.icon : (it.icon === 'fa-github' || it.icon === 'fa-linkedin' ? 'fab ' : 'fas ') + it.icon) + '" aria-hidden="true"></i>' +
+        '<span>' + it.label + '</span><em>' + it.hint + '</em></button>';
+    }).join('');
+  }
+
+  function setPaletteActive(i) {
+    if (!paletteShown.length) return;
+    paletteActive = (i + paletteShown.length) % paletteShown.length;
+    $$('.palette-item', paletteList).forEach(function (el, idx) { el.classList.toggle('is-active', idx === paletteActive); });
+  }
+
+  function openPalette() {
+    if (!palette) return;
+    paletteItems = paletteItems.length ? paletteItems : buildPalette();
+    palette.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+    if (paletteInput) { paletteInput.value = ''; }
+    renderPalette('');
+    setTimeout(function () { if (paletteInput) paletteInput.focus(); }, 30);
+  }
+
+  function closePalette() {
+    if (!palette) return;
+    palette.classList.remove('is-open');
+    document.body.style.overflow = '';
+  }
+
+  if (palette) {
+    palette.addEventListener('click', function (e) {
+      if (e.target === palette) closePalette();
+      var item = e.target.closest && e.target.closest('.palette-item');
+      if (item) {
+        var it = paletteShown[Number(item.getAttribute('data-i'))];
+        closePalette();
+        if (it) it.run();
+      }
+    });
+    if (paletteInput) {
+      paletteInput.addEventListener('input', function () { renderPalette(paletteInput.value.trim().toLowerCase()); });
+    }
+    document.addEventListener('keydown', function (e) {
+      var open = palette.classList.contains('is-open');
+      if ((e.ctrlKey || e.metaKey) && (e.key === 'k' || e.key === 'K')) {
+        e.preventDefault();
+        if (open) closePalette(); else openPalette();
+        return;
+      }
+      if (!open) return;
+      if (e.key === 'Escape') { closePalette(); }
+      else if (e.key === 'ArrowDown') { e.preventDefault(); setPaletteActive(paletteActive + 1); }
+      else if (e.key === 'ArrowUp') { e.preventDefault(); setPaletteActive(paletteActive - 1); }
+      else if (e.key === 'Enter') {
+        e.preventDefault();
+        var it = paletteShown[paletteActive];
+        closePalette();
+        if (it) it.run();
+      }
+    });
+    var pbtn = $('#paletteBtn');
+    if (pbtn) pbtn.addEventListener('click', openPalette);
+  }
+
+  /* ==========================================================
+     6 · GITHUB STATS
+     ========================================================== */
+  (function githubStats() {
+    var strip = $('#ghStrip');
+    if (!strip) return;
+    var USER = 'sanju-zxt';
+    var KEY = 'lsp-gh-v1';
+    var CACHE_MS = 60 * 60 * 1000;
+    var COLORS = ['#ff3333', '#00ffff', '#2ee6a0', '#b18cff', '#ffb03a'];
+
+    function paint(data) {
+      var repos = data.repos, langs = data.langs;
+      $('#ghRepos').textContent = data.publicRepos;
+      $('#ghStars').textContent = data.stars;
+      $('#ghFollowers').textContent = data.followers;
+      $('#ghLangTop').textContent = langs[0] ? langs[0].name : 'n/a';
+
+      var bars = $('#ghBars');
+      if (bars) {
+        bars.innerHTML = langs.slice(0, 5).map(function (l, i) {
+          return '<i style="width:' + l.pct + '%;background:' + COLORS[i % COLORS.length] + '"></i>';
+        }).join('');
+      }
+      var foot = $('#ghFoot');
+      if (foot) {
+        foot.innerHTML = langs.slice(0, 5).map(function (l, i) {
+          return '<span><i style="background:' + COLORS[i % COLORS.length] + '"></i>' + l.name + ' ' + l.pct + '%</span>';
+        }).join('');
+      }
+    }
+
+    try {
+      var cached = JSON.parse(sessionStorage.getItem(KEY) || 'null');
+      if (cached && Date.now() - cached.t < CACHE_MS) { paint(cached.d); return; }
+    } catch (e) {}
+
+    var jobs = [
+      fetch('https://api.github.com/users/' + USER, { headers: { Accept: 'application/vnd.github+json' } }).then(function (r) { return r.json(); }),
+      fetch('https://api.github.com/users/' + USER + '/repos?per_page=100&sort=updated', { headers: { Accept: 'application/vnd.github+json' } }).then(function (r) { return r.json(); })
+    ];
+
+    Promise.all(jobs).then(function (res) {
+      var user = res[0], repos = res[1];
+      if (!user || user.message || !Array.isArray(repos)) throw new Error('github unavailable');
+      var stars = repos.reduce(function (n, r) { return n + (r.stargazers_count || 0); }, 0);
+      var counts = {};
+      repos.forEach(function (r) {
+        if (!r.language) return;
+        counts[r.language] = (counts[r.language] || 0) + 1;
+      });
+      var total = Object.keys(counts).reduce(function (n, k) { return n + counts[k]; }, 0) || 1;
+      var langs = Object.keys(counts).map(function (k) {
+        return { name: k, pct: Math.round((counts[k] / total) * 100) };
+      }).sort(function (a, b) { return b.pct - a.pct; });
+
+      var data = {
+        publicRepos: user.public_repos || repos.length,
+        stars: stars,
+        followers: user.followers || 0,
+        langs: langs
+      };
+      paint(data);
+      try { sessionStorage.setItem(KEY, JSON.stringify({ t: Date.now(), d: data })); } catch (e) {}
+    }).catch(function () {
+      strip.hidden = true;
+    });
+  })();
+
+  /* ==========================================================
+     7 · CONTACT FORM
+     ========================================================== */
+  (function contactForm() {
+    var form = $('#contactForm');
+    if (!form) return;
+    var status = $('#cfStatus');
+    var btn = $('#cfSubmit');
+    var endpoint = form.getAttribute('data-endpoint') || '';
+    var EMAIL = 'ssanju200610@gmail.com';
+
+    function say(msg, kind) {
+      if (!status) return;
+      status.textContent = msg;
+      status.classList.remove('is-ok', 'is-bad');
+      if (kind) status.classList.add(kind);
+    }
+
+    function mailtoFallback(data) {
+      var subject = encodeURIComponent('Portfolio enquiry from ' + data.name);
+      var body = encodeURIComponent(data.message + '\n\n— ' + data.name + ' (' + data.email + ')');
+      location.href = 'mailto:' + EMAIL + '?subject=' + subject + '&body=' + body;
+      say('Opening your mail app — send the draft to reach me.', 'is-ok');
+    }
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var name = (form.elements.name.value || '').trim();
+      var email = (form.elements.email.value || '').trim();
+      var message = (form.elements.message.value || '').trim();
+      var honey = (form.elements._honey.value || '').trim();
+
+      if (honey) { say('Message sent — thanks.', 'is-ok'); form.reset(); return; }
+      if (name.length < 2) { say('Add your name so I know who I am replying to.', 'is-bad'); form.elements.name.focus(); return; }
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) { say('That email address looks incomplete.', 'is-bad'); form.elements.email.focus(); return; }
+      if (message.length < 12) { say('A little more detail helps — 12 characters minimum.', 'is-bad'); form.elements.message.focus(); return; }
+
+      var data = { name: name, email: email, message: message };
+      if (!endpoint) { say('No form endpoint configured yet.', 'is-bad'); mailtoFallback(data); return; }
+
+      if (btn) { btn.disabled = true; btn.dataset.label = btn.innerHTML; btn.innerHTML = 'sending…'; }
+      say('Sending…');
+
+      fetch(endpoint, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          name: name,
+          email: email,
+          message: message,
+          _subject: 'Portfolio enquiry from ' + name,
+          _template: 'table'
+        })
+      }).then(function (r) {
+        if (!r.ok) throw new Error('HTTP ' + r.status);
+        return r.json().catch(function () { return {}; });
+      }).then(function () {
+        form.reset();
+        say('Sent — I usually reply within a day.', 'is-ok');
+      }).catch(function () {
+        say('Form service unreachable, falling back to email.', 'is-bad');
+        mailtoFallback(data);
+      }).then(function () {
+        if (btn) { btn.disabled = false; if (btn.dataset.label) btn.innerHTML = btn.dataset.label; }
+      });
+    });
+
+    if (status) status.textContent = 'Sends straight to my inbox — no mail client needed.';
+  })();
+
+  /* ==========================================================
+     8 · DEEP LINKS
+     ========================================================== */
+  function pulse(el) {
+    if (!el) return;
+    el.classList.add('is-target');
+    setTimeout(function () { el.classList.remove('is-target'); }, 2400);
+  }
+
+  function handleHash() {
+    var h = location.hash;
+    if (!h) return;
+
+    var m = h.match(/^#cert-(\d{1,2})$/);
+    if (m) {
+      var card = certCards[Number(m[1]) - 1];
+      if (card) {
+        openCertVault();
+        setTimeout(function () {
+          card.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'center' });
+          pulse(card);
+          var i = certVisible.indexOf(card);
+          if (i !== -1) showCertAt(i);
+        }, 520);
+      }
+      return;
+    }
+
+    m = h.match(/^#project-(\d{1,2})$/);
+    if (m) {
+      var project = $$('.project')[Number(m[1]) - 1];
+      if (project) {
+        openProjectVault();
+        var title = (project.querySelector('h3') || {}).textContent;
+        setTimeout(function () {
+          project.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'center' });
+          pulse(project);
+          if (title && CASES[title.trim()]) openCase(title.trim());
+        }, 520);
+      }
+      return;
+    }
+
+    m = h.match(/^#post-(\d+)$/);
+    if (m) {
+      var more = $$('.post-more')[Number(m[1])];
+      if (more) more.click();
+    }
+  }
+
+  window.addEventListener('hashchange', handleHash);
+  if (document.readyState === 'complete') handleHash();
+  else window.addEventListener('load', function () { setTimeout(handleHash, 300); });
+
+  /* ==========================================================
+     9 · SERVICE WORKER
+     ========================================================== */
+  if ('serviceWorker' in navigator && (location.protocol === 'https:' || location.hostname === 'localhost' || location.hostname === '127.0.0.1')) {
+    window.addEventListener('load', function () {
+      navigator.serviceWorker.register('sw.js').catch(function () {});
+    });
+  }
+})();

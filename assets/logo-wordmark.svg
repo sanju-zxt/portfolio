@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 288 64" width="288" height="64" role="img" aria-label="Lohith Sanju P">
+  <mask id="cut" maskUnits="userSpaceOnUse" x="0" y="0" width="64" height="64">
+    <rect width="64" height="64" fill="#fff"/>
+    <rect x="32.31" y="11.69" width="8" height="10" fill="#000" transform="rotate(-45 36.31 16.69)"/>
+  </mask>
+  <g fill="#ff3333" mask="url(#cut)">
+    <rect x="14" y="10" width="11" height="44"/>
+    <rect x="14" y="44" width="36" height="10"/>
+    <path d="M25 10a18 18 0 0 1 0 36V37a9 9 0 0 0 0-18z"/>
+  </g>
+  <text x="74" y="38" fill="#ededf0" font-family="ui-monospace, 'JetBrains Mono', Consolas, monospace" font-size="24" letter-spacing="2" textLength="200" lengthAdjust="spacing">lohith sanju p</text>
+</svg>

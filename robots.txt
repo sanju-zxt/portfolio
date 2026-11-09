@@ -1,0 +1,6 @@
+# robots.txt for Lohith Sanju P - Portfolio (https://sanju-zxt.github.io/portfolio/)
+
+User-agent: *
+Allow: /
+
+Sitemap: https://sanju-zxt.github.io/portfolio/sitemap.xml
