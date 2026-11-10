@@ -316,6 +316,7 @@ body.has-cursor .cursor-dot,body.has-cursor .cursor-ring{ opacity:1; }
 .vault-toggle[aria-expanded="true"] .vault-icon{ background:rgba(255,51,51,.16); }
 
 .certs-panel{ display:grid; grid-template-rows:0fr; transition:grid-template-rows .5s var(--ease); }
+.certs-panel.is-open,.certs-panel[aria-hidden="false"],.certs-panel:not([aria-hidden]),.projects-clip{ grid-template-rows:1fr !important; }
 .certs-panel.is-open{ grid-template-rows:1fr; }
 .certs-clip{ overflow:hidden; min-height:0; }
 .certs{ display:grid; grid-template-columns:repeat(auto-fill,minmax(250px,1fr)); gap:10px; padding:4px 20px 0; border-top:1px solid transparent; transition:border-color .3s; }

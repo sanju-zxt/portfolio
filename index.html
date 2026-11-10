@@ -4,18 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="color-scheme" content="dark light">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' data: https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data:; connect-src 'self' https://api.github.com https://formsubmit.co; frame-src 'self'; form-action 'self' https://formsubmit.co; manifest-src 'self'; upgrade-insecure-requests">
+  <meta name="robots" content="index, follow, max-image-preview:large">
   <title>Lohith Sanju P — Full-Stack / AI / Data Engineer</title>
   <meta name="description" content="Full-stack developer and AI engineer. AWS Student Builder Group Leader. Building MLOps pipelines with real impact, AI systems with judgment, and production web apps with tests.">
   <meta name="theme-color" content="#050507">
   <meta name="author" content="Lohith Sanju P">
-  <link rel="canonical" href="https://sanju-zxt.github.io/portfolio/">
+  <link rel="canonical" href="https://sanju.runs-at.dev/">
 
   <!-- Open Graph / Twitter -->
   <meta property="og:title" content="Lohith Sanju P — Full-Stack / AI / Data Engineer">
   <meta property="og:description" content="AWS Student Builder Group Leader · MLOps pipelines, AI systems and production web apps. 13 projects, 20 certifications.">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="assets/profile-wide.jpg">
-  <meta property="og:url" content="https://sanju-zxt.github.io/portfolio/">
+  <meta property="og:image" content="https://sanju.runs-at.dev/assets/og-card.png">
+  <meta property="og:url" content="https://sanju.runs-at.dev/">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Lohith Sanju P — Portfolio">
   <meta name="twitter:description" content="Full-stack developer building AI systems and MLOps pipelines.">
@@ -28,10 +31,21 @@
   <!-- Theme applied before paint so there is no light/dark flash -->
   <script>
     (function () {
+      var root = document.documentElement;
+      root.className += ' js';
       try {
         var t = localStorage.getItem('lsp-theme');
-        document.documentElement.setAttribute('data-theme', t === 'light' ? 'light' : 'dark');
-      } catch (e) { document.documentElement.setAttribute('data-theme', 'dark'); }
+        root.setAttribute('data-theme', t === 'light' ? 'light' : 'dark');
+      } catch (e) { root.setAttribute('data-theme', 'dark'); }
+      window.addEventListener('error', function () { root.classList.add('js-failed'); });
+      document.addEventListener('DOMContentLoaded', function () {
+        var fa = document.getElementById('faCss');
+        if (fa) fa.media = 'all';
+      });
+      setTimeout(function () {
+        var fa = document.getElementById('faCss');
+        if (fa && fa.media !== 'all') fa.media = 'all';
+      }, 2500);
     })();
   </script>
 
@@ -41,7 +55,7 @@
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
   <link rel="preload" as="image" href="assets/profile-portrait.jpg" fetchpriority="high">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all';this.onload=null">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" id="faCss" media="print">
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
   <link rel="stylesheet" href="site.css">
 
@@ -52,7 +66,7 @@
     "@type": "Person",
     "name": "Lohith Sanju P",
     "jobTitle": "Full Stack Developer / AI Developer / Data Engineer",
-    "url": "https://sanju-zxt.github.io/portfolio/",
+    "url": "https://sanju.runs-at.dev/",
     "sameAs": [
       "https://github.com/sanju-zxt",
       "https://www.linkedin.com/in/lohith-sanju-p"
@@ -62,6 +76,7 @@
     "address": { "@type": "PostalAddress", "addressLocality": "Bengaluru", "addressCountry": "IN" }
   }
   </script>
+  <noscript><style>.certs-panel{ grid-template-rows:1fr !important; } .certs-clip{ overflow:visible !important; } .vault-toggle{ display:none; } .reveal{ opacity:1 !important; transform:none !important; }</style></noscript>
 </head>
 <body>
 
@@ -384,7 +399,7 @@
             </div>
 
             <div class="projects" id="projectsGrid">
-        <article class="project reveal" data-tags="ai web" data-idx="01">
+        <article class="project" data-tags="ai web" data-idx="01">
           <div class="project-top"><span class="project-idx">01</span><span class="badge badge-live">shipped</span></div>
           <h3>Insurance Cross-Sell MLOps</h3>
           <p>End-to-end MLOps pipeline that ranks policyholders with a proven <strong>2.5× lift</strong> in cross-sell propensity at <strong>0.7978 roc_auc</strong>. Config-driven training, MLflow registry, Docker deployment.</p>
@@ -399,7 +414,7 @@
           </div>
         </article>
 
-        <article class="project reveal" data-tags="web" data-idx="02">
+        <article class="project" data-tags="web" data-idx="02">
           <div class="project-top"><span class="project-idx">02</span><span class="badge badge-live">live</span></div>
           <h3>IGNITE 2026</h3>
           <p>Official platform for a four-week industry product-prototyping sprint with SmartX Technologies and AptPath. Registration flow, countdown, eight info/legal pages — shipped end-to-end.</p>
@@ -411,7 +426,7 @@
           </div>
         </article>
 
-        <article class="project reveal" data-tags="ai research" data-idx="03">
+        <article class="project" data-tags="ai research" data-idx="03">
           <div class="project-top"><span class="project-idx">03</span><span class="badge">research</span></div>
           <h3>signbridge-isl</h3>
           <p>WebSocket-based Indian Sign Language recognition demo: MediaPipe Pose + Hands feed an LSTM classifier. Covers <strong>49 isolated signs</strong> with <strong>&lt;5ms</strong> inference.</p>
@@ -421,7 +436,7 @@
           </div>
         </article>
 
-        <article class="project reveal" data-tags="ai web" data-idx="04">
+        <article class="project" data-tags="ai web" data-idx="04">
           <div class="project-top"><span class="project-idx">04</span><span class="badge badge-live">live</span></div>
           <h3>herald-emergency</h3>
           <p>Emergency intelligence platform: Gemini-powered incident analysis, entity graphs, timelines and AI co-pilot for responders.</p>
@@ -432,7 +447,7 @@
           </div>
         </article>
 
-        <article class="project reveal" data-tags="apps" data-idx="05">
+        <article class="project" data-tags="apps" data-idx="05">
           <div class="project-top"><span class="project-idx">05</span><span class="badge">prototype</span></div>
           <h3>sentinel-prototype</h3>
           <p>A proactive, silence-first haptic co-pilot for blind and visually impaired people. Guides with directional cues instead of chatter.</p>
@@ -442,7 +457,7 @@
           </div>
         </article>
 
-        <article class="project reveal" data-tags="research ai" data-idx="06">
+        <article class="project" data-tags="research ai" data-idx="06">
           <div class="project-top"><span class="project-idx">06</span><span class="badge">research</span></div>
           <h3>BQT-MDQW</h3>
           <p>Research prototype combining quantum teleportation, coined quantum walks and classical MDQW routing. Built on Qiskit Aer with reproducible results.</p>
@@ -452,7 +467,7 @@
           </div>
         </article>
 
-        <article class="project reveal" data-tags="ai web" data-idx="07">
+        <article class="project" data-tags="ai web" data-idx="07">
           <div class="project-top"><span class="project-idx">07</span><span class="badge">prototype</span></div>
           <h3>BharatLensAI</h3>
           <p>Multilingual image understanding platform that analyses visuals and explains them in Indian languages.</p>
@@ -462,7 +477,7 @@
           </div>
         </article>
 
-        <article class="project reveal" data-tags="ai apps" data-idx="08">
+        <article class="project" data-tags="ai apps" data-idx="08">
           <div class="project-top"><span class="project-idx">08</span><span class="badge">prototype</span></div>
           <h3>SignBridge2Vision</h3>
           <p>Real-time speech-to-sign-language system that converts live audio into a sign language avatar.</p>
@@ -472,7 +487,7 @@
           </div>
         </article>
 
-        <article class="project reveal" data-tags="ai apps" data-idx="09">
+        <article class="project" data-tags="ai apps" data-idx="09">
           <div class="project-top"><span class="project-idx">09</span><span class="badge">internship</span></div>
           <h3>FraudShieldAI</h3>
           <p>Real-time AI fraud detection for mobile: flags suspicious transactions on-device and explains the risk behind every alert.</p>
@@ -482,7 +497,7 @@
           </div>
         </article>
 
-        <article class="project reveal" data-tags="web" data-idx="10">
+        <article class="project" data-tags="web" data-idx="10">
           <div class="project-top"><span class="project-idx">10</span><span class="badge badge-live">live</span></div>
           <h3>vision-bridge</h3>
           <p>Collaboration platform connecting innovators with opportunities — the bridge between creative idea and real-world execution.</p>
@@ -493,7 +508,7 @@
           </div>
         </article>
 
-        <article class="project reveal" data-tags="web ai" data-idx="11">
+        <article class="project" data-tags="web ai" data-idx="11">
           <div class="project-top"><span class="project-idx">11</span><span class="badge">prototype</span></div>
           <h3>shadownet-frontend</h3>
           <p>Frontend client for the ShadowNet intelligence platform: live entity graphs, narrative timelines and sentiment dashboards.</p>
@@ -503,7 +518,7 @@
           </div>
         </article>
 
-        <article class="project reveal" data-tags="web" data-idx="12">
+        <article class="project" data-tags="web" data-idx="12">
           <div class="project-top"><span class="project-idx">12</span><span class="badge">prototype</span></div>
           <h3>smart-dashboard</h3>
           <p>Cloud-based student performance dashboard tracking attendance, grades and progress in real time.</p>
@@ -513,7 +528,7 @@
           </div>
         </article>
 
-        <article class="project reveal" data-tags="web" data-idx="13">
+        <article class="project" data-tags="web" data-idx="13">
           <div class="project-top"><span class="project-idx">13</span><span class="badge badge-you">you are here</span></div>
           <h3>portfolio</h3>
           <p>This site. Hand-written HTML, CSS and a custom 2D canvas physics layer — no framework, no build step.</p>
