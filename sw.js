@@ -16,7 +16,7 @@
  *                PDFs, api.github.com, formsubmit.co. Not our business.
  * ------------------------------------------------------------------------- */
 
-const CACHE_NAME = 'lsp-portfolio-v1';
+const CACHE_NAME = 'lsp-portfolio-v2';
 const CACHE_PREFIX = 'lsp-portfolio-';
 const OFFLINE_URL = './index.html';
 
